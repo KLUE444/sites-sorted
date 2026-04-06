@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sites Sorted | Websites. Sorted.</title>
+  <meta name="description" content="Simple, affordable websites for small businesses. No tech, no hassle, just sorted." />
+  <style>
+    :root {
+      --bg: #f7f2eb;
+      --surface: #fffaf5;
+      --text: #2f241d;
+      --muted: #6c5b4f;
+      --accent: #7a4b2d;
+      --accent-dark: #5f3820;
+      --line: #e8d9cb;
+      --shadow: 0 10px 30px rgba(47, 36, 29, 0.08);
+      --radius: 22px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(247, 242, 235, 0.88);
+      border-bottom: 1px solid rgba(122, 75, 45, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); background: var(--accent-dark); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+
+    .hero {
+      padding: 72px 0 48px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: #efe1d4;
+      color: var(--accent-dark);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 14px;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    h1 { font-size: clamp(2.4rem, 5vw, 4.5rem); }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.8rem); }
+    h3 { font-size: 1.2rem; }
+
+    .lead {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .mini-points {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .price-card {
+      padding: 28px;
+    }
+
+    .price-badge {
+      display: inline-block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #efe1d4;
+      color: var(--accent-dark);
+      margin-bottom: 14px;
+    }
+
+    .price-main {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 4px;
+    }
+
+    .price-sub {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .tick-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .tick-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tick-list li:last-child { border-bottom: none; }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-head {
+      max-width: 720px;
+      margin-bottom: 22px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .muted { color: var(--muted); }
+
+    .steps .card, .reasons .card, .pricing .card, .faq .card {
+      height: 100%;
+    }
+
+    .pricing-highlight {
+      border: 2px solid var(--accent);
+    }
+
+    .price-line {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 10px 0 6px;
+      letter-spacing: -0.04em;
+    }
+
+    .small {
+      font-size: 0.92rem;
+    }
+
+    .cta {
+      padding: 36px 0 74px;
+    }
+
+    .cta-box {
+      background: linear-gradient(180deg, #fffaf5 0%, #f2e4d8 100%);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .contact-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 12px;
+    }
+
+    footer {
+      padding: 22px 0 50px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid, .grid-3, .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#top" class="brand">Sites Sorted</a>
+      <nav class="nav-links">
+        <a href="#why">Why a website?</a>
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn">Get My Website Sorted</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Websites. Sorted.</div>
+          <h1>Don’t have a website?<br>Let’s get it sorted.</h1>
+          <p class="lead">Simple, affordable websites for small businesses that do not want the hassle. We build it, host it, and keep it updated so you do not need to figure out any of the tech.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn">Get My Website Sorted</a>
+            <a href="#pricing" class="btn btn-secondary">See Pricing</a>
+          </div>
+          <div class="mini-points">
+            <span>Less than £1 a day</span>
+            <span>No tech jargon</span>
+            <span>Done for you</span>
+          </div>
+        </div>
+
+        <aside class="card price-card">
+          <div class="price-badge">Main Offer</div>
+          <div class="price-main">£99 setup<br>+ £29/month</div>
+          <div class="price-sub">A low-cost way to get online without a big upfront bill.</div>
+          <ul class="tick-list">
+            <li>Fully built website</li>
+            <li>Mobile friendly design</li>
+            <li>Contact form included</li>
+            <li>Hosting and updates included</li>
+            <li>Basic SEO setup</li>
+            <li>Friendly ongoing support</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="why" class="reasons">
+      <div class="container">
+        <div class="section-head">
+          <h2>Why your business needs a website</h2>
+          <p class="muted">You might be getting business already, but people still look you up before they call, book, or buy. If they cannot find you online, they can move on to someone else.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Look more trustworthy</h3>
+            <p class="muted">A proper website makes your business feel established and professional, even if you are a one-person business.</p>
+          </div>
+          <div class="card">
+            <h3>Get found online</h3>
+            <p class="muted">People search Google for local services every day. A website gives you a better chance of showing up.</p>
+          </div>
+          <div class="card">
+            <h3>Win enquiries while you sleep</h3>
+            <p class="muted">Your website works 24/7, taking messages and showing people what you do even when you are busy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="steps">
+      <div class="container">
+        <div class="section-head">
+          <h2>No tech. No hassle. Just sorted.</h2>
+          <p class="muted">We keep this simple. You send over a few details, we do the rest.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <h3>1. Tell us about your business</h3>
+            <p class="muted">A few quick details about what you do, where you work, and how customers contact you.</p>
+          </div>
+          <div class="card">
+            <h3>2. We build your site</h3>
+            <p class="muted">We create a clean, mobile-friendly website designed to make your business look good and bring in enquiries.</p>
+          </div>
+          <div class="card">
+            <h3>3. You get on with business</h3>
+            <p class="muted">We launch it, host it, and keep it updated. You stay focused on running your business.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+      <div class="container">
+        <div class="section-head">
+          <h2>Simple pricing</h2>
+          <p class="muted">Clear, low-risk pricing designed for small businesses who want to get online without a massive bill.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card pricing-highlight">
+            <h3>Most Popular</h3>
+            <div class="price-line">£99 setup</div>
+            <p class="muted">Then <strong>£29/month</strong></p>
+            <ul class="tick-list small">
+              <li>Done-for-you website build</li>
+              <li>Hosting included</li>
+              <li>Content updates</li>
+              <li>Basic SEO setup</li>
+              <li>Email/contact form setup</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Growth Plan</h3>
+            <div class="price-line">£49/month</div>
+            <p class="muted">For businesses wanting more frequent updates</p>
+            <ul class="tick-list small">
+              <li>Everything in the main plan</li>
+              <li>Faster content changes</li>
+              <li>Monthly improvements</li>
+              <li>SEO tweaks</li>
+              <li>Priority support</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>One-Off Build</h3>
+            <div class="price-line">£299–£499</div>
+            <p class="muted">For businesses that prefer no monthly plan</p>
+            <ul class="tick-list small">
+              <li>Simple website build</li>
+              <li>Mobile responsive</li>
+              <li>Contact page included</li>
+              <li>No ongoing edits included</li>
+              <li>Hosting separate</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Perfect for local small businesses</h2>
+          <p class="muted">Built for people who are good at what they do and do not want to waste time learning website tools.</p>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Ideal for</h3>
+            <p class="muted">Plumbers, electricians, decorators, beauty businesses, therapists, cleaners, builders, gardeners, dog groomers, mobile services, and other local independent businesses.</p>
+          </div>
+          <div class="card">
+            <h3>What makes us different</h3>
+            <p class="muted">We do not drown you in jargon or make you piece things together yourself. We keep it straightforward and get your business online.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>FAQs</h2>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Do I need to know anything technical?</h3>
+            <p class="muted">No. That is the whole point. We handle the website side so you can carry on running your business.</p>
+          </div>
+          <div class="card">
+            <h3>What do you need from me?</h3>
+            <p class="muted">Usually just your business name, services, contact details, service area, and a few photos if you have them.</p>
+          </div>
+          <div class="card">
+            <h3>Can you update my website later?</h3>
+            <p class="muted">Yes. That is included in the monthly plans, so you are not left on your own after launch.</p>
+          </div>
+          <div class="card">
+            <h3>How quickly can I get online?</h3>
+            <p class="muted">Most simple websites can be turned around quickly once we have your information.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="cta">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Ready to get your website sorted?</h2>
+          <p class="lead" style="margin: 0 auto 18px;">Send us a message and we will show you how simple it can be to get your business online.</p>
+          <a class="btn" href="mailto:hello@sitessorted.co.uk?subject=I%20need%20a%20website">Email Us</a>
+          <p class="contact-note">Replace this with your real business email once it is set up.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Sites Sorted. All rights reserved.</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
