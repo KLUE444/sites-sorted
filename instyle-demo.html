@@ -1,371 +1,226 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instyle Hair Design | Holbeach</title>
-  <meta name="description" content="Friendly hair salon in Holbeach offering cuts, colour, balayage, blow dries and more." />
-  <style>
-    :root {
-      --bg: #fbf7f3;
-      --surface: #ffffff;
-      --text: #2e241e;
-      --muted: #6a5a4d;
-      --accent: #9b6b4b;
-      --accent-dark: #7c5135;
-      --line: #eaded4;
-      --shadow: 0 12px 30px rgba(46, 36, 30, 0.08);
-      --radius: 24px;
-      --max: 1120px;
-    }
+export default function InstyleHolbeachWebsite() {
+  const services = [
+    {
+      title: "Cut & Finish",
+      text: "Beautiful everyday styling with a polished, salon-fresh finish tailored to each client.",
+    },
+    {
+      title: "Colour Services",
+      text: "From subtle refreshes to full transformations, with a calm consultation-led approach.",
+    },
+    {
+      title: "Blow Dries & Occasion Hair",
+      text: "Soft movement, volume, and elegant styling for weekends, events, and special moments.",
+    },
+    {
+      title: "Treatments",
+      text: "Shine, strength, and care-focused add-ons designed to keep hair looking and feeling healthy.",
+    },
+  ];
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.55;
-    }
+  const gallery = [
+    "Lived-in blonde refresh",
+    "Glossy brunette colour",
+    "Soft waves styling",
+    "Classic bob finish",
+    "Bridal / occasion updo",
+    "Fresh salon interior shot",
+  ];
 
-    a { color: inherit; text-decoration: none; }
+  const testimonials = [
+    {
+      quote:
+        "A warm, friendly salon experience with beautiful results and a team that really listens.",
+      name: "Local client",
+    },
+    {
+      quote:
+        "Stylish without feeling intimidating — welcoming, professional, and easy to recommend.",
+      name: "Regular customer",
+    },
+    {
+      quote:
+        "The kind of salon website that should feel as lovely as the appointment itself.",
+      name: "Brand direction",
+    },
+  ];
 
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
+  const hours = [
+    ["Monday", "Closed"],
+    ["Tuesday", "9:00 – 17:00"],
+    ["Wednesday", "9:00 – 16:00"],
+    ["Thursday", "9:00 – 20:00"],
+    ["Friday", "8:30 – 17:00"],
+    ["Saturday", "8:30 – 14:00"],
+    ["Sunday", "Closed"],
+  ];
 
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      background: rgba(251, 247, 243, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(155, 107, 75, 0.1);
-    }
+  return (
+    <div className="min-h-screen bg-[#f7f2ec] text-[#2e241f]">
+      <header className="sticky top-0 z-50 border-b border-black/5 bg-[#f7f2ec]/90 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+          <div>
+            <p className="font-serif text-2xl tracking-[0.25em]">INSTYLE</p>
+            <p className="text-xs uppercase tracking-[0.35em] text-[#7b675c]">Hair Design • Holbeach</p>
+          </div>
+          <nav className="hidden gap-8 text-sm md:flex">
+            <a href="#about" className="transition hover:opacity-60">About</a>
+            <a href="#services" className="transition hover:opacity-60">Services</a>
+            <a href="#gallery" className="transition hover:opacity-60">Gallery</a>
+            <a href="#contact" className="transition hover:opacity-60">Contact</a>
+          </nav>
+          <a
+            href="#contact"
+            className="rounded-full border border-[#2e241f] px-4 py-2 text-sm transition hover:-translate-y-0.5"
+          >
+            Book now
+          </a>
+        </div>
+      </header>
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 16px 0;
-    }
+      <section className="relative overflow-hidden">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center lg:px-10 lg:py-24">
+          <div>
+            <p className="mb-4 text-sm uppercase tracking-[0.35em] text-[#8b776d]">Elegant local salon</p>
+            <h1 className="max-w-xl font-serif text-5xl leading-tight md:text-6xl">
+              Friendly, modern hairdressing with a calm boutique feel.
+            </h1>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-[#5a4a42]">
+              A refined salon concept for Instyle Hair Design — welcoming, polished, and designed to feel aspirational while still grounded in the local community.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="#services"
+                className="rounded-full bg-[#2e241f] px-6 py-3 text-sm text-white transition hover:-translate-y-0.5"
+              >
+                Explore services
+              </a>
+              <a
+                href="#gallery"
+                className="rounded-full border border-[#2e241f] px-6 py-3 text-sm transition hover:-translate-y-0.5"
+              >
+                View gallery
+              </a>
+            </div>
+          </div>
 
-    .brand {
-      font-size: 1.15rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-    }
+          <div className="grid grid-cols-2 gap-4">
+            <div className="rounded-[2rem] bg-[#d9c8bc] p-4 shadow-sm">
+              <div className="h-72 rounded-[1.5rem] bg-[linear-gradient(180deg,#c9b3a6_0%,#e7dbd2_100%)]" />
+            </div>
+            <div className="mt-10 rounded-[2rem] bg-[#ede3db] p-4 shadow-sm">
+              <div className="h-72 rounded-[1.5rem] bg-[linear-gradient(180deg,#f5eee9_0%,#d8c2b5_100%)]" />
+            </div>
+            <div className="-mt-8 rounded-[2rem] bg-[#efe5dd] p-4 shadow-sm">
+              <div className="h-48 rounded-[1.5rem] bg-[linear-gradient(180deg,#ddc7bb_0%,#f7f2ec_100%)]" />
+            </div>
+            <div className="rounded-[2rem] border border-black/5 bg-white/60 p-6 shadow-sm">
+              <p className="text-sm uppercase tracking-[0.3em] text-[#8b776d]">Visit us</p>
+              <p className="mt-3 font-serif text-2xl">50 High Street</p>
+              <p className="mt-2 text-[#5a4a42]">Holbeach, Spalding, PE12 7ED</p>
+              <p className="mt-6 text-sm uppercase tracking-[0.3em] text-[#8b776d]">Call</p>
+              <p className="mt-2 text-xl">01406 423464</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
+      <section id="about" className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+        <div className="grid gap-10 rounded-[2rem] bg-white/70 p-8 shadow-sm lg:grid-cols-[1.1fr_0.9fr] lg:p-12">
+          <div>
+            <p className="text-sm uppercase tracking-[0.35em] text-[#8b776d]">About Instyle</p>
+            <h2 className="mt-4 font-serif text-4xl">A welcoming salon brand with room to grow.</h2>
+            <p className="mt-6 max-w-2xl leading-8 text-[#5a4a42]">
+              This concept takes the soft, image-led boutique style of Fifth Avenue and adapts it for Instyle Hair Design with a more community-led tone. The layout is intentionally clean and premium, while still making it easy for clients to find services, opening hours, and booking details quickly.
+            </p>
+          </div>
+          <div className="rounded-[1.75rem] bg-[#2e241f] p-8 text-white">
+            <p className="text-sm uppercase tracking-[0.35em] text-white/70">Brand feel</p>
+            <ul className="mt-5 space-y-4 text-lg text-white/90">
+              <li>Elegant but approachable</li>
+              <li>Soft neutrals and editorial spacing</li>
+              <li>Strong local trust signals</li>
+              <li>Clear mobile-first booking journey</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 22px;
-      border-radius: 999px;
-      font-weight: 700;
-      background: var(--accent);
-      color: white;
-      box-shadow: var(--shadow);
-      transition: transform .2s ease, background .2s ease;
-    }
+      <section id="services" className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+        <div className="flex items-end justify-between gap-6">
+          <div>
+            <p className="text-sm uppercase tracking-[0.35em] text-[#8b776d]">Services</p>
+            <h2 className="mt-4 font-serif text-4xl">What clients can book</h2>
+          </div>
+        </div>
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {services.map((service) => (
+            <div key={service.title} className="rounded-[1.75rem] bg-white/80 p-6 shadow-sm transition hover:-translate-y-1">
+              <h3 className="font-serif text-2xl">{service.title}</h3>
+              <p className="mt-4 leading-7 text-[#5a4a42]">{service.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-    .btn:hover { transform: translateY(-1px); background: var(--accent-dark); }
+      <section id="gallery" className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+        <div className="rounded-[2rem] bg-[#e9ddd4] p-8 lg:p-10">
+          <p className="text-sm uppercase tracking-[0.35em] text-[#8b776d]">Gallery</p>
+          <h2 className="mt-4 font-serif text-4xl">A visual, social-first showcase</h2>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {gallery.map((item, index) => (
+              <div key={item} className="group rounded-[1.5rem] bg-white/60 p-3 shadow-sm">
+                <div className="flex h-64 items-end rounded-[1.25rem] bg-[linear-gradient(180deg,#f5efea_0%,#d7c0b2_100%)] p-4">
+                  <p className="translate-y-2 text-sm uppercase tracking-[0.2em] text-[#5a4a42] opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100">
+                    {String(index + 1).padStart(2, "0")} — {item}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--line);
-      box-shadow: none;
-    }
+      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+        <div className="grid gap-6 lg:grid-cols-3">
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.name} className="rounded-[1.75rem] border border-black/5 bg-white/80 p-8 shadow-sm">
+              <p className="font-serif text-3xl leading-tight">“</p>
+              <p className="mt-3 leading-8 text-[#5a4a42]">{testimonial.quote}</p>
+              <p className="mt-6 text-sm uppercase tracking-[0.25em] text-[#8b776d]">{testimonial.name}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-    .hero {
-      padding: 72px 0 48px;
-    }
+      <section id="contact" className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+        <div className="grid gap-8 rounded-[2rem] bg-[#2e241f] p-8 text-white shadow-sm lg:grid-cols-[1.1fr_0.9fr] lg:p-12">
+          <div>
+            <p className="text-sm uppercase tracking-[0.35em] text-white/65">Contact & booking</p>
+            <h2 className="mt-4 font-serif text-4xl">Ready for the live version?</h2>
+            <p className="mt-6 max-w-xl leading-8 text-white/80">
+              Replace these placeholders with the real booking link, social feed, service list, staff bios, and photography. The structure is already set up to become a polished salon website.
+            </p>
+            <div className="mt-8 space-y-3 text-white/90">
+              <p>01406 423464</p>
+              <p>50 High Street, Holbeach, Spalding, PE12 7ED</p>
+              <p>Facebook: /Instyleholbeach</p>
+            </div>
+          </div>
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 16px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: #f1e4d8;
-      color: var(--accent-dark);
-      font-size: 0.86rem;
-      font-weight: 700;
-    }
-
-    h1, h2, h3 {
-      margin: 0 0 14px;
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-    }
-
-    h1 { font-size: clamp(2.4rem, 5vw, 4.8rem); }
-    h2 { font-size: clamp(1.8rem, 3vw, 2.8rem); }
-    h3 { font-size: 1.2rem; }
-
-    .lead {
-      color: var(--muted);
-      font-size: 1.08rem;
-      max-width: 620px;
-      margin-bottom: 24px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-
-    .mini-points {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .hours-card ul, .services-list, .tick-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .hours-card li, .tick-list li {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .hours-card li:last-child, .tick-list li:last-child { border-bottom: none; }
-
-    section {
-      padding: 34px 0;
-    }
-
-    .section-head {
-      max-width: 760px;
-      margin-bottom: 22px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .muted { color: var(--muted); }
-
-    .service-pill-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .service-pill {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: #f6ede6;
-      color: var(--text);
-      font-size: 0.93rem;
-      border: 1px solid var(--line);
-    }
-
-    .cta {
-      padding: 40px 0 74px;
-    }
-
-    .cta-box {
-      text-align: center;
-      background: linear-gradient(180deg, #fffaf5 0%, #f1e4d8 100%);
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      padding: 36px;
-      box-shadow: var(--shadow);
-    }
-
-    footer {
-      padding: 24px 0 46px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    @media (max-width: 860px) {
-      .hero-grid, .grid-3, .grid-2 {
-        grid-template-columns: 1fr;
-      }
-
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .hero { padding-top: 44px; }
-    }
-  </style>
-</head>
-<body>
-  <header class="topbar">
-    <div class="container nav">
-      <a href="#top" class="brand">Instyle Hair Design</a>
-      <nav class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#why-us">Why Choose Us</a>
-        <a href="#hours">Opening Hours</a>
-        <a href="#contact" class="btn">Book Your Appointment</a>
-      </nav>
+          <div className="rounded-[1.75rem] bg-white/10 p-6 backdrop-blur-sm">
+            <p className="text-sm uppercase tracking-[0.35em] text-white/65">Opening hours</p>
+            <div className="mt-6 space-y-3">
+              {hours.map(([day, time]) => (
+                <div key={day} className="flex items-center justify-between border-b border-white/10 pb-3 text-sm">
+                  <span>{day}</span>
+                  <span className="text-white/75">{time}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-  </header>
-
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">Friendly Hair Salon in Holbeach</div>
-          <h1>Hair you feel good in, every single day.</h1>
-          <p class="lead">Welcome to Instyle Hair Design, a friendly Holbeach salon offering cuts, colour, balayage, blow dries and more in a relaxed and welcoming space.</p>
-          <div class="hero-actions">
-            <a href="tel:+441406423464" class="btn">Call 01406 423464</a>
-            <a href="#hours" class="btn btn-secondary">See Opening Hours</a>
-          </div>
-          <div class="mini-points">
-            <span>50 High Street, Holbeach</span>
-            <span>Friendly local salon</span>
-            <span>Colour, cuts and styling</span>
-          </div>
-        </div>
-
-        <aside class="card hours-card">
-          <h3>Opening Hours</h3>
-          <ul>
-            <li><span>Monday</span><strong>Closed</strong></li>
-            <li><span>Tuesday</span><strong>9:00 – 17:00</strong></li>
-            <li><span>Wednesday</span><strong>9:00 – 16:00</strong></li>
-            <li><span>Thursday</span><strong>9:00 – 20:00</strong></li>
-            <li><span>Friday</span><strong>8:30 – 17:00</strong></li>
-            <li><span>Saturday</span><strong>8:30 – 14:00</strong></li>
-            <li><span>Sunday</span><strong>Closed</strong></li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="container">
-        <div class="section-head">
-          <h2>Salon services</h2>
-          <p class="muted">From everyday appointments to fresh colour and styling, Instyle offers a range of hair services for clients in Holbeach and the surrounding area.</p>
-        </div>
-        <div class="card">
-          <div class="service-pill-wrap">
-            <span class="service-pill">Blow Dry</span>
-            <span class="service-pill">Hair Colouring</span>
-            <span class="service-pill">Balayage</span>
-            <span class="service-pill">Hair Extensions</span>
-            <span class="service-pill">Hair Treatments</span>
-            <span class="service-pill">Braiding</span>
-            <span class="service-pill">Perm</span>
-            <span class="service-pill">Curly Haircut</span>
-            <span class="service-pill">Keratin Treatment</span>
-            <span class="service-pill">Permanent Straightening</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="why-us">
-      <div class="container">
-        <div class="section-head">
-          <h2>Why clients choose Instyle</h2>
-          <p class="muted">A simple salon website should quickly build trust, show the basics clearly and make it easy for clients to get in touch.</p>
-        </div>
-        <div class="grid-3">
-          <div class="card">
-            <h3>Friendly local salon</h3>
-            <p class="muted">A warm, welcoming salon in the heart of Holbeach, focused on making clients feel comfortable and looked after.</p>
-          </div>
-          <div class="card">
-            <h3>Easy to contact</h3>
-            <p class="muted">Clear contact details, location and opening hours make it easier for new clients to book with confidence.</p>
-          </div>
-          <div class="card">
-            <h3>Services at a glance</h3>
-            <p class="muted">Cuts, colour and styling options are easy to see straight away, helping clients understand what is available.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="hours">
-      <div class="container grid-2">
-        <div class="card">
-          <h2>Visit the salon</h2>
-          <p class="muted">50 High Street, Holbeach, Spalding, PE12 7ED</p>
-          <ul class="tick-list">
-            <li><span>Phone</span><strong>01406 423464</strong></li>
-            <li><span>Location</span><strong>Holbeach town centre</strong></li>
-            <li><span>Best for</span><strong>Colour, cuts and styling</strong></li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Perfect for a first impression</h2>
-          <p class="muted">This demo page shows how a clean, mobile-friendly website could help Instyle Hair Design look more professional online and make it easier for potential clients to get in touch.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="cta">
-      <div class="container">
-        <div class="cta-box">
-          <h2>Ready to book?</h2>
-          <p class="lead" style="margin: 0 auto 18px;">Call the salon to arrange your appointment or get in touch to ask about services and availability.</p>
-          <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-            <a class="btn" href="tel:+441406423464">Call Now</a>
-            <a class="btn btn-secondary" href="https://www.facebook.com/Instyleholbeach/" target="_blank" rel="noopener noreferrer">View Facebook Page</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">Demo concept created for Instyle Hair Design, Holbeach.</div>
-  </footer>
-</body>
-</html>
+  );
+}
