@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instyle Hair Design | Holbeach</title>
+  <meta name="description" content="Friendly hair salon in Holbeach offering cuts, colour, balayage, blow dries and more." />
+  <style>
+    :root {
+      --bg: #fbf7f3;
+      --surface: #ffffff;
+      --text: #2e241e;
+      --muted: #6a5a4d;
+      --accent: #9b6b4b;
+      --accent-dark: #7c5135;
+      --line: #eaded4;
+      --shadow: 0 12px 30px rgba(46, 36, 30, 0.08);
+      --radius: 24px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(251, 247, 243, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(155, 107, 75, 0.1);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      background: var(--accent);
+      color: white;
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); background: var(--accent-dark); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+
+    .hero {
+      padding: 72px 0 48px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #f1e4d8;
+      color: var(--accent-dark);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 14px;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    h1 { font-size: clamp(2.4rem, 5vw, 4.8rem); }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.8rem); }
+    h3 { font-size: 1.2rem; }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 620px;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .mini-points {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hours-card ul, .services-list, .tick-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .hours-card li, .tick-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hours-card li:last-child, .tick-list li:last-child { border-bottom: none; }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 22px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .muted { color: var(--muted); }
+
+    .service-pill-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .service-pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #f6ede6;
+      color: var(--text);
+      font-size: 0.93rem;
+      border: 1px solid var(--line);
+    }
+
+    .cta {
+      padding: 40px 0 74px;
+    }
+
+    .cta-box {
+      text-align: center;
+      background: linear-gradient(180deg, #fffaf5 0%, #f1e4d8 100%);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      padding: 24px 0 46px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid, .grid-3, .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero { padding-top: 44px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#top" class="brand">Instyle Hair Design</a>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#why-us">Why Choose Us</a>
+        <a href="#hours">Opening Hours</a>
+        <a href="#contact" class="btn">Book Your Appointment</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Friendly Hair Salon in Holbeach</div>
+          <h1>Hair you feel good in, every single day.</h1>
+          <p class="lead">Welcome to Instyle Hair Design, a friendly Holbeach salon offering cuts, colour, balayage, blow dries and more in a relaxed and welcoming space.</p>
+          <div class="hero-actions">
+            <a href="tel:+441406423464" class="btn">Call 01406 423464</a>
+            <a href="#hours" class="btn btn-secondary">See Opening Hours</a>
+          </div>
+          <div class="mini-points">
+            <span>50 High Street, Holbeach</span>
+            <span>Friendly local salon</span>
+            <span>Colour, cuts and styling</span>
+          </div>
+        </div>
+
+        <aside class="card hours-card">
+          <h3>Opening Hours</h3>
+          <ul>
+            <li><span>Monday</span><strong>Closed</strong></li>
+            <li><span>Tuesday</span><strong>9:00 – 17:00</strong></li>
+            <li><span>Wednesday</span><strong>9:00 – 16:00</strong></li>
+            <li><span>Thursday</span><strong>9:00 – 20:00</strong></li>
+            <li><span>Friday</span><strong>8:30 – 17:00</strong></li>
+            <li><span>Saturday</span><strong>8:30 – 14:00</strong></li>
+            <li><span>Sunday</span><strong>Closed</strong></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>Salon services</h2>
+          <p class="muted">From everyday appointments to fresh colour and styling, Instyle offers a range of hair services for clients in Holbeach and the surrounding area.</p>
+        </div>
+        <div class="card">
+          <div class="service-pill-wrap">
+            <span class="service-pill">Blow Dry</span>
+            <span class="service-pill">Hair Colouring</span>
+            <span class="service-pill">Balayage</span>
+            <span class="service-pill">Hair Extensions</span>
+            <span class="service-pill">Hair Treatments</span>
+            <span class="service-pill">Braiding</span>
+            <span class="service-pill">Perm</span>
+            <span class="service-pill">Curly Haircut</span>
+            <span class="service-pill">Keratin Treatment</span>
+            <span class="service-pill">Permanent Straightening</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-us">
+      <div class="container">
+        <div class="section-head">
+          <h2>Why clients choose Instyle</h2>
+          <p class="muted">A simple salon website should quickly build trust, show the basics clearly and make it easy for clients to get in touch.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Friendly local salon</h3>
+            <p class="muted">A warm, welcoming salon in the heart of Holbeach, focused on making clients feel comfortable and looked after.</p>
+          </div>
+          <div class="card">
+            <h3>Easy to contact</h3>
+            <p class="muted">Clear contact details, location and opening hours make it easier for new clients to book with confidence.</p>
+          </div>
+          <div class="card">
+            <h3>Services at a glance</h3>
+            <p class="muted">Cuts, colour and styling options are easy to see straight away, helping clients understand what is available.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="hours">
+      <div class="container grid-2">
+        <div class="card">
+          <h2>Visit the salon</h2>
+          <p class="muted">50 High Street, Holbeach, Spalding, PE12 7ED</p>
+          <ul class="tick-list">
+            <li><span>Phone</span><strong>01406 423464</strong></li>
+            <li><span>Location</span><strong>Holbeach town centre</strong></li>
+            <li><span>Best for</span><strong>Colour, cuts and styling</strong></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>Perfect for a first impression</h2>
+          <p class="muted">This demo page shows how a clean, mobile-friendly website could help Instyle Hair Design look more professional online and make it easier for potential clients to get in touch.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="cta">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Ready to book?</h2>
+          <p class="lead" style="margin: 0 auto 18px;">Call the salon to arrange your appointment or get in touch to ask about services and availability.</p>
+          <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+            <a class="btn" href="tel:+441406423464">Call Now</a>
+            <a class="btn btn-secondary" href="https://www.facebook.com/Instyleholbeach/" target="_blank" rel="noopener noreferrer">View Facebook Page</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Demo concept created for Instyle Hair Design, Holbeach.</div>
+  </footer>
+</body>
+</html>
