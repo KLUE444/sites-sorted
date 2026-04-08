@@ -1,226 +1,515 @@
-export default function InstyleHolbeachWebsite() {
-  const services = [
-    {
-      title: "Cut & Finish",
-      text: "Beautiful everyday styling with a polished, salon-fresh finish tailored to each client.",
-    },
-    {
-      title: "Colour Services",
-      text: "From subtle refreshes to full transformations, with a calm consultation-led approach.",
-    },
-    {
-      title: "Blow Dries & Occasion Hair",
-      text: "Soft movement, volume, and elegant styling for weekends, events, and special moments.",
-    },
-    {
-      title: "Treatments",
-      text: "Shine, strength, and care-focused add-ons designed to keep hair looking and feeling healthy.",
-    },
-  ];
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instyle Hair Design | Holbeach</title>
+  <style>
+    :root {
+      --bg: #f7f2ec;
+      --bg-soft: #efe6de;
+      --card: rgba(255,255,255,0.72);
+      --text: #2f241f;
+      --muted: #7f6a5f;
+      --accent: #d8c2b5;
+      --dark: #2e241f;
+      --line: rgba(47, 36, 31, 0.08);
+      --shadow: 0 18px 40px rgba(47, 36, 31, 0.08);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1200px;
+    }
 
-  const gallery = [
-    "Lived-in blonde refresh",
-    "Glossy brunette colour",
-    "Soft waves styling",
-    "Classic bob finish",
-    "Bridal / occasion updo",
-    "Fresh salon interior shot",
-  ];
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-  const testimonials = [
-    {
-      quote:
-        "A warm, friendly salon experience with beautiful results and a team that really listens.",
-      name: "Local client",
-    },
-    {
-      quote:
-        "Stylish without feeling intimidating — welcoming, professional, and easy to recommend.",
-      name: "Regular customer",
-    },
-    {
-      quote:
-        "The kind of salon website that should feel as lovely as the appointment itself.",
-      name: "Brand direction",
-    },
-  ];
+    h1, h2, h3, .brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin: 0;
+    }
 
-  const hours = [
-    ["Monday", "Closed"],
-    ["Tuesday", "9:00 – 17:00"],
-    ["Wednesday", "9:00 – 16:00"],
-    ["Thursday", "9:00 – 20:00"],
-    ["Friday", "8:30 – 17:00"],
-    ["Saturday", "8:30 – 14:00"],
-    ["Sunday", "Closed"],
-  ];
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-  return (
-    <div className="min-h-screen bg-[#f7f2ec] text-[#2e241f]">
-      <header className="sticky top-0 z-50 border-b border-black/5 bg-[#f7f2ec]/90 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-          <div>
-            <p className="font-serif text-2xl tracking-[0.25em]">INSTYLE</p>
-            <p className="text-xs uppercase tracking-[0.35em] text-[#7b675c]">Hair Design • Holbeach</p>
-          </div>
-          <nav className="hidden gap-8 text-sm md:flex">
-            <a href="#about" className="transition hover:opacity-60">About</a>
-            <a href="#services" className="transition hover:opacity-60">Services</a>
-            <a href="#gallery" className="transition hover:opacity-60">Gallery</a>
-            <a href="#contact" className="transition hover:opacity-60">Contact</a>
-          </nav>
-          <a
-            href="#contact"
-            className="rounded-full border border-[#2e241f] px-4 py-2 text-sm transition hover:-translate-y-0.5"
-          >
-            Book now
-          </a>
-        </div>
-      </header>
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
 
-      <section className="relative overflow-hidden">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center lg:px-10 lg:py-24">
-          <div>
-            <p className="mb-4 text-sm uppercase tracking-[0.35em] text-[#8b776d]">Elegant local salon</p>
-            <h1 className="max-w-xl font-serif text-5xl leading-tight md:text-6xl">
-              Friendly, modern hairdressing with a calm boutique feel.
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-[#5a4a42]">
-              A refined salon concept for Instyle Hair Design — welcoming, polished, and designed to feel aspirational while still grounded in the local community.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="#services"
-                className="rounded-full bg-[#2e241f] px-6 py-3 text-sm text-white transition hover:-translate-y-0.5"
-              >
-                Explore services
-              </a>
-              <a
-                href="#gallery"
-                className="rounded-full border border-[#2e241f] px-6 py-3 text-sm transition hover:-translate-y-0.5"
-              >
-                View gallery
-              </a>
-            </div>
-          </div>
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(247, 242, 236, 0.92);
+      border-bottom: 1px solid var(--line);
+    }
 
-          <div className="grid grid-cols-2 gap-4">
-            <div className="rounded-[2rem] bg-[#d9c8bc] p-4 shadow-sm">
-              <div className="h-72 rounded-[1.5rem] bg-[linear-gradient(180deg,#c9b3a6_0%,#e7dbd2_100%)]" />
-            </div>
-            <div className="mt-10 rounded-[2rem] bg-[#ede3db] p-4 shadow-sm">
-              <div className="h-72 rounded-[1.5rem] bg-[linear-gradient(180deg,#f5eee9_0%,#d8c2b5_100%)]" />
-            </div>
-            <div className="-mt-8 rounded-[2rem] bg-[#efe5dd] p-4 shadow-sm">
-              <div className="h-48 rounded-[1.5rem] bg-[linear-gradient(180deg,#ddc7bb_0%,#f7f2ec_100%)]" />
-            </div>
-            <div className="rounded-[2rem] border border-black/5 bg-white/60 p-6 shadow-sm">
-              <p className="text-sm uppercase tracking-[0.3em] text-[#8b776d]">Visit us</p>
-              <p className="mt-3 font-serif text-2xl">50 High Street</p>
-              <p className="mt-2 text-[#5a4a42]">Holbeach, Spalding, PE12 7ED</p>
-              <p className="mt-6 text-sm uppercase tracking-[0.3em] text-[#8b776d]">Call</p>
-              <p className="mt-2 text-xl">01406 423464</p>
-            </div>
-          </div>
-        </div>
-      </section>
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+    }
 
-      <section id="about" className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <div className="grid gap-10 rounded-[2rem] bg-white/70 p-8 shadow-sm lg:grid-cols-[1.1fr_0.9fr] lg:p-12">
-          <div>
-            <p className="text-sm uppercase tracking-[0.35em] text-[#8b776d]">About Instyle</p>
-            <h2 className="mt-4 font-serif text-4xl">A welcoming salon brand with room to grow.</h2>
-            <p className="mt-6 max-w-2xl leading-8 text-[#5a4a42]">
-              This concept takes the soft, image-led boutique style of Fifth Avenue and adapts it for Instyle Hair Design with a more community-led tone. The layout is intentionally clean and premium, while still making it easy for clients to find services, opening hours, and booking details quickly.
-            </p>
-          </div>
-          <div className="rounded-[1.75rem] bg-[#2e241f] p-8 text-white">
-            <p className="text-sm uppercase tracking-[0.35em] text-white/70">Brand feel</p>
-            <ul className="mt-5 space-y-4 text-lg text-white/90">
-              <li>Elegant but approachable</li>
-              <li>Soft neutrals and editorial spacing</li>
-              <li>Strong local trust signals</li>
-              <li>Clear mobile-first booking journey</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+    .brand-wrap small,
+    .eyebrow {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      font-size: 11px;
+      color: var(--muted);
+    }
 
-      <section id="services" className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <div className="flex items-end justify-between gap-6">
-          <div>
-            <p className="text-sm uppercase tracking-[0.35em] text-[#8b776d]">Services</p>
-            <h2 className="mt-4 font-serif text-4xl">What clients can book</h2>
-          </div>
-        </div>
-        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {services.map((service) => (
-            <div key={service.title} className="rounded-[1.75rem] bg-white/80 p-6 shadow-sm transition hover:-translate-y-1">
-              <h3 className="font-serif text-2xl">{service.title}</h3>
-              <p className="mt-4 leading-7 text-[#5a4a42]">{service.text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+    .brand {
+      font-size: 28px;
+      letter-spacing: 0.22em;
+    }
 
-      <section id="gallery" className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <div className="rounded-[2rem] bg-[#e9ddd4] p-8 lg:p-10">
-          <p className="text-sm uppercase tracking-[0.35em] text-[#8b776d]">Gallery</p>
-          <h2 className="mt-4 font-serif text-4xl">A visual, social-first showcase</h2>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {gallery.map((item, index) => (
-              <div key={item} className="group rounded-[1.5rem] bg-white/60 p-3 shadow-sm">
-                <div className="flex h-64 items-end rounded-[1.25rem] bg-[linear-gradient(180deg,#f5efea_0%,#d7c0b2_100%)] p-4">
-                  <p className="translate-y-2 text-sm uppercase tracking-[0.2em] text-[#5a4a42] opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100">
-                    {String(index + 1).padStart(2, "0")} — {item}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    .menu {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      font-size: 14px;
+    }
 
-      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <div className="grid gap-6 lg:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.name} className="rounded-[1.75rem] border border-black/5 bg-white/80 p-8 shadow-sm">
-              <p className="font-serif text-3xl leading-tight">“</p>
-              <p className="mt-3 leading-8 text-[#5a4a42]">{testimonial.quote}</p>
-              <p className="mt-6 text-sm uppercase tracking-[0.25em] text-[#8b776d]">{testimonial.name}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+    .button,
+    .button-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-size: 14px;
+      transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+    }
 
-      <section id="contact" className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <div className="grid gap-8 rounded-[2rem] bg-[#2e241f] p-8 text-white shadow-sm lg:grid-cols-[1.1fr_0.9fr] lg:p-12">
-          <div>
-            <p className="text-sm uppercase tracking-[0.35em] text-white/65">Contact & booking</p>
-            <h2 className="mt-4 font-serif text-4xl">Ready for the live version?</h2>
-            <p className="mt-6 max-w-xl leading-8 text-white/80">
-              Replace these placeholders with the real booking link, social feed, service list, staff bios, and photography. The structure is already set up to become a polished salon website.
-            </p>
-            <div className="mt-8 space-y-3 text-white/90">
-              <p>01406 423464</p>
-              <p>50 High Street, Holbeach, Spalding, PE12 7ED</p>
-              <p>Facebook: /Instyleholbeach</p>
-            </div>
-          </div>
+    .button:hover,
+    .button-outline:hover,
+    .menu a:hover { opacity: 0.75; transform: translateY(-1px); }
 
-          <div className="rounded-[1.75rem] bg-white/10 p-6 backdrop-blur-sm">
-            <p className="text-sm uppercase tracking-[0.35em] text-white/65">Opening hours</p>
-            <div className="mt-6 space-y-3">
-              {hours.map(([day, time]) => (
-                <div key={day} className="flex items-center justify-between border-b border-white/10 pb-3 text-sm">
-                  <span>{day}</span>
-                  <span className="text-white/75">{time}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+    .button {
+      background: var(--dark);
+      color: white;
+    }
+
+    .button-outline {
+      border: 1px solid var(--dark);
+      color: var(--dark);
+      background: transparent;
+    }
+
+    .hero {
+      padding: 56px 0 32px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 1.04;
+      max-width: 700px;
+      margin-top: 14px;
+    }
+
+    .lead {
+      font-size: 18px;
+      color: #5f5047;
+      max-width: 640px;
+      margin: 24px 0 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .hero-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .tile,
+    .card,
+    .image-card,
+    .hours-card,
+    .contact-panel {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .tile {
+      min-height: 250px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(255,255,255,0.45);
+    }
+
+    .tile.large { min-height: 340px; }
+    .tile.offset { margin-top: 34px; }
+
+    .tile.one {
+      background-image: linear-gradient(rgba(38,28,22,0.18), rgba(38,28,22,0.12)), url('https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1000&q=80');
+    }
+
+    .tile.two {
+      background-image: linear-gradient(rgba(38,28,22,0.14), rgba(38,28,22,0.08)), url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1000&q=80');
+    }
+
+    .info-card {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid var(--line);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 200px;
+    }
+
+    .info-card h3 { font-size: 32px; margin: 10px 0 4px; }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.55);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 40px;
+    }
+
+    .about-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+    }
+
+    .aside-dark {
+      background: var(--dark);
+      color: white;
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+
+    .aside-dark ul { margin: 18px 0 0; padding-left: 18px; }
+    .aside-dark li { margin-bottom: 10px; }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    .section-heading h2 { font-size: clamp(30px, 4vw, 48px); margin-top: 10px; }
+
+    .services-grid,
+    .gallery-grid,
+    .testimonials-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .services-grid { grid-template-columns: repeat(4, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+
+    .card {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid var(--line);
+      padding: 26px;
+    }
+
+    .card h3 { font-size: 28px; margin-bottom: 10px; }
+
+    .image-card {
+      position: relative;
+      min-height: 290px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(255,255,255,0.45);
+    }
+
+    .gallery-grid .image-card:nth-child(1) { background-image: linear-gradient(rgba(35,23,18,0.15), rgba(35,23,18,0.2)), url('https://images.unsplash.com/photo-1523263685509-57c1d050d19b?auto=format&fit=crop&w=1000&q=80'); }
+    .gallery-grid .image-card:nth-child(2) { background-image: linear-gradient(rgba(35,23,18,0.15), rgba(35,23,18,0.2)), url('https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=1000&q=80'); }
+    .gallery-grid .image-card:nth-child(3) { background-image: linear-gradient(rgba(35,23,18,0.15), rgba(35,23,18,0.2)), url('https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1000&q=80'); }
+    .gallery-grid .image-card:nth-child(4) { background-image: linear-gradient(rgba(35,23,18,0.15), rgba(35,23,18,0.2)), url('https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=1000&q=80'); }
+    .gallery-grid .image-card:nth-child(5) { background-image: linear-gradient(rgba(35,23,18,0.15), rgba(35,23,18,0.2)), url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=80'); }
+    .gallery-grid .image-card:nth-child(6) { background-image: linear-gradient(rgba(35,23,18,0.15), rgba(35,23,18,0.2)), url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80'); }
+
+    .image-label {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      background: rgba(255,255,255,0.85);
+      color: var(--text);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 10px 12px;
+      border-radius: 999px;
+    }
+
+    .quote {
+      font-size: 42px;
+      line-height: 1;
+      color: var(--muted);
+    }
+
+    .contact-shell {
+      background: var(--dark);
+      color: white;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 40px;
+    }
+
+    .hours-card {
+      background: rgba(255,255,255,0.08);
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      font-size: 14px;
+    }
+
+    .hours-row:last-child { border-bottom: 0; }
+    .muted-light { color: rgba(255,255,255,0.72); }
+
+    footer {
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid,
+      .services-grid,
+      .gallery-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .services-grid .card:last-child,
+      .testimonials-grid .card:last-child { grid-column: span 2; }
+    }
+
+    @media (max-width: 760px) {
+      .menu { display: none; }
+      .hero,
+      section { padding: 26px 0; }
+      .hero-grid,
+      .hero-visual,
+      .about-grid,
+      .contact-grid,
+      .services-grid,
+      .gallery-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+      .services-grid .card:last-child,
+      .testimonials-grid .card:last-child { grid-column: auto; }
+      .tile.offset { margin-top: 0; }
+      .section-card,
+      .contact-shell { padding: 28px; }
+      .brand { font-size: 22px; }
+      .hero h1 { font-size: 42px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand-wrap">
+        <div class="brand">INSTYLE</div>
+        <small>Hair Design • Holbeach</small>
+      </div>
+      <nav class="menu">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#hours">Hours</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="button-outline" href="#contact">Book now</a>
     </div>
-  );
-}
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Elegant local salon</span>
+          <h1>Friendly, modern hairdressing with a calm boutique feel.</h1>
+          <p class="lead">A polished salon website concept for Instyle Hair Design — warm, welcoming, and designed to feel more premium while still grounded in the local community.</p>
+          <div class="hero-actions">
+            <a class="button" href="#services">Explore services</a>
+            <a class="button-outline" href="#gallery">View gallery</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="tile large one"></div>
+          <div class="tile large two offset"></div>
+          <div class="info-card">
+            <span class="eyebrow">Visit us</span>
+            <h3>50 High Street</h3>
+            <p>Holbeach, Spalding, PE12 7ED</p>
+            <span class="eyebrow" style="margin-top: 18px;">Call</span>
+            <p style="font-size: 24px; margin: 8px 0 0;">01406 423464</p>
+          </div>
+          <div class="tile" style="background-image: linear-gradient(rgba(38,28,22,0.16), rgba(38,28,22,0.1)), url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1000&q=80');"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container section-card about-grid">
+        <div>
+          <span class="eyebrow">About Instyle</span>
+          <h2 style="margin-top: 12px;">A welcoming salon brand with room to grow.</h2>
+          <p style="margin-top: 20px; max-width: 700px; color: #5f5047;">This direction borrows the elegant, image-led feeling of Fifth Avenue and adapts it for Instyle with a softer, community-led tone. The layout is designed to make services, opening hours, location, and contact details feel instantly clear while still looking elevated.</p>
+        </div>
+        <aside class="aside-dark">
+          <span class="eyebrow" style="color: rgba(255,255,255,0.68);">Brand feel</span>
+          <ul>
+            <li>Elegant but approachable</li>
+            <li>Soft neutrals and editorial spacing</li>
+            <li>Strong local trust signals</li>
+            <li>Clear mobile-first booking journey</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Services</span>
+            <h2>What clients can book</h2>
+          </div>
+        </div>
+        <div class="services-grid">
+          <article class="card">
+            <h3>Cut &amp; Finish</h3>
+            <p>Beautiful everyday styling with a polished, salon-fresh finish tailored to each client.</p>
+          </article>
+          <article class="card">
+            <h3>Colour Services</h3>
+            <p>From subtle refreshes to full transformations, with a calm consultation-led approach.</p>
+          </article>
+          <article class="card">
+            <h3>Blow Dries &amp; Occasion Hair</h3>
+            <p>Soft movement, volume, and elegant styling for weekends, events, and special moments.</p>
+          </article>
+          <article class="card">
+            <h3>Treatments</h3>
+            <p>Shine, strength, and care-focused add-ons designed to keep hair looking and feeling healthy.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container section-card" style="background: var(--bg-soft);">
+        <span class="eyebrow">Gallery</span>
+        <h2 style="margin-top: 12px;">A visual, social-first showcase</h2>
+        <div class="gallery-grid" style="margin-top: 26px;">
+          <div class="image-card"><span class="image-label">Lived-in blonde refresh</span></div>
+          <div class="image-card"><span class="image-label">Glossy brunette colour</span></div>
+          <div class="image-card"><span class="image-label">Soft waves styling</span></div>
+          <div class="image-card"><span class="image-label">Classic bob finish</span></div>
+          <div class="image-card"><span class="image-label">Occasion styling</span></div>
+          <div class="image-card"><span class="image-label">Boutique salon feel</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container testimonials-grid">
+        <article class="card">
+          <div class="quote">“</div>
+          <p>A warm, friendly salon experience with beautiful results and a team that really listens.</p>
+          <span class="eyebrow">Local client feel</span>
+        </article>
+        <article class="card">
+          <div class="quote">“</div>
+          <p>Stylish without feeling intimidating — welcoming, professional, and easy to recommend.</p>
+          <span class="eyebrow">Brand tone</span>
+        </article>
+        <article class="card">
+          <div class="quote">“</div>
+          <p>The website should feel as lovely as the appointment itself — polished, calm, and easy to trust.</p>
+          <span class="eyebrow">Design intention</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-shell contact-grid">
+        <div>
+          <span class="eyebrow" style="color: rgba(255,255,255,0.68);">Contact &amp; booking</span>
+          <h2 style="margin-top: 12px; font-size: clamp(30px, 4vw, 48px);">Ready for the live version?</h2>
+          <p class="muted-light" style="margin-top: 20px; max-width: 660px;">Replace these placeholders with the real booking link, Facebook gallery, service list, team details, and salon photography. The structure below is now proper static HTML, so it can be uploaded directly as a working page.</p>
+          <div style="margin-top: 26px;">
+            <p>01406 423464</p>
+            <p>50 High Street, Holbeach, Spalding, PE12 7ED</p>
+            <p><a href="https://www.facebook.com/Instyleholbeach/" target="_blank" rel="noopener">Facebook: /Instyleholbeach</a></p>
+          </div>
+        </div>
+
+        <div class="hours-card" id="hours">
+          <span class="eyebrow" style="color: rgba(255,255,255,0.68);">Opening hours</span>
+          <div style="margin-top: 18px;">
+            <div class="hours-row"><span>Monday</span><span class="muted-light">Closed</span></div>
+            <div class="hours-row"><span>Tuesday</span><span class="muted-light">9:00 – 17:00</span></div>
+            <div class="hours-row"><span>Wednesday</span><span class="muted-light">9:00 – 16:00</span></div>
+            <div class="hours-row"><span>Thursday</span><span class="muted-light">9:00 – 20:00</span></div>
+            <div class="hours-row"><span>Friday</span><span class="muted-light">8:30 – 17:00</span></div>
+            <div class="hours-row"><span>Saturday</span><span class="muted-light">8:30 – 14:00</span></div>
+            <div class="hours-row"><span>Sunday</span><span class="muted-light">Closed</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Instyle Hair Design concept site • designed with a Fifth Avenue-inspired boutique feel</div>
+  </footer>
+</body>
+</html>
