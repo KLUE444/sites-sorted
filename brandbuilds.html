@@ -1,0 +1,195 @@
+// 👉 PLACE THIS IN: src/ConsultancyWebsite.jsx
+
+import React from "react";
+import { ArrowRight } from "lucide-react";
+
+export default function ConsultancyWebsite() {
+  return (
+    <div style={{fontFamily: "Inter, sans-serif", background:"#F2F5F8", color:"#1C1C1C"}}>
+
+      {/* NAVBAR */}
+      <header style={{
+        position:"sticky", top:0, background:"#F2F5F8",
+        padding:"20px 40px", display:"flex",
+        justifyContent:"space-between", alignItems:"center",
+        borderBottom:"1px solid #ddd"
+      }}>
+        <div style={{fontWeight:"600", color:"#0D2137"}}>LOGO</div>
+
+        <nav style={{display:"flex", gap:"20px"}}>
+          <a href="#services">What We Do</a>
+          <a href="#process">How It Works</a>
+          <a href="#profiles">Who It’s For</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#about">About</a>
+        </nav>
+
+        <a href="#contact" style={{
+          background:"#B8922A",
+          padding:"10px 18px",
+          borderRadius:"30px",
+          textDecoration:"none",
+          color:"#0D2137",
+          fontWeight:"600"
+        }}>
+          Book a Call
+        </a>
+      </header>
+
+      {/* HERO */}
+      <section style={{padding:"80px 40px", maxWidth:"1100px", margin:"auto"}}>
+        <h1 style={{fontSize:"48px", color:"#0D2137"}}>
+          Your idea. Our expertise. A product that’s ready for market.
+        </h1>
+
+        <p style={{marginTop:"20px", maxWidth:"600px"}}>
+          We help entrepreneurs, founders and growing brands take a product idea from concept to a compliant, market-ready product.
+        </p>
+
+        <a href="#contact" style={{
+          display:"inline-block",
+          marginTop:"30px",
+          background:"#0D2137",
+          color:"white",
+          padding:"14px 24px",
+          borderRadius:"30px",
+          textDecoration:"none"
+        }}>
+          Book Your Discovery Call →
+        </a>
+      </section>
+
+      {/* CLIENT TYPES */}
+      <section style={{padding:"60px 40px", maxWidth:"1100px", margin:"auto"}}>
+        <div style={{display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:"20px"}}>
+          {[
+            "First-Time Founder",
+            "Growing Brand",
+            "Corporate Spin-Out"
+          ].map((item)=>(
+            <div key={item} style={{
+              background:"white",
+              padding:"20px",
+              borderRadius:"20px"
+            }}>
+              <h3 style={{color:"#0D2137"}}>{item}</h3>
+              <p>Short description of this client type.</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section id="services" style={{padding:"80px 40px", background:"white"}}>
+        <div style={{maxWidth:"1100px", margin:"auto", display:"grid", gridTemplateColumns:"1fr 1fr", gap:"40px"}}>
+
+          <div style={{background:"#0D2137", color:"white", padding:"30px", borderRadius:"20px"}}>
+            <h2>Core Product Development</h2>
+            <p>Concept → compliant product delivery.</p>
+            <ul>
+              <li>Supplier sourcing</li>
+              <li>Specifications</li>
+              <li>Compliance</li>
+              <li>Imports & logistics</li>
+            </ul>
+          </div>
+
+          <div style={{background:"#F2F5F8", padding:"30px", borderRadius:"20px"}}>
+            <h2>Brand Development</h2>
+            <p>Optional add-on service.</p>
+            <ul>
+              <li>Brand strategy</li>
+              <li>Logo design</li>
+              <li>Packaging</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section id="process" style={{padding:"80px 40px", maxWidth:"1100px", margin:"auto"}}>
+        <h2 style={{color:"#0D2137"}}>How It Works</h2>
+
+        <ol style={{marginTop:"20px"}}>
+          {[
+            "Discovery enquiry",
+            "Free call",
+            "Proposal",
+            "Deposit",
+            "Onboarding",
+            "Execution",
+            "Delivery",
+            "Retainer"
+          ].map((step)=>(
+            <li key={step} style={{marginBottom:"10px"}}>{step}</li>
+          ))}
+        </ol>
+      </section>
+
+      {/* PRICING */}
+      <section id="pricing" style={{padding:"80px 40px", background:"white"}}>
+        <div style={{maxWidth:"1100px", margin:"auto", display:"grid", gridTemplateColumns:"1fr 1fr 1fr 1fr", gap:"20px"}}>
+
+          <div style={{padding:"20px", border:"1px solid #ddd", borderRadius:"20px"}}>
+            <h3>Individual</h3>
+            <p>From £750</p>
+          </div>
+
+          <div style={{padding:"20px", background:"#0D2137", color:"white", borderRadius:"20px"}}>
+            <h3>Full Project</h3>
+            <p>£6k–£50k</p>
+          </div>
+
+          <div style={{padding:"20px", border:"1px solid #ddd", borderRadius:"20px"}}>
+            <h3>Brand Add-On</h3>
+            <p>From £5,500</p>
+          </div>
+
+          <div style={{padding:"20px", border:"1px solid #ddd", borderRadius:"20px"}}>
+            <h3>Retainer</h3>
+            <p>From £750/month</p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ABOUT */}
+      <section id="about" style={{padding:"80px 40px", maxWidth:"1100px", margin:"auto"}}>
+        <h2 style={{color:"#0D2137"}}>About</h2>
+        <p>25 years experience. Founder-led consultancy. No juniors.</p>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact" style={{padding:"80px 40px"}}>
+        <div style={{maxWidth:"600px", margin:"auto"}}>
+          <h2 style={{color:"#0D2137"}}>Book a Call</h2>
+
+          <input placeholder="Name" style={{width:"100%", margin:"10px 0", padding:"10px"}} />
+          <input placeholder="Email" style={{width:"100%", margin:"10px 0", padding:"10px"}} />
+          <textarea placeholder="Your project" style={{width:"100%", margin:"10px 0", padding:"10px"}} />
+
+          <button style={{
+            background:"#0D2137",
+            color:"white",
+            padding:"12px 20px",
+            borderRadius:"20px",
+            border:"none"
+          }}>
+            Send
+          </button>
+
+          <p style={{marginTop:"20px"}}>
+            Free 60-minute call. No obligation.
+          </p>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer style={{padding:"40px", background:"white", textAlign:"center"}}>
+        <p>Independent UK product consultancy</p>
+      </footer>
+
+    </div>
+  );
+}
