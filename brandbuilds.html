@@ -1,195 +1,972 @@
-// 👉 PLACE THIS IN: src/ConsultancyWebsite.jsx
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Consultancy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#0D2137;
+      --gold:#B8922A;
+      --offwhite:#F2F5F8;
+      --charcoal:#1C1C1C;
+      --muted:#5A6776;
+      --line:#D9E1E8;
+      --white:#ffffff;
+    }
 
-import React from "react";
-import { ArrowRight } from "lucide-react";
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:'Inter',sans-serif;
+      background:var(--offwhite);
+      color:var(--charcoal);
+      line-height:1.6;
+    }
 
-export default function ConsultancyWebsite() {
-  return (
-    <div style={{fontFamily: "Inter, sans-serif", background:"#F2F5F8", color:"#1C1C1C"}}>
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%}
+    .container{
+      width:min(1200px, calc(100% - 40px));
+      margin:0 auto;
+    }
 
-      {/* NAVBAR */}
-      <header style={{
-        position:"sticky", top:0, background:"#F2F5F8",
-        padding:"20px 40px", display:"flex",
-        justifyContent:"space-between", alignItems:"center",
-        borderBottom:"1px solid #ddd"
-      }}>
-        <div style={{fontWeight:"600", color:"#0D2137"}}>LOGO</div>
+    .section{
+      padding:90px 0;
+    }
 
-        <nav style={{display:"flex", gap:"20px"}}>
-          <a href="#services">What We Do</a>
-          <a href="#process">How It Works</a>
-          <a href="#profiles">Who It’s For</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#about">About</a>
-        </nav>
+    .eyebrow{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.28em;
+      color:var(--gold);
+      font-weight:700;
+      margin-bottom:18px;
+    }
 
-        <a href="#contact" style={{
-          background:"#B8922A",
-          padding:"10px 18px",
-          borderRadius:"30px",
-          textDecoration:"none",
-          color:"#0D2137",
-          fontWeight:"600"
-        }}>
-          Book a Call
-        </a>
-      </header>
+    h1,h2,h3,h4,p{margin:0}
+    h1{
+      font-size:clamp(2.4rem, 5vw, 4.8rem);
+      line-height:1.02;
+      letter-spacing:-.04em;
+      color:var(--navy);
+      font-weight:800;
+    }
 
-      {/* HERO */}
-      <section style={{padding:"80px 40px", maxWidth:"1100px", margin:"auto"}}>
-        <h1 style={{fontSize:"48px", color:"#0D2137"}}>
-          Your idea. Our expertise. A product that’s ready for market.
-        </h1>
+    h2{
+      font-size:clamp(2rem, 4vw, 3.4rem);
+      line-height:1.08;
+      letter-spacing:-.03em;
+      color:var(--navy);
+      font-weight:700;
+    }
 
-        <p style={{marginTop:"20px", maxWidth:"600px"}}>
-          We help entrepreneurs, founders and growing brands take a product idea from concept to a compliant, market-ready product.
+    h3{
+      font-size:1.6rem;
+      line-height:1.2;
+      color:var(--navy);
+      font-weight:700;
+    }
+
+    .lead{
+      margin-top:26px;
+      font-size:1.12rem;
+      max-width:760px;
+      color:#3F4C5C;
+    }
+
+    .muted{
+      color:#506071;
+    }
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(242,245,248,.92);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(13,33,55,.08);
+    }
+
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      min-height:82px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0;
+    }
+
+    .brand-mark{
+      width:44px;
+      height:44px;
+      border-radius:16px;
+      background:var(--navy);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:12px;
+      letter-spacing:.2em;
+      font-weight:700;
+      flex:0 0 auto;
+    }
+
+    .brand-copy{
+      line-height:1.2;
+    }
+
+    .brand-copy strong{
+      display:block;
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      font-size:12px;
+      color:var(--navy);
+    }
+
+    .brand-copy span{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin-top:4px;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:26px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .nav-links a{
+      font-size:14px;
+      font-weight:500;
+      color:#28405C;
+    }
+
+    .nav-links a:hover{
+      color:var(--navy);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:700;
+      transition:.2s ease;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .btn-gold{
+      background:var(--gold);
+      color:var(--navy);
+    }
+
+    .btn-navy{
+      background:var(--navy);
+      color:#fff;
+    }
+
+    .btn-outline{
+      border:1px solid #C8D2DB;
+      color:var(--navy);
+      background:transparent;
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      padding:90px 0 60px;
+    }
+
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto 0;
+      height:560px;
+      background:
+        radial-gradient(circle at top right, rgba(184,146,42,.14), transparent 32%),
+        linear-gradient(180deg, rgba(13,33,55,.04), transparent 70%);
+      pointer-events:none;
+    }
+
+    .hero-grid{
+      position:relative;
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:56px;
+      align-items:end;
+    }
+
+    .hero-panel{
+      background:var(--navy);
+      color:#fff;
+      border-radius:32px;
+      padding:32px;
+      box-shadow:0 28px 90px rgba(13,33,55,.24);
+    }
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .mini-card{
+      border:1px solid rgba(255,255,255,.1);
+      background:rgba(255,255,255,.05);
+      border-radius:24px;
+      padding:20px;
+    }
+
+    .mini-card.full{
+      grid-column:1 / -1;
+    }
+
+    .mini-card .label{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      color:var(--gold);
+      font-weight:600;
+    }
+
+    .mini-card p{
+      margin-top:10px;
+      font-size:1.05rem;
+      line-height:1.6;
+    }
+
+    .actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:34px;
+    }
+
+    .cards-3,
+    .cards-4,
+    .cards-2{
+      display:grid;
+      gap:24px;
+    }
+
+    .cards-3{grid-template-columns:repeat(3,1fr)}
+    .cards-4{grid-template-columns:repeat(4,1fr)}
+    .cards-2{grid-template-columns:repeat(2,1fr)}
+
+    .card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:28px;
+      box-shadow:0 18px 50px rgba(13,33,55,.06);
+      height:100%;
+    }
+
+    .card.dark{
+      background:var(--navy);
+      color:#fff;
+    }
+
+    .card.soft{
+      background:#F8FAFC;
+    }
+
+    .card .top-label{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.24em;
+      font-weight:700;
+      color:var(--gold);
+      margin-bottom:14px;
+    }
+
+    .card.dark h3,
+    .card.dark h2,
+    .card.dark p,
+    .card.dark li{
+      color:#fff;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:.75fr 1.25fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    .value-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
+
+    .value-item{
+      display:flex;
+      gap:12px;
+      padding:16px;
+      border-radius:20px;
+      background:#F6F8FB;
+      color:#314255;
+      font-size:14px;
+    }
+
+    .tick{
+      color:var(--gold);
+      font-weight:800;
+      font-size:18px;
+      line-height:1;
+      margin-top:2px;
+    }
+
+    .service-list,
+    .plain-list{
+      list-style:none;
+      padding:0;
+      margin:24px 0 0;
+      display:grid;
+      gap:12px;
+    }
+
+    .service-list.two-col{
+      grid-template-columns:repeat(2,1fr);
+    }
+
+    .service-list li{
+      padding:14px 16px;
+      border-radius:18px;
+      font-size:14px;
+    }
+
+    .card.dark .service-list li{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.1);
+    }
+
+    .card.soft .service-list li,
+    .card .service-list.light li{
+      background:#F8FAFC;
+      border:1px solid var(--line);
+      color:#324456;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .step-number{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.26em;
+      color:var(--gold);
+      font-weight:700;
+      margin-bottom:14px;
+    }
+
+    .profile-block p + p{
+      margin-top:14px;
+    }
+
+    .subheading{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      color:var(--gold);
+      font-weight:700;
+      margin-top:22px;
+      margin-bottom:8px;
+    }
+
+    .pricing-featured{
+      background:var(--navy);
+      color:#fff;
+      border-color:var(--gold);
+    }
+
+    .pricing-featured h3,
+    .pricing-featured p{
+      color:#fff;
+    }
+
+    .pricing-price{
+      font-size:2rem;
+      font-weight:700;
+      color:var(--navy);
+      margin-bottom:16px;
+    }
+
+    .pricing-featured .pricing-price{
+      color:#fff;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:28px;
+    }
+
+    form{
+      display:grid;
+      gap:18px;
+    }
+
+    label{
+      display:block;
+      font-size:14px;
+      font-weight:600;
+      color:var(--navy);
+      margin-bottom:8px;
+    }
+
+    input, textarea{
+      width:100%;
+      border:1px solid #D3DCE5;
+      background:#FBFCFD;
+      border-radius:18px;
+      padding:14px 16px;
+      font:inherit;
+      color:var(--charcoal);
+      outline:none;
+    }
+
+    input:focus, textarea:focus{
+      border-color:var(--gold);
+      box-shadow:0 0 0 4px rgba(184,146,42,.12);
+    }
+
+    .calendar-placeholder{
+      min-height:360px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      border:1px solid rgba(255,255,255,.1);
+      background:rgba(255,255,255,.05);
+      border-radius:28px;
+      padding:32px;
+      margin-top:20px;
+    }
+
+    .contact-mini{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-top:24px;
+    }
+
+    .contact-mini .mini-card{
+      border-radius:20px;
+    }
+
+    .footer{
+      background:#fff;
+      border-top:1px solid var(--line);
+      padding:40px 0;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:24px;
+      align-items:end;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      color:#405164;
+      font-size:14px;
+    }
+
+    .fade-in{
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+
+    .fade-in.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media (max-width: 1100px){
+      .hero-grid,
+      .cards-2,
+      .contact-grid,
+      .split{
+        grid-template-columns:1fr;
+      }
+
+      .cards-3{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .cards-4,
+      .steps{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px){
+      .nav-inner{
+        flex-wrap:wrap;
+        justify-content:center;
+        padding:14px 0;
+      }
+
+      .nav-links{
+        width:100%;
+        gap:14px 18px;
+      }
+
+      .hero{
+        padding-top:60px;
+      }
+
+      .cards-3,
+      .cards-4,
+      .steps,
+      .value-grid,
+      .service-list.two-col,
+      .contact-mini{
+        grid-template-columns:1fr;
+      }
+
+      .section{
+        padding:70px 0;
+      }
+
+      .container{
+        width:min(1200px, calc(100% - 28px));
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#home" class="brand">
+        <div class="brand-mark">LOGO</div>
+        <div class="brand-copy">
+          <strong>Product Consultancy</strong>
+          <span>Independent UK-based consultancy</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#services">What We Do</a>
+        <a href="#process">How It Works</a>
+        <a href="#profiles">Who It’s For</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="#contact" class="btn btn-gold">Book a Call</a>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="fade-in visible">
+        <div class="eyebrow">Independent product development consultancy</div>
+        <h1>Your idea. Our expertise. A product that’s ready for market.</h1>
+        <p class="lead">
+          We help entrepreneurs, founders and growing brands take a product idea from early concept to a compliant, commercially viable and market-ready product. From sourcing and specifications to UK compliance, import coordination and launch support, every project is led by an experienced senior expert.
         </p>
-
-        <a href="#contact" style={{
-          display:"inline-block",
-          marginTop:"30px",
-          background:"#0D2137",
-          color:"white",
-          padding:"14px 24px",
-          borderRadius:"30px",
-          textDecoration:"none"
-        }}>
-          Book Your Discovery Call →
-        </a>
-      </section>
-
-      {/* CLIENT TYPES */}
-      <section style={{padding:"60px 40px", maxWidth:"1100px", margin:"auto"}}>
-        <div style={{display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:"20px"}}>
-          {[
-            "First-Time Founder",
-            "Growing Brand",
-            "Corporate Spin-Out"
-          ].map((item)=>(
-            <div key={item} style={{
-              background:"white",
-              padding:"20px",
-              borderRadius:"20px"
-            }}>
-              <h3 style={{color:"#0D2137"}}>{item}</h3>
-              <p>Short description of this client type.</p>
-            </div>
-          ))}
+        <div class="actions">
+          <a href="#contact" class="btn btn-navy">Book Your Discovery Call</a>
+          <a href="#services" class="btn btn-outline">Explore Services</a>
         </div>
-      </section>
+      </div>
 
-      {/* SERVICES */}
-      <section id="services" style={{padding:"80px 40px", background:"white"}}>
-        <div style={{maxWidth:"1100px", margin:"auto", display:"grid", gridTemplateColumns:"1fr 1fr", gap:"40px"}}>
-
-          <div style={{background:"#0D2137", color:"white", padding:"30px", borderRadius:"20px"}}>
-            <h2>Core Product Development</h2>
-            <p>Concept → compliant product delivery.</p>
-            <ul>
-              <li>Supplier sourcing</li>
-              <li>Specifications</li>
-              <li>Compliance</li>
-              <li>Imports & logistics</li>
-            </ul>
+      <div class="hero-panel fade-in">
+        <div class="mini-grid">
+          <div class="mini-card">
+            <div class="label">Focus</div>
+            <p>Concept to compliant product delivery</p>
           </div>
-
-          <div style={{background:"#F2F5F8", padding:"30px", borderRadius:"20px"}}>
-            <h2>Brand Development</h2>
-            <p>Optional add-on service.</p>
-            <ul>
-              <li>Brand strategy</li>
-              <li>Logo design</li>
-              <li>Packaging</li>
-            </ul>
+          <div class="mini-card">
+            <div class="label">Model</div>
+            <p>Senior-led consultancy, never delegated</p>
           </div>
-
+          <div class="mini-card full">
+            <div class="label">Specialism</div>
+            <p>Global product sourcing, UK regulatory compliance, customs coordination and optional brand development.</p>
+          </div>
         </div>
-      </section>
+      </div>
+    </div>
 
-      {/* PROCESS */}
-      <section id="process" style={{padding:"80px 40px", maxWidth:"1100px", margin:"auto"}}>
-        <h2 style={{color:"#0D2137"}}>How It Works</h2>
-
-        <ol style={{marginTop:"20px"}}>
-          {[
-            "Discovery enquiry",
-            "Free call",
-            "Proposal",
-            "Deposit",
-            "Onboarding",
-            "Execution",
-            "Delivery",
-            "Retainer"
-          ].map((step)=>(
-            <li key={step} style={{marginBottom:"10px"}}>{step}</li>
-          ))}
-        </ol>
-      </section>
-
-      {/* PRICING */}
-      <section id="pricing" style={{padding:"80px 40px", background:"white"}}>
-        <div style={{maxWidth:"1100px", margin:"auto", display:"grid", gridTemplateColumns:"1fr 1fr 1fr 1fr", gap:"20px"}}>
-
-          <div style={{padding:"20px", border:"1px solid #ddd", borderRadius:"20px"}}>
-            <h3>Individual</h3>
-            <p>From £750</p>
-          </div>
-
-          <div style={{padding:"20px", background:"#0D2137", color:"white", borderRadius:"20px"}}>
-            <h3>Full Project</h3>
-            <p>£6k–£50k</p>
-          </div>
-
-          <div style={{padding:"20px", border:"1px solid #ddd", borderRadius:"20px"}}>
-            <h3>Brand Add-On</h3>
-            <p>From £5,500</p>
-          </div>
-
-          <div style={{padding:"20px", border:"1px solid #ddd", borderRadius:"20px"}}>
-            <h3>Retainer</h3>
-            <p>From £750/month</p>
-          </div>
-
+    <div class="container" style="margin-top:64px;">
+      <div class="cards-3">
+        <div class="card fade-in">
+          <div class="top-label">Client profile</div>
+          <h3>The First-Time Founder</h3>
+          <p class="muted" style="margin-top:16px;">You have a promising idea and need a trusted expert to turn it into a viable product without expensive mistakes.</p>
         </div>
-      </section>
 
-      {/* ABOUT */}
-      <section id="about" style={{padding:"80px 40px", maxWidth:"1100px", margin:"auto"}}>
-        <h2 style={{color:"#0D2137"}}>About</h2>
-        <p>25 years experience. Founder-led consultancy. No juniors.</p>
-      </section>
+        <div class="card fade-in">
+          <div class="top-label">Client profile</div>
+          <h3>The Growing Brand</h3>
+          <p class="muted" style="margin-top:16px;">You already sell products but need experienced support to fix sourcing, improve compliance or steady operations.</p>
+        </div>
 
-      {/* CONTACT */}
-      <section id="contact" style={{padding:"80px 40px"}}>
-        <div style={{maxWidth:"600px", margin:"auto"}}>
-          <h2 style={{color:"#0D2137"}}>Book a Call</h2>
+        <div class="card fade-in">
+          <div class="top-label">Client profile</div>
+          <h3>The Corporate Spin-Out</h3>
+          <p class="muted" style="margin-top:16px;">You need senior expertise, clear structure and credible delivery without the overhead of a large agency team.</p>
+        </div>
+      </div>
+    </div>
 
-          <input placeholder="Name" style={{width:"100%", margin:"10px 0", padding:"10px"}} />
-          <input placeholder="Email" style={{width:"100%", margin:"10px 0", padding:"10px"}} />
-          <textarea placeholder="Your project" style={{width:"100%", margin:"10px 0", padding:"10px"}} />
+    <div class="container" style="margin-top:64px;">
+      <div class="card fade-in">
+        <div class="split">
+          <div>
+            <div class="eyebrow" style="margin-bottom:12px;">Why us</div>
+            <h2 style="font-size:2.2rem;">Practical expertise without agency bloat.</h2>
+          </div>
+          <div class="value-grid">
+            <div class="value-item"><span class="tick">✓</span><span>25 years of practical sourcing, compliance and import experience</span></div>
+            <div class="value-item"><span class="tick">✓</span><span>Senior-level guidance from first conversation to final handover</span></div>
+            <div class="value-item"><span class="tick">✓</span><span>Clear fixed-fee proposals with no vague scope creep</span></div>
+            <div class="value-item"><span class="tick">✓</span><span>Commercially grounded advice that balances speed, cost and risk</span></div>
+            <div class="value-item"><span class="tick">✓</span><span>A compliance-first mindset so products are ready for market, not just manufacture</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <button style={{
-            background:"#0D2137",
-            color:"white",
-            padding:"12px 20px",
-            borderRadius:"20px",
-            border:"none"
-          }}>
-            Send
-          </button>
+  <section class="section" id="services" style="background:#fff;">
+    <div class="container">
+      <div class="fade-in">
+        <div class="eyebrow">What we do</div>
+        <h2>Two service pillars, built around real-world product delivery.</h2>
+        <p class="lead">
+          Whether you need end-to-end product development support or a stronger brand to bring it to life, our services are designed to be commercially practical, clearly scoped and tailored to your stage of growth.
+        </p>
+      </div>
 
-          <p style={{marginTop:"20px"}}>
-            Free 60-minute call. No obligation.
+      <div class="cards-2" style="margin-top:48px;">
+        <div class="card dark fade-in">
+          <div class="top-label">Pillar 1</div>
+          <h3 style="color:#fff;">Core Product Development</h3>
+          <p style="margin-top:16px;color:rgba(255,255,255,.82);">
+            End-to-end guidance to move a product from concept through sourcing, compliance and final market readiness.
+          </p>
+          <ul class="service-list two-col">
+            <li>Concept feasibility</li>
+            <li>Technical specification writing</li>
+            <li>Supplier identification and vetting</li>
+            <li>Factory audits</li>
+            <li>Sample management</li>
+            <li>UK regulatory compliance</li>
+            <li>CE/UKCA marking</li>
+            <li>HS code classification</li>
+            <li>Freight and customs coordination</li>
+            <li>Quality control inspections</li>
+            <li>Packaging compliance</li>
+          </ul>
+        </div>
+
+        <div class="card soft fade-in">
+          <div class="top-label">Pillar 2</div>
+          <h3>Brand Development Add-On</h3>
+          <p class="muted" style="margin-top:16px;">
+            An optional creative package for businesses that need a distinctive identity, cohesive visual system and polished assets to support launch.
+          </p>
+          <ul class="service-list two-col light">
+            <li>Brand strategy and naming</li>
+            <li>Logo design</li>
+            <li>Colour and typography</li>
+            <li>Brand style guide</li>
+            <li>Packaging design</li>
+            <li>Digital brand assets</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="process">
+    <div class="container">
+      <div class="fade-in">
+        <div class="eyebrow">How it works</div>
+        <h2>A clear eight-step process from first conversation to handover.</h2>
+        <p class="lead">
+          Every project follows a structured path so expectations stay aligned, timelines remain visible and you always know what comes next.
+        </p>
+      </div>
+
+      <div class="steps" style="margin-top:48px;">
+        <div class="card fade-in"><div class="step-number">Step 1</div><h3 style="font-size:1.3rem;">Discovery enquiry</h3></div>
+        <div class="card fade-in"><div class="step-number">Step 2</div><h3 style="font-size:1.3rem;">Free 60-minute Discovery Call</h3></div>
+        <div class="card fade-in"><div class="step-number">Step 3</div><h3 style="font-size:1.3rem;">Written proposal with fixed fees</h3></div>
+        <div class="card fade-in"><div class="step-number">Step 4</div><h3 style="font-size:1.3rem;">Agreement and 50% deposit</h3></div>
+        <div class="card fade-in"><div class="step-number">Step 5</div><h3 style="font-size:1.3rem;">Onboarding session and product brief</h3></div>
+        <div class="card fade-in"><div class="step-number">Step 6</div><h3 style="font-size:1.3rem;">Project execution with weekly updates</h3></div>
+        <div class="card fade-in"><div class="step-number">Step 7</div><h3 style="font-size:1.3rem;">Final delivery and handover</h3></div>
+        <div class="card fade-in"><div class="step-number">Step 8</div><h3 style="font-size:1.3rem;">Optional ongoing retainer</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="profiles" style="background:#fff;">
+    <div class="container">
+      <div class="fade-in">
+        <div class="eyebrow">Who it’s for</div>
+        <h2>Different stages. Different pressures. One senior expert throughout.</h2>
+        <p class="lead">
+          We work with founders, brands and spin-out teams who need experienced product development support without the complexity of managing a large external agency.
+        </p>
+      </div>
+
+      <div class="cards-3" style="margin-top:48px;">
+        <div class="card profile-block fade-in">
+          <h3>First-Time Founder</h3>
+          <p class="muted" style="margin-top:18px;">You have a strong product idea but little or no manufacturing experience, and you want to avoid costly missteps.</p>
+          <div class="subheading">Key pain point</div>
+          <p class="muted">Fear of getting it wrong, choosing the wrong supplier or missing essential compliance requirements.</p>
+          <div class="subheading">What they get</div>
+          <p class="muted">A clear route from idea to launch-ready product, with practical guidance and informed decisions at every step.</p>
+        </div>
+
+        <div class="card profile-block fade-in">
+          <h3>Growing Brand</h3>
+          <p class="muted" style="margin-top:18px;">You already run a business, but a supplier issue, compliance problem or operational gap needs experienced intervention.</p>
+          <div class="subheading">Key pain point</div>
+          <p class="muted">Unreliable partners, production friction or regulatory risks that threaten speed, margin or reputation.</p>
+          <div class="subheading">What they get</div>
+          <p class="muted">Fast, credible support that stabilises delivery, resolves issues and strengthens your product pipeline.</p>
+        </div>
+
+        <div class="card profile-block fade-in">
+          <h3>Corporate Spin-Out</h3>
+          <p class="muted" style="margin-top:18px;">You have budget, ambition and internal momentum, but you need a trusted senior operator to lead the external workstream.</p>
+          <div class="subheading">Key pain point</div>
+          <p class="muted">You do not want to be handed from strategist to account manager to junior delivery team.</p>
+          <div class="subheading">What they get</div>
+          <p class="muted">A single expert partner who can advise strategically, execute confidently and communicate with clarity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="fade-in">
+        <div class="eyebrow">Pricing</div>
+        <h2>Fixed-fee structures, agreed upfront.</h2>
+        <p class="lead">
+          We price clearly and commercially. Every engagement is scoped in writing, with fixed fees agreed before work begins so you can plan with confidence.
+        </p>
+      </div>
+
+      <div class="cards-4" style="margin-top:48px;">
+        <div class="card fade-in">
+          <div class="top-label">Individual Services</div>
+          <div class="pricing-price">From £750</div>
+          <p class="muted">Targeted support for defined needs such as feasibility, specification writing, supplier search or compliance review.</p>
+        </div>
+
+        <div class="card pricing-featured fade-in">
+          <div class="top-label" style="color:#E6C46B;">Full Project Engagement</div>
+          <div class="pricing-price">£6,000–£50,000</div>
+          <p>End-to-end delivery for businesses that need an experienced partner to move a product from concept to launch readiness.</p>
+        </div>
+
+        <div class="card fade-in">
+          <div class="top-label">Brand Development Add-On</div>
+          <div class="pricing-price">From £5,500</div>
+          <p class="muted">A complete brand package including strategy, logo, typography, colour system and practical brand guidelines.</p>
+        </div>
+
+        <div class="card fade-in">
+          <div class="top-label">Ongoing Retainer</div>
+          <div class="pricing-price">From £750/month</div>
+          <p class="muted">Flexible ongoing access for sourcing oversight, supplier management, compliance support and strategic advice.</p>
+        </div>
+      </div>
+
+      <div class="card soft fade-in" style="margin-top:24px;">
+        <p class="muted">
+          All fees are fixed and agreed upfront. Third-party costs are passed through at cost, and a 50% deposit is required before project work begins.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about" style="background:#fff;">
+    <div class="container">
+      <div class="fade-in">
+        <div class="eyebrow">About</div>
+        <h2>A founder-led consultancy built on experience, clarity and trust.</h2>
+        <p class="lead">
+          This is a single-founder business with 25 years of hands-on experience in sourcing, compliance and importing goods into the UK. Every engagement is led and delivered by the founder — never passed to a junior team.
+        </p>
+      </div>
+
+      <div class="cards-2" style="margin-top:48px;">
+        <div class="card fade-in">
+          <div class="top-label">Founder bio</div>
+          <h3>Placeholder founder biography</h3>
+          <p class="muted" style="margin-top:18px;">
+            Replace this section with a concise founder story covering relevant category expertise, international sourcing experience, regulatory knowledge, importing credentials and the style of support clients can expect throughout an engagement.
+          </p>
+          <p class="muted" style="margin-top:14px;">
+            The aim is to sound credible and human: experienced enough to reassure, direct enough to build trust, and approachable enough that clients feel guided rather than overwhelmed.
           </p>
         </div>
-      </section>
 
-      {/* FOOTER */}
-      <footer style={{padding:"40px", background:"white", textAlign:"center"}}>
-        <p>Independent UK product consultancy</p>
-      </footer>
-
+        <div class="card dark fade-in">
+          <div class="top-label">Values</div>
+          <div class="mini-card" style="margin-bottom:12px;">
+            <strong>Client First</strong>
+            <p style="margin-top:8px;color:rgba(255,255,255,.78);font-size:14px;">Advice is tailored to the client’s commercial reality, not forced into a standard agency process.</p>
+          </div>
+          <div class="mini-card" style="margin-bottom:12px;">
+            <strong>Radical Transparency</strong>
+            <p style="margin-top:8px;color:rgba(255,255,255,.78);font-size:14px;">Fees, risks, trade-offs and timelines are communicated clearly and early.</p>
+          </div>
+          <div class="mini-card" style="margin-bottom:12px;">
+            <strong>Senior Expertise Only</strong>
+            <p style="margin-top:8px;color:rgba(255,255,255,.78);font-size:14px;">Every piece of advice and delivery work comes directly from experienced hands.</p>
+          </div>
+          <div class="mini-card" style="margin-bottom:12px;">
+            <strong>Compliance Non-Negotiable</strong>
+            <p style="margin-top:8px;color:rgba(255,255,255,.78);font-size:14px;">Products should be attractive, practical and commercially sound — but always compliant.</p>
+          </div>
+          <div class="mini-card">
+            <strong>Long-Term Partnership</strong>
+            <p style="margin-top:8px;color:rgba(255,255,255,.78);font-size:14px;">The goal is not just one successful launch, but a trusted relationship that supports future growth.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  );
-}
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="fade-in">
+        <div class="eyebrow">Contact / Book a Call</div>
+        <h2>Start with a free Discovery Call. No obligation.</h2>
+        <p class="lead">
+          Tell us a little about your project or book a time directly. The first call is free, practical and focused on whether we are the right fit to help.
+        </p>
+      </div>
+
+      <div class="contact-grid" style="margin-top:48px;">
+        <div class="card fade-in">
+          <form>
+            <div>
+              <label>Name</label>
+              <input type="text" placeholder="Your name">
+            </div>
+            <div>
+              <label>Company</label>
+              <input type="text" placeholder="Company name">
+            </div>
+            <div>
+              <label>Email</label>
+              <input type="email" placeholder="you@company.com">
+            </div>
+            <div>
+              <label>Phone</label>
+              <input type="tel" placeholder="+44">
+            </div>
+            <div>
+              <label>Brief description of your project</label>
+              <textarea rows="5" placeholder="Tell us what you are building, where you are in the process and where you need support."></textarea>
+            </div>
+            <button class="btn btn-navy" type="button" style="width:max-content;">Send Enquiry</button>
+          </form>
+        </div>
+
+        <div class="card dark fade-in">
+          <div class="top-label">Calendly embed</div>
+          <div class="calendar-placeholder">
+            <div>
+              <h3 style="color:#fff;">Booking widget placeholder</h3>
+              <p style="margin-top:16px;color:rgba(255,255,255,.76);max-width:440px;">
+                Replace this panel with your Calendly embed for a free 60-minute Discovery Call. Make it clear that there is no obligation to proceed.
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-mini">
+            <div class="mini-card">
+              <div class="label">Email</div>
+              <p>hello@yourconsultancy.co.uk</p>
+            </div>
+            <div class="mini-card">
+              <div class="label">Phone</div>
+              <p>+44 (0)0000 000000</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <p style="font-size:1.05rem;font-weight:700;color:var(--navy);">Independent UK-based product development consultancy.</p>
+        <p class="muted" style="margin-top:8px;max-width:760px;">
+          Helping founders and brands bring compliant, market-ready products to life with senior-led expertise in sourcing, compliance and import coordination.
+        </p>
+        <p class="muted" style="margin-top:12px;font-size:14px;">Placeholder contact details · hello@yourconsultancy.co.uk · +44 (0)0000 000000</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#services">What We Do</a>
+        <a href="#process">How It Works</a>
+        <a href="#profiles">Who It’s For</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
