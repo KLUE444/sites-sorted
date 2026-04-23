@@ -3,561 +3,645 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Little Village Salon | Hair & Beauty in Moulton, Spalding</title>
-  <meta name="description" content="Friendly local hair and beauty salon in Moulton, Spalding. Hair, beauty, nails and glow-up appointments in a welcoming village salon." />
+  <title>The Little Village Salon | Hair & Beauty in Moulton</title>
+  <meta name="description" content="The Little Village Salon in Moulton, Spalding. Hair and beauty appointments in a welcoming local salon." />
   <style>
-    :root {
-      --blush: #f5e8ea;
-      --rose: #d9a7b0;
-      --deep-rose: #b67b87;
-      --wine: #7e525c;
-      --cream: #fffaf8;
-      --text: #3f3638;
-      --muted: #74686b;
-      --white: #ffffff;
-      --shadow: 0 12px 35px rgba(0,0,0,0.08);
-      --radius: 22px;
-      --max-width: 1180px;
+    :root{
+      --bg:#f7f3ef;
+      --paper:#ffffff;
+      --text:#22201f;
+      --muted:#6f6864;
+      --line:#e7dfd8;
+      --accent:#b79a7c;
+      --accent-dark:#8f755c;
+      --soft:#efe7df;
+      --shadow:0 12px 30px rgba(0,0,0,0.06);
+      --max:1180px;
     }
 
-    * {
-      box-sizing: border-box;
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
     }
 
-    html {
-      scroll-behavior: smooth;
+    a{text-decoration:none;color:inherit;}
+    img{display:block;max-width:100%;}
+
+    .container{
+      width:min(92%, var(--max));
+      margin:0 auto;
     }
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      line-height: 1.6;
+    .topbar{
+      background:#1f1d1c;
+      color:#f6f1ec;
+      font-size:.86rem;
+      letter-spacing:.04em;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    .topbar-inner{
+      min-height:44px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+      padding:8px 0;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
+    .topbar a{
+      color:#f6f1ec;
+      opacity:.95;
     }
 
-    .container {
-      width: min(92%, var(--max-width));
-      margin: 0 auto;
+    header{
+      background:rgba(247,243,239,.92);
+      backdrop-filter:blur(10px);
+      position:sticky;
+      top:0;
+      z-index:30;
+      border-bottom:1px solid var(--line);
     }
 
-    .topbar {
-      background: var(--wine);
-      color: var(--white);
-      text-align: center;
-      padding: 10px 16px;
-      font-size: 0.95rem;
-      letter-spacing: 0.2px;
+    .nav{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:20px;
+      min-height:92px;
     }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255, 250, 248, 0.94);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(126,82,92,0.08);
+    .nav-left,
+    .nav-right{
+      display:flex;
+      gap:24px;
+      align-items:center;
+      flex-wrap:wrap;
     }
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 18px 0;
+    .nav-right{
+      justify-content:flex-end;
     }
 
-    .logo {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--wine);
-      letter-spacing: 0.2px;
+    .nav a{
+      font-size:.94rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--text);
     }
 
-    .logo span {
-      display: block;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--muted);
-      margin-top: 2px;
+    .brand{
+      text-align:center;
+      line-height:1.1;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: var(--text);
-      font-size: 0.98rem;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: 0.25s ease;
-    }
-
-    .btn-primary {
-      background: var(--wine);
-      color: var(--white);
-      box-shadow: var(--shadow);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      opacity: 0.96;
-    }
-
-    .btn-secondary {
-      background: var(--white);
-      color: var(--wine);
-      border: 1px solid rgba(126,82,92,0.15);
-    }
-
-    .hero {
-      padding: 78px 0 60px;
+    .brand-logo{
+      width:72px;
+      height:72px;
+      border:1px solid #d8ccc1;
+      border-radius:50%;
+      margin:0 auto 10px;
       background:
-        radial-gradient(circle at top left, rgba(217,167,176,0.25), transparent 36%),
-        linear-gradient(180deg, #fff8f6 0%, #fffaf8 100%);
+        linear-gradient(rgba(255,255,255,.82), rgba(255,255,255,.82)),
+        url('images/little-village-logo.png') center/cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size:1.45rem;
+      color:var(--accent-dark);
+      letter-spacing:.08em;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 42px;
-      align-items: center;
+    .brand-title{
+      font-family: Georgia, "Times New Roman", serif;
+      font-size:1.15rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
     }
 
-    .eyebrow {
-      display: inline-block;
-      background: rgba(182,123,135,0.12);
-      color: var(--wine);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      margin-bottom: 16px;
+    .brand-sub{
+      font-size:.72rem;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-top:6px;
     }
 
-    .hero h1 {
-      font-size: clamp(2.4rem, 5vw, 4.6rem);
-      line-height: 1.05;
-      margin: 0 0 18px;
-      color: var(--wine);
+    .btn{
+      display:inline-block;
+      padding:14px 24px;
+      border-radius:999px;
+      transition:.25s ease;
+      font-weight:600;
+      letter-spacing:.04em;
     }
 
-    .hero p {
-      font-size: 1.08rem;
-      color: var(--muted);
-      max-width: 620px;
-      margin-bottom: 28px;
+    .btn-dark{
+      background:#1f1d1c;
+      color:#fff;
     }
 
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 30px;
+    .btn-dark:hover{transform:translateY(-2px);}
+
+    .btn-light{
+      background:transparent;
+      color:var(--text);
+      border:1px solid #cdbfae;
     }
 
-    .hero-points {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+    .hero{
+      padding:72px 0 56px;
+      background:linear-gradient(180deg, #f7f3ef 0%, #fbf8f5 100%);
     }
 
-    .hero-point {
-      background: var(--white);
-      padding: 16px;
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      font-size: 0.95rem;
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:44px;
+      align-items:center;
     }
 
-    .hero-card {
-      background: var(--white);
-      border-radius: 30px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
+    .eyebrow{
+      font-size:.8rem;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:var(--accent-dark);
+      margin-bottom:18px;
     }
 
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
+    .hero h1{
+      font-family: Georgia, "Times New Roman", serif;
+      font-size:clamp(2.6rem, 5vw, 5rem);
+      line-height:1.02;
+      margin:0 0 18px;
+      font-weight:500;
+    }
+
+    .hero p{
+      color:var(--muted);
+      font-size:1.06rem;
+      max-width:620px;
+      margin:0 0 28px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:34px;
+    }
+
+    .hero-meta{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .hero-meta .meta{
+      border-top:1px solid #ccbda9;
+      padding-top:14px;
+      font-size:.94rem;
+      color:var(--muted);
+    }
+
+    .hero-meta .meta strong{
+      display:block;
+      color:var(--text);
+      font-size:1rem;
+      margin-bottom:4px;
+    }
+
+    .hero-visual{
+      background:var(--paper);
+      border-radius:0;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      border:1px solid var(--line);
+    }
+
+    .hero-image{
+      min-height:620px;
       background:
-        linear-gradient(145deg, rgba(245,232,234,0.9), rgba(255,255,255,0.6));
-      z-index: 0;
+        linear-gradient(rgba(25,25,25,.18), rgba(25,25,25,.18)),
+        url('images/little-village-hero.jpg') center/cover no-repeat;
+      position:relative;
     }
 
-    .hero-card-inner {
-      position: relative;
-      z-index: 1;
+    .hero-card{
+      position:absolute;
+      left:28px;
+      bottom:28px;
+      background:rgba(255,255,255,.92);
+      max-width:320px;
+      padding:22px;
+      box-shadow:var(--shadow);
     }
 
-    .availability {
-      background: linear-gradient(135deg, var(--wine), var(--deep-rose));
-      color: var(--white);
-      border-radius: 22px;
-      padding: 20px;
-      margin-bottom: 18px;
+    .hero-card h3{
+      margin:0 0 8px;
+      font-family:Georgia, serif;
+      font-size:1.35rem;
+      font-weight:500;
     }
 
-    .availability strong {
-      display: block;
-      font-size: 1.05rem;
-      margin-bottom: 6px;
+    .hero-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:.96rem;
     }
 
-    .mini-card {
-      background: rgba(255,255,255,0.85);
-      border-radius: 18px;
-      padding: 16px;
-      margin-bottom: 14px;
+    section{
+      padding:86px 0;
     }
 
-    section {
-      padding: 78px 0;
+    .section-head{
+      max-width:760px;
+      margin:0 auto 46px;
+      text-align:center;
     }
 
-    .section-heading {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 42px;
+    .section-head .eyebrow{
+      margin-bottom:12px;
     }
 
-    .section-heading h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin: 0 0 12px;
-      color: var(--wine);
+    .section-head h2{
+      margin:0 0 14px;
+      font-family:Georgia, serif;
+      font-size:clamp(2rem, 4vw, 3.2rem);
+      font-weight:500;
     }
 
-    .section-heading p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.02rem;
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:1.03rem;
     }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:34px;
+      align-items:start;
     }
 
-    .service-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
+    .about-copy{
+      background:var(--paper);
+      padding:40px;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
     }
 
-    .service-card h3 {
-      margin-top: 0;
-      margin-bottom: 16px;
-      color: var(--wine);
-      font-size: 1.35rem;
+    .about-copy h3{
+      margin:0 0 18px;
+      font-family:Georgia, serif;
+      font-size:2rem;
+      font-weight:500;
     }
 
-    .service-card ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 22px;
+    .about-copy p{
+      margin:0 0 16px;
+      color:var(--muted);
     }
 
-    .service-card li {
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(126,82,92,0.08);
-      color: var(--text);
+    .about-copy p:last-child{margin-bottom:0;}
+
+    .about-side{
+      display:grid;
+      gap:20px;
     }
 
-    .service-card li:last-child {
-      border-bottom: none;
+    .panel{
+      background:var(--paper);
+      padding:30px;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
     }
 
-    .offer-banner {
-      background: linear-gradient(135deg, #f8e8eb, #ffffff);
-      border: 1px solid rgba(182,123,135,0.18);
-      border-radius: 24px;
-      padding: 28px;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 20px;
-      align-items: center;
-      box-shadow: var(--shadow);
+    .panel h4{
+      margin:0 0 12px;
+      font-size:1rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--accent-dark);
     }
 
-    .offer-banner h3 {
-      margin: 0 0 10px;
-      color: var(--wine);
-      font-size: 1.7rem;
+    .panel p{
+      margin:0;
+      color:var(--muted);
     }
 
-    .offer-price {
-      font-size: 3rem;
-      font-weight: 800;
-      color: var(--wine);
-      text-align: center;
+    .services-wrap{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
     }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+    .service{
+      background:var(--paper);
+      border:1px solid var(--line);
+      padding:32px;
+      box-shadow:var(--shadow);
     }
 
-    .gallery-item {
-      border-radius: 22px;
-      min-height: 240px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      position: relative;
-      background-size: cover;
-      background-position: center;
+    .service h3{
+      margin:0 0 18px;
+      font-family:Georgia, serif;
+      font-size:1.55rem;
+      font-weight:500;
     }
 
-    .gallery-item::after {
-      content: attr(data-label);
-      position: absolute;
-      left: 14px;
-      bottom: 14px;
-      background: rgba(255,255,255,0.92);
-      color: var(--wine);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 0.86rem;
-      font-weight: 700;
+    .service ul{
+      list-style:none;
+      margin:0 0 22px;
+      padding:0;
     }
 
-    .gallery-item.one {
-      background-image: linear-gradient(135deg, rgba(217,167,176,0.4), rgba(126,82,92,0.25)), url('images/little-village-1.jpg');
+    .service li{
+      padding:10px 0;
+      border-bottom:1px solid var(--line);
+      color:var(--muted);
     }
 
-    .gallery-item.two {
-      background-image: linear-gradient(135deg, rgba(217,167,176,0.35), rgba(126,82,92,0.22)), url('images/little-village-2.jpg');
+    .service li:last-child{border-bottom:none;}
+
+    .mission{
+      background:#1f1d1c;
+      color:#f5f0ea;
     }
 
-    .gallery-item.three {
-      background-image: linear-gradient(135deg, rgba(217,167,176,0.32), rgba(126,82,92,0.2)), url('images/little-village-3.jpg');
+    .mission-inner{
+      max-width:900px;
+      margin:0 auto;
+      text-align:center;
     }
 
-    .gallery-item.four {
-      background-image: linear-gradient(135deg, rgba(217,167,176,0.32), rgba(126,82,92,0.2)), url('images/little-village-4.jpg');
+    .mission .eyebrow{
+      color:#d8c2a8;
     }
 
-    .gallery-note {
-      margin-top: 16px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.95rem;
+    .mission h2{
+      font-family:Georgia, serif;
+      font-size:clamp(2rem, 4vw, 3.5rem);
+      font-weight:500;
+      margin:0 0 20px;
     }
 
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+    .mission p{
+      max-width:760px;
+      margin:0 auto;
+      color:#e6ddd5;
+      font-size:1.08rem;
     }
 
-    .review-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow);
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:18px;
     }
 
-    .stars {
-      font-size: 1.1rem;
-      margin-bottom: 12px;
-      color: var(--deep-rose);
-      letter-spacing: 2px;
+    .gallery-left,
+    .gallery-right{
+      display:grid;
+      gap:18px;
     }
 
-    .review-card p {
-      margin-top: 0;
-      color: var(--text);
+    .gallery-right{
+      grid-template-columns:1fr 1fr;
     }
 
-    .review-card strong {
-      color: var(--wine);
+    .gallery-item{
+      min-height:260px;
+      background:#ddd center/cover no-repeat;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      position:relative;
     }
 
-    .cta-section {
-      background: linear-gradient(135deg, var(--wine), #a06b76);
-      color: var(--white);
-      border-radius: 30px;
-      padding: 42px;
-      text-align: center;
-      box-shadow: var(--shadow);
+    .gallery-item.large{min-height:538px;}
+    .gallery-item::after{
+      content:attr(data-label);
+      position:absolute;
+      left:18px;
+      bottom:18px;
+      background:rgba(255,255,255,.92);
+      padding:8px 12px;
+      font-size:.82rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--text);
     }
 
-    .cta-section h2 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      font-size: clamp(2rem, 4vw, 3rem);
+    .g1{background-image:url('images/little-village-1.jpg');}
+    .g2{background-image:url('images/little-village-2.jpg');}
+    .g3{background-image:url('images/little-village-3.jpg');}
+    .g4{background-image:url('images/little-village-4.jpg');}
+    .g5{background-image:url('images/little-village-5.jpg');}
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:26px;
     }
 
-    .cta-section p {
-      max-width: 700px;
-      margin: 0 auto 24px;
-      opacity: 0.95;
+    .contact-card{
+      background:var(--paper);
+      padding:34px;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
     }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 26px;
+    .contact-card h3{
+      margin:0 0 18px;
+      font-family:Georgia, serif;
+      font-size:1.8rem;
+      font-weight:500;
     }
 
-    .contact-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
+    .contact-list{
+      list-style:none;
+      margin:0;
+      padding:0;
     }
 
-    .contact-card h3 {
-      margin-top: 0;
-      color: var(--wine);
+    .contact-list li{
+      padding:14px 0;
+      border-bottom:1px solid var(--line);
+      color:var(--muted);
     }
 
-    .contact-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    .contact-list li:last-child{border-bottom:none;}
+    .contact-list strong{
+      display:block;
+      color:var(--text);
+      margin-bottom:4px;
     }
 
-    .contact-list li {
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(126,82,92,0.08);
+    .hours{
+      width:100%;
+      border-collapse:collapse;
     }
 
-    .contact-list li:last-child {
-      border-bottom: none;
+    .hours td{
+      padding:12px 0;
+      border-bottom:1px solid var(--line);
+      color:var(--muted);
     }
 
-    .hours-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.98rem;
+    .hours td:last-child{
+      text-align:right;
+      color:var(--text);
     }
 
-    .hours-table tr:not(:last-child) td {
-      border-bottom: 1px solid rgba(126,82,92,0.08);
+    .map{
+      width:100%;
+      height:300px;
+      border:0;
+      margin-top:22px;
+      filter:grayscale(100%);
     }
 
-    .hours-table td {
-      padding: 12px 0;
+    footer{
+      background:#1f1d1c;
+      color:#ebe4dd;
+      padding:56px 0;
+      margin-top:40px;
     }
 
-    .hours-table td:last-child {
-      text-align: right;
-      color: var(--muted);
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr .8fr;
+      gap:24px;
+      align-items:start;
     }
 
-    .map-frame {
-      border: 0;
-      width: 100%;
-      height: 290px;
-      border-radius: 18px;
-      margin-top: 18px;
+    .footer-brand .brand-title,
+    .footer-brand .brand-sub{
+      color:#fff;
     }
 
-    footer {
-      padding: 34px 0 50px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.94rem;
+    .footer-brand .brand-logo{
+      border-color:rgba(255,255,255,.25);
+      color:#fff;
+      background:
+        linear-gradient(rgba(31,29,28,.8), rgba(31,29,28,.8)),
+        url('images/little-village-logo.png') center/cover no-repeat;
     }
 
-    .sticky-book {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 60;
-      background: var(--wine);
-      color: var(--white);
-      padding: 15px 20px;
-      border-radius: 999px;
-      box-shadow: var(--shadow);
-      font-weight: 700;
+    .footer-title{
+      font-size:.82rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:#d6bea1;
+      margin-bottom:14px;
     }
 
-    @media (max-width: 1024px) {
+    .footer-col p,
+    .footer-col a{
+      color:#ebe4dd;
+      opacity:.92;
+      margin:0 0 10px;
+      display:block;
+    }
+
+    .sticky-book{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:40;
+      background:#1f1d1c;
+      color:#fff;
+      padding:15px 22px;
+      border-radius:999px;
+      box-shadow:var(--shadow);
+      font-weight:600;
+      letter-spacing:.04em;
+    }
+
+    @media (max-width: 1024px){
+      .nav{
+        grid-template-columns:1fr;
+        padding:18px 0;
+      }
+
+      .nav-left,
+      .nav-right{
+        justify-content:center;
+      }
+
       .hero-grid,
-      .offer-banner,
+      .about-grid,
+      .gallery-grid,
       .contact-grid,
-      .services-grid,
-      .reviews-grid,
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
+      .services-wrap,
+      .footer-grid{
+        grid-template-columns:1fr;
       }
 
-      .hero-points {
-        grid-template-columns: 1fr;
+      .gallery-right{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .hero-meta{
+        grid-template-columns:1fr;
       }
     }
 
-    @media (max-width: 720px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
+    @media (max-width: 720px){
+      .topbar-inner{
+        justify-content:center;
+        text-align:center;
       }
 
-      .nav-links {
-        gap: 14px;
+      .nav-left,
+      .nav-right{
+        gap:14px;
       }
 
-      .hero-grid,
-      .offer-banner,
-      .contact-grid,
-      .services-grid,
-      .reviews-grid,
-      .gallery-grid {
-        grid-template-columns: 1fr;
+      .nav a{
+        font-size:.82rem;
       }
 
-      .hero {
-        padding-top: 46px;
+      .hero{
+        padding-top:46px;
       }
 
-      .hero h1 {
-        font-size: 2.45rem;
+      .hero-image{
+        min-height:460px;
       }
 
-      .offer-price {
-        text-align: left;
-        font-size: 2.5rem;
+      .hero-card{
+        left:16px;
+        right:16px;
+        bottom:16px;
+        max-width:none;
       }
 
-      .cta-section,
-      .service-card,
-      .review-card,
-      .contact-card,
-      .hero-card {
-        padding: 22px;
+      .about-copy,
+      .panel,
+      .service,
+      .contact-card{
+        padding:24px;
       }
 
-      .sticky-book {
-        left: 14px;
-        right: 14px;
-        bottom: 14px;
-        text-align: center;
+      .gallery-right{
+        grid-template-columns:1fr;
+      }
+
+      .gallery-item.large{
+        min-height:320px;
+      }
+
+      .sticky-book{
+        left:14px;
+        right:14px;
+        text-align:center;
       }
     }
   </style>
@@ -565,22 +649,31 @@
 <body>
 
   <div class="topbar">
-    Friendly local hair & beauty salon in Moulton, Spalding • Message us to book
+    <div class="container topbar-inner">
+      <div>01406 370493</div>
+      <div>5 High Street, Moulton, Spalding, PE12 6QB</div>
+      <a href="https://www.facebook.com/thelittlevillagesalon?locale=en_GB" target="_blank">Book via Facebook</a>
+    </div>
   </div>
 
   <header>
     <div class="container nav">
-      <div class="logo">
-        The Little Village Salon
-        <span>Hair • Beauty • Nails • Glow-ups</span>
+      <nav class="nav-left">
+        <a href="#about">Our Salon</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+      </nav>
+
+      <div class="brand">
+        <div class="brand-logo">LV</div>
+        <div class="brand-title">The Little Village Salon</div>
+        <div class="brand-sub">Hair & Beauty</div>
       </div>
 
-      <nav class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#offer">Offers</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#contact" class="btn btn-primary">Book Now</a>
+      <nav class="nav-right">
+        <a href="#contact">Contact</a>
+        <a href="https://www.facebook.com/thelittlevillagesalon?locale=en_GB" target="_blank">Facebook</a>
+        <a href="#contact" class="btn btn-dark">Book Now</a>
       </nav>
     </div>
   </header>
@@ -589,45 +682,86 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">Your local glow-up destination</div>
-          <h1>Hair & beauty in the heart of the village.</h1>
+          <div class="eyebrow">Hair & Beauty in Moulton</div>
+          <h1>A calmer, cleaner salon website with a more premium feel.</h1>
           <p>
-            Welcome to The Little Village Salon — a warm, friendly salon in Moulton offering hair,
-            beauty and feel-good appointments for busy women who want expert treatments without the fuss.
+            Welcome to The Little Village Salon — a warm and welcoming village salon offering hair
+            and beauty appointments in the heart of Moulton. Designed to feel polished, personal and easy to book.
           </p>
 
-          <div class="hero-buttons">
-            <a href="https://www.facebook.com/thelittlevillagesalon?locale=en_GB" target="_blank" class="btn btn-primary">Book via Facebook</a>
-            <a href="tel:01406370493" class="btn btn-secondary">Call the Salon</a>
+          <div class="hero-actions">
+            <a href="https://www.facebook.com/thelittlevillagesalon?locale=en_GB" target="_blank" class="btn btn-dark">Book via Facebook</a>
+            <a href="tel:01406370493" class="btn btn-light">Call 01406 370493</a>
           </div>
 
-          <div class="hero-points">
-            <div class="hero-point"><strong>Local & welcoming</strong><br />A relaxed village salon with a friendly feel.</div>
-            <div class="hero-point"><strong>Hair & beauty</strong><br />Everything from fresh cuts to beauty appointments.</div>
-            <div class="hero-point"><strong>Easy booking</strong><br />Message on Facebook or call to grab your slot.</div>
+          <div class="hero-meta">
+            <div class="meta">
+              <strong>Hair</strong>
+              Cuts, colour, blow dries and transformations.
+            </div>
+            <div class="meta">
+              <strong>Beauty</strong>
+              A local salon for feel-good maintenance and self-care.
+            </div>
+            <div class="meta">
+              <strong>Village location</strong>
+              Easy to find in Moulton, near Spalding.
+            </div>
           </div>
         </div>
 
-        <div class="hero-card">
-          <div class="hero-card-inner">
-            <div class="availability">
-              <strong>Limited appointments available</strong>
-              Message us today to check this week’s availability.
+        <div class="hero-visual">
+          <div class="hero-image">
+            <div class="hero-card">
+              <h3>Your local glow-up spot</h3>
+              <p>
+                Add a real salon frontage, interior shot or team photo here to give this the same elevated feel as the Saints reference.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-copy">
+            <div class="eyebrow">Our Salon</div>
+            <h3>Friendly, local and beautifully straightforward.</h3>
+            <p>
+              The Little Village Salon is a well-loved local salon offering hair and beauty in a relaxed village setting.
+              It’s the kind of place clients come back to because it feels welcoming, personal and easy.
+            </p>
+            <p>
+              This version of the website takes that same feeling and presents it in a cleaner, more refined way — with better structure,
+              stronger visuals and a layout that feels much more established.
+            </p>
+            <p>
+              It is intentionally less “promo page” and more “real salon brand”.
+            </p>
+          </div>
+
+          <div class="about-side">
+            <div class="panel">
+              <h4>Why this layout works</h4>
+              <p>
+                More white space, fewer boxed sections, stronger typography and a simpler navigation make the site feel more premium and more trustworthy.
+              </p>
             </div>
 
-            <div class="mini-card">
-              <strong>Popular appointments</strong>
-              <p style="margin: 8px 0 0;">Cuts, colours, blow dries, nails and beauty treatments.</p>
+            <div class="panel">
+              <h4>Logo placement</h4>
+              <p>
+                There is now a dedicated logo position in the header and footer. Drop the real Facebook logo into <strong>images/little-village-logo.png</strong> and it will replace the LV placeholder.
+              </p>
             </div>
 
-            <div class="mini-card">
-              <strong>Where to find us</strong>
-              <p style="margin: 8px 0 0;">5 High Street, Moulton, Spalding, PE12 6QB</p>
-            </div>
-
-            <div class="mini-card" style="margin-bottom: 0;">
-              <strong>Call to book</strong>
-              <p style="margin: 8px 0 0;">01406 370493</p>
+            <div class="panel">
+              <h4>Booking flow</h4>
+              <p>
+                The layout keeps Facebook booking front and centre while still making the business look more polished than a Facebook-only presence.
+              </p>
             </div>
           </div>
         </div>
@@ -636,153 +770,98 @@
 
     <section id="services">
       <div class="container">
-        <div class="section-heading">
-          <h2>Services</h2>
+        <div class="section-head">
+          <div class="eyebrow">Services</div>
+          <h2>Hair, beauty and everyday appointments.</h2>
           <p>
-            A village salon with a broad mix of hair and beauty treatments, designed to help clients
-            maintain, refresh and treat themselves in one welcoming space.
+            Public listings for the salon include services such as balayage, blow dries, women’s haircuts,
+            children’s haircuts, hair colouring and hair extensions, so I’ve built the service structure around that verified mix. :contentReference[oaicite:2]{index=2}
           </p>
         </div>
 
-        <div class="services-grid">
-          <div class="service-card">
-            <h3>Hair</h3>
+        <div class="services-wrap">
+          <div class="service">
+            <h3>Cutting & Styling</h3>
             <ul>
               <li>Women’s haircuts</li>
-              <li>Blow dries & styling</li>
-              <li>Colouring & balayage</li>
-              <li>Hair extensions</li>
               <li>Children’s haircuts</li>
+              <li>Blow dries</li>
+              <li>Everyday styling</li>
+              <li>Special occasion prep</li>
             </ul>
-            <a href="#contact" class="btn btn-secondary">Enquire now</a>
+            <a href="#contact" class="btn btn-light">Book an appointment</a>
           </div>
 
-          <div class="service-card">
-            <h3>Beauty</h3>
+          <div class="service">
+            <h3>Colour & Care</h3>
             <ul>
-              <li>Brows & lashes</li>
-              <li>Facials</li>
-              <li>Massage treatments</li>
-              <li>Skin prep & self-care treatments</li>
-              <li>Regular maintenance appointments</li>
+              <li>Balayage</li>
+              <li>Hair colouring</li>
+              <li>Root refresh appointments</li>
+              <li>Gloss and tone appointments</li>
+              <li>Hair care guidance</li>
             </ul>
-            <a href="#contact" class="btn btn-secondary">Book beauty</a>
+            <a href="#contact" class="btn btn-light">Enquire now</a>
           </div>
 
-          <div class="service-card">
-            <h3>Nails</h3>
+          <div class="service">
+            <h3>Extensions & Beauty</h3>
             <ul>
-              <li>Acrylic extensions</li>
-              <li>Infills</li>
-              <li>BIAB / overlays</li>
-              <li>Fresh sets for events</li>
-              <li>Classic salon nail appointments</li>
+              <li>Hair extensions</li>
+              <li>Beauty appointments</li>
+              <li>Regular maintenance treatments</li>
+              <li>Glow-up bookings</li>
+              <li>Facebook-led booking slots</li>
             </ul>
-            <a href="#offer" class="btn btn-secondary">See current offer</a>
+            <a href="https://www.facebook.com/thelittlevillagesalon?locale=en_GB" target="_blank" class="btn btn-light">Message on Facebook</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="offer">
-      <div class="container">
-        <div class="offer-banner">
-          <div>
-            <h3>Limited-time nail offer</h3>
-            <p>
-              Looking for a fresh set? Treat yourself to a salon glow-up and message the page to check current availability.
-            </p>
-            <a href="https://www.facebook.com/thelittlevillagesalon?locale=en_GB" target="_blank" class="btn btn-primary">Message on Facebook</a>
-          </div>
-          <div class="offer-price">
-            £35<br />
-            <span style="font-size: 1rem; font-weight: 600; color: var(--muted);">full set of acrylic extensions</span>
-          </div>
-        </div>
+    <section class="mission">
+      <div class="container mission-inner">
+        <div class="eyebrow">Our Approach</div>
+        <h2>Beautiful hair, easy booking, a salon people feel good coming back to.</h2>
+        <p>
+          This section is inspired by the Saints-style “mission” block — cleaner, more confident and less cluttered.
+          It gives the site a more established salon-brand feel instead of reading like a simple flyer online. :contentReference[oaicite:3]{index=3}
+        </p>
       </div>
     </section>
 
     <section id="gallery">
       <div class="container">
-        <div class="section-heading">
-          <h2>Gallery of work</h2>
+        <div class="section-head">
+          <div class="eyebrow">Gallery</div>
+          <h2>A more editorial image layout.</h2>
           <p>
-            Swap these placeholders with real salon images from Facebook or Instagram to turn this into a strong conversion piece.
+            Replace these placeholders with real photos from the salon’s Facebook content for the best result.
+            This masonry-style arrangement is closer to the premium reference feel you liked.
           </p>
         </div>
 
         <div class="gallery-grid">
-          <div class="gallery-item one" data-label="Hair transformation"></div>
-          <div class="gallery-item two" data-label="Fresh nails"></div>
-          <div class="gallery-item three" data-label="Colour & finish"></div>
-          <div class="gallery-item four" data-label="Beauty results"></div>
-        </div>
-
-        <p class="gallery-note">
-          Add your real images into an <strong>images</strong> folder and name them:
-          <strong>little-village-1.jpg</strong>,
-          <strong>little-village-2.jpg</strong>,
-          <strong>little-village-3.jpg</strong>,
-          <strong>little-village-4.jpg</strong>
-        </p>
-      </div>
-    </section>
-
-    <section id="reviews">
-      <div class="container">
-        <div class="section-heading">
-          <h2>What clients love</h2>
-          <p>
-            These are demo review blocks styled to suit the site. You can replace them with exact Facebook reviews later.
-          </p>
-        </div>
-
-        <div class="reviews-grid">
-          <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p>
-              Lovely salon, friendly team and such a welcoming atmosphere. Always leave feeling so much better than when I walked in.
-            </p>
-            <strong>– Happy client</strong>
+          <div class="gallery-left">
+            <div class="gallery-item g1 large" data-label="Salon image"></div>
           </div>
-
-          <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p>
-              Great service, beautiful results and really easy to book. A proper local gem.
-            </p>
-            <strong>– Regular customer</strong>
+          <div class="gallery-right">
+            <div class="gallery-item g2" data-label="Hair colour"></div>
+            <div class="gallery-item g3" data-label="Blow dry"></div>
+            <div class="gallery-item g4" data-label="Before & after"></div>
+            <div class="gallery-item g5" data-label="Beauty detail"></div>
           </div>
-
-          <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p>
-              Brilliant for hair and beauty appointments. Professional but relaxed, and the girls are lovely.
-            </p>
-            <strong>– Salon visitor</strong>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="cta-section">
-          <h2>Ready for your next appointment?</h2>
-          <p>
-            Whether you’re after fresh hair, a beauty top-up or a new nail set, The Little Village Salon is here for your next feel-good visit.
-          </p>
-          <a href="https://www.facebook.com/thelittlevillagesalon?locale=en_GB" target="_blank" class="btn btn-secondary">Message to book</a>
         </div>
       </div>
     </section>
 
     <section id="contact">
       <div class="container">
-        <div class="section-heading">
-          <h2>Contact & bookings</h2>
+        <div class="section-head">
+          <div class="eyebrow">Contact Us</div>
+          <h2>Book your next appointment.</h2>
           <p>
-            Book through Facebook, give the salon a call, or pop in if you're local.
+            Public listings show the salon at 5 High Street, Moulton, Spalding PE12 6QB, with the phone number 01406 370493. :contentReference[oaicite:4]{index=4}
           </p>
         </div>
 
@@ -790,18 +869,27 @@
           <div class="contact-card">
             <h3>Get in touch</h3>
             <ul class="contact-list">
-              <li><strong>Address:</strong><br />5 High Street, Moulton, Spalding, PE12 6QB</li>
-              <li><strong>Phone:</strong><br /><a href="tel:01406370493">01406 370493</a></li>
-              <li><strong>Facebook:</strong><br /><a href="https://www.facebook.com/thelittlevillagesalon?locale=en_GB" target="_blank">facebook.com/thelittlevillagesalon</a></li>
+              <li>
+                <strong>Phone</strong>
+                <a href="tel:01406370493">01406 370493</a>
+              </li>
+              <li>
+                <strong>Address</strong>
+                5 High Street, Moulton, Spalding, PE12 6QB
+              </li>
+              <li>
+                <strong>Facebook</strong>
+                <a href="https://www.facebook.com/thelittlevillagesalon?locale=en_GB" target="_blank">facebook.com/thelittlevillagesalon</a>
+              </li>
             </ul>
 
-            <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;">
-              <a href="https://www.facebook.com/thelittlevillagesalon?locale=en_GB" target="_blank" class="btn btn-primary">Book on Facebook</a>
-              <a href="tel:01406370493" class="btn btn-secondary">Call now</a>
+            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:24px;">
+              <a href="https://www.facebook.com/thelittlevillagesalon?locale=en_GB" target="_blank" class="btn btn-dark">Book via Facebook</a>
+              <a href="tel:01406370493" class="btn btn-light">Call now</a>
             </div>
 
             <iframe
-              class="map-frame"
+              class="map"
               loading="lazy"
               allowfullscreen
               referrerpolicy="no-referrer-when-downgrade"
@@ -811,24 +899,19 @@
 
           <div class="contact-card">
             <h3>Opening hours</h3>
-            <table class="hours-table">
-              <tr><td>Monday</td><td>Closed / by appointment</td></tr>
-              <tr><td>Tuesday</td><td>9:00am – 5:00pm</td></tr>
-              <tr><td>Wednesday</td><td>9:00am – 5:00pm</td></tr>
-              <tr><td>Thursday</td><td>9:00am – 7:00pm</td></tr>
-              <tr><td>Friday</td><td>9:00am – 5:00pm</td></tr>
-              <tr><td>Saturday</td><td>9:00am – 3:00pm</td></tr>
+            <table class="hours">
+              <tr><td>Monday</td><td>Closed</td></tr>
+              <tr><td>Tuesday</td><td>9:00am – 5:30pm</td></tr>
+              <tr><td>Wednesday</td><td>9:00am – 5:30pm</td></tr>
+              <tr><td>Thursday</td><td>9:00am – 5:30pm</td></tr>
+              <tr><td>Friday</td><td>9:00am – 5:30pm</td></tr>
+              <tr><td>Saturday</td><td>9:00am – 5:30pm</td></tr>
               <tr><td>Sunday</td><td>Closed</td></tr>
             </table>
 
-            <p style="margin-top: 22px; color: var(--muted);">
-              These hours are a demo layout and can be updated to the salon’s exact opening times.
+            <p style="margin:20px 0 0; color:var(--muted);">
+              These times are based on the public business listing currently visible online. :contentReference[oaicite:5]{index=5}
             </p>
-
-            <div style="margin-top: 26px; padding: 20px; background: var(--blush); border-radius: 18px;">
-              <strong style="color: var(--wine); display: block; margin-bottom: 8px;">Demo site note</strong>
-              This layout is built to help convert Facebook traffic into bookings with clearer services, stronger trust signals and a proper contact flow.
-            </div>
           </div>
         </div>
       </div>
@@ -836,14 +919,29 @@
   </main>
 
   <footer>
-    <div class="container">
-      © The Little Village Salon • Demo website by Sites Sorted
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="brand-logo">LV</div>
+        <div class="brand-title">The Little Village Salon</div>
+        <div class="brand-sub">Hair & Beauty</div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">Visit</div>
+        <p>5 High Street</p>
+        <p>Moulton, Spalding</p>
+        <p>PE12 6QB</p>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">Contact</div>
+        <a href="tel:01406370493">01406 370493</a>
+        <a href="https://www.facebook.com/thelittlevillagesalon?locale=en_GB" target="_blank">Facebook booking</a>
+      </div>
     </div>
   </footer>
 
-  <a class="sticky-book" href="https://www.facebook.com/thelittlevillagesalon?locale=en_GB" target="_blank">
-    Book Now
-  </a>
+  <a class="sticky-book" href="https://www.facebook.com/thelittlevillagesalon?locale=en_GB" target="_blank">Book Now</a>
 
 </body>
 </html>
