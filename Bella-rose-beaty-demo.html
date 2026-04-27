@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Bella Rose Beauty | Mobile Beauty Therapist Fenland</title>
+  <meta name="description" content="Bella Rose Beauty is a mobile beauty therapist serving Wisbech, March, Chatteris, Whittlesey, Doddington, Manea and surrounding Fenland areas. Beauty treatments brought to your door." />
+
+  <style>
+    :root {
+      --bg: #fff7f3;
+      --cream: #fffaf5;
+      --surface: #ffffff;
+      --rose: #9f4f63;
+      --rose-dark: #6f2f40;
+      --blush: #e8b6c1;
+      --soft-blush: #f7dce2;
+      --text: #332426;
+      --muted: #7b6669;
+      --line: #ead4d9;
+      --shadow: 0 18px 45px rgba(111, 47, 64, 0.12);
+      --radius: 26px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--rose-dark);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .wrap {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 22px 0;
+      background: rgba(255, 247, 243, 0.92);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.45rem;
+      color: var(--rose-dark);
+      letter-spacing: 0.3px;
+    }
+
+    .logo span {
+      display: block;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    nav a:hover {
+      color: var(--rose);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--rose);
+      color: #fff;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: 0 10px 26px rgba(159, 79, 99, 0.22);
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--rose-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn.secondary {
+      background: var(--surface);
+      color: var(--rose-dark);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+
+    .hero {
+      padding: 80px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      border-radius: 999px;
+      background: var(--soft-blush);
+      top: -180px;
+      right: -140px;
+      z-index: -1;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--rose);
+      background: var(--soft-blush);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem, 6vw, 5.6rem);
+      max-width: 720px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 610px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .trust-row span {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      padding: 9px 13px;
+      border-radius: 999px;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, #ffffff, #fff2f5);
+      border: 1px solid var(--line);
+      border-radius: 36px;
+      box-shadow: var(--shadow);
+      padding: 26px;
+      min-height: 500px;
+      display: grid;
+      align-content: end;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 24px;
+      border: 1px solid rgba(159,79,99,0.16);
+      border-radius: 28px;
+    }
+
+    .hero-card-content {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 24px;
+      border: 1px solid var(--line);
+    }
+
+    .hero-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-card p {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    section {
+      padding: 74px 0;
+    }
+
+    .section-head {
+      max-width: 720px;
+      margin-bottom: 34px;
+    }
+
+    .section-head.center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      margin-bottom: 14px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 12px 32px rgba(111,47,64,0.07);
+    }
+
+    .card .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: var(--soft-blush);
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      font-size: 1.4rem;
+    }
+
+    .card h3 {
+      font-size: 1.55rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .treatments {
+      background: var(--cream);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .treatment-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .treatment {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .treatment h3 {
+      font-size: 1.35rem;
+      margin-bottom: 5px;
+    }
+
+    .treatment p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .price {
+      color: var(--rose-dark);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 38px;
+      align-items: center;
+    }
+
+    .feature-box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .feature-list div {
+      padding: 16px;
+      background: var(--cream);
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .feature-list strong {
+      display: block;
+      color: var(--rose-dark);
+      margin-bottom: 4px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .gallery-item {
+      min-height: 220px;
+      border-radius: 28px;
+      background: linear-gradient(145deg, var(--soft-blush), #fff);
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 28px rgba(111,47,64,0.08);
+      display: flex;
+      align-items: end;
+      padding: 18px;
+      color: var(--rose-dark);
+      font-weight: 800;
+    }
+
+    .gallery-item:nth-child(2) {
+      background: linear-gradient(145deg, #fff, #f3cbd3);
+    }
+
+    .gallery-item:nth-child(3) {
+      background: linear-gradient(145deg, #f9e7dc, #fff);
+    }
+
+    .gallery-item:nth-child(4) {
+      background: linear-gradient(145deg, #fff0f3, #e8b6c1);
+    }
+
+    .reviews {
+      background: var(--rose-dark);
+      color: #fff;
+    }
+
+    .reviews h2,
+    .reviews h3 {
+      color: #fff;
+    }
+
+    .reviews .section-head p {
+      color: rgba(255,255,255,0.76);
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .review {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .review p {
+      color: rgba(255,255,255,0.84);
+      margin-bottom: 16px;
+    }
+
+    .areas {
+      background: var(--cream);
+    }
+
+    .area-tags {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .area-tags span {
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--rose-dark);
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .contact {
+      padding-bottom: 90px;
+    }
+
+    .contact-box {
+      background: linear-gradient(145deg, #ffffff, #fff0f3);
+      border: 1px solid var(--line);
+      border-radius: 36px;
+      box-shadow: var(--shadow);
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      margin-bottom: 14px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-details div {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      background: var(--cream);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+      }
+
+      .hero-grid,
+      .split,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
+
+      .hero-card {
+        min-height: 360px;
+      }
+
+      .cards,
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .treatment-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box,
+      .feature-box,
+      .hero-card {
+        padding: 24px;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="wrap nav">
+      <a href="#" class="logo">
+        Bella Rose Beauty
+        <span>Mobile Beauty Therapist</span>
+      </a>
+
+      <nav>
+        <a href="#treatments">Treatments</a>
+        <a href="#areas">Areas</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Book</a>
+      </nav>
+
+      <a class="btn" href="#contact">Book Now</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Mobile beauty across Fenland</span>
+          <h1>Beauty brought to your door.</h1>
+          <p>
+            Relaxing, professional beauty treatments from the comfort of your own home.
+            Bella Rose Beauty offers mobile lashes, brows, nails and pamper treatments across Wisbech, March,
+            Chatteris, Whittlesey, Doddington, Manea and surrounding Fenland areas.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn">Message to Book</a>
+            <a href="#treatments" class="btn secondary">View Treatments</a>
+          </div>
+
+          <div class="trust-row">
+            <span>Mobile appointments</span>
+            <span>Evening availability</span>
+            <span>Local Fenland therapist</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-content">
+            <h3>Your little salon moment, at home.</h3>
+            <p>
+              Perfect for busy mums, working women, special occasions, or anyone who wants to feel polished without leaving the house.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head center">
+          <h2>Feel put together without the salon trip.</h2>
+          <p>
+            Mobile beauty makes appointments easier, calmer and more convenient — especially when life is already full.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <div class="icon">🌸</div>
+            <h3>At-home comfort</h3>
+            <p>No rushing, parking or waiting rooms. Your treatment happens in your own space.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">✨</div>
+            <h3>Polished results</h3>
+            <p>Soft, pretty, wearable beauty treatments that help you feel confident day to day.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">📍</div>
+            <h3>Local and flexible</h3>
+            <p>Serving Fenland towns and villages with friendly, reliable mobile appointments.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="treatments" id="treatments">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Treatments</h2>
+          <p>
+            A simple treatment menu for regular maintenance, special occasions and feel-good pamper appointments.
+          </p>
+        </div>
+
+        <div class="treatment-grid">
+          <div class="treatment">
+            <div>
+              <h3>Lash Lift & Tint</h3>
+              <p>Natural-looking lift, curl and definition for low-maintenance lashes.</p>
+            </div>
+            <span class="price">From £35</span>
+          </div>
+
+          <div class="treatment">
+            <div>
+              <h3>Brow Shape & Tint</h3>
+              <p>Softly defined brows tailored to your face shape and natural colouring.</p>
+            </div>
+            <span class="price">From £18</span>
+          </div>
+
+          <div class="treatment">
+            <div>
+              <h3>Gel Nails</h3>
+              <p>Glossy gel polish for hands or toes, ideal for holidays, events and everyday wear.</p>
+            </div>
+            <span class="price">From £25</span>
+          </div>
+
+          <div class="treatment">
+            <div>
+              <h3>Facial Glow Treatment</h3>
+              <p>A relaxing skin refresh designed to leave you feeling calm, clean and glowing.</p>
+            </div>
+            <span class="price">From £30</span>
+          </div>
+
+          <div class="treatment">
+            <div>
+              <h3>Waxing</h3>
+              <p>Professional mobile waxing for brows, face and selected body areas.</p>
+            </div>
+            <span class="price">From £10</span>
+          </div>
+
+          <div class="treatment">
+            <div>
+              <h3>Pamper Packages</h3>
+              <p>Perfect for birthdays, bridal prep, girls’ nights or a well-earned reset.</p>
+            </div>
+            <span class="price">POA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap split">
+        <div class="feature-box">
+          <span class="eyebrow">Why mobile beauty?</span>
+          <h2>Appointments that fit around real life.</h2>
+          <p>
+            Bella Rose Beauty is designed for clients who want to look and feel good, without rearranging their whole day around a salon visit.
+          </p>
+
+          <div class="feature-list">
+            <div>
+              <strong>No travel stress</strong>
+              Appointments take place in the comfort of your home.
+            </div>
+
+            <div>
+              <strong>Perfect for busy schedules</strong>
+              Ideal for evenings, school runs, work-from-home days and special events.
+            </div>
+
+            <div>
+              <strong>Friendly, personal service</strong>
+              A calm one-to-one appointment without the busy salon atmosphere.
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-head">
+            <h2>Soft, feminine, effortless beauty.</h2>
+            <p>
+              The Bella Rose Beauty style is elegant, wearable and confidence-boosting — never overdone, rushed or intimidating.
+            </p>
+          </div>
+
+          <div class="cards" style="grid-template-columns: 1fr;">
+            <div class="card">
+              <h3>Ideal for</h3>
+              <p>
+                Busy mums, working women, bridal parties, holiday prep, event glam, regular maintenance and anyone who prefers a quieter appointment at home.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="wrap">
+        <div class="section-head center">
+          <h2>A little look at the work</h2>
+          <p>
+            Replace these blocks with real client photos, before-and-afters, nails, brows, lashes and treatment setup images.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">Lash lift</div>
+          <div class="gallery-item">Gel nails</div>
+          <div class="gallery-item">Brows</div>
+          <div class="gallery-item">At-home setup</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="wrap">
+        <div class="section-head center">
+          <h2>Client love</h2>
+          <p>Real reviews would sit here to build instant trust before someone books.</p>
+        </div>
+
+        <div class="review-grid">
+          <div class="review">
+            <p>“So convenient having my appointment at home. My lashes looked beautiful and lasted so well.”</p>
+            <strong>— Sarah, Wisbech</strong>
+          </div>
+
+          <div class="review">
+            <p>“Professional, friendly and made me feel completely comfortable. I’ll definitely be booking again.”</p>
+            <strong>— Emma, March</strong>
+          </div>
+
+          <div class="review">
+            <p>“Loved my nails. Such a relaxing appointment and so much easier than going into town.”</p>
+            <strong>— Chloe, Chatteris</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="areas" id="areas">
+      <div class="wrap">
+        <div class="section-head center">
+          <h2>Mobile beauty therapist serving Fenland</h2>
+          <p>
+            Bella Rose Beauty offers mobile beauty appointments across the local area.
+          </p>
+        </div>
+
+        <div class="area-tags">
+          <span>Wisbech</span>
+          <span>March</span>
+          <span>Chatteris</span>
+          <span>Whittlesey</span>
+          <span>Doddington</span>
+          <span>Manea</span>
+          <span>Fenland villages</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="contact-box">
+          <div>
+            <span class="eyebrow">Ready to book?</span>
+            <h2>Message Bella Rose Beauty.</h2>
+            <p>
+              Send a message with the treatment you’re interested in, your location and your preferred appointment time.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn" href="https://www.facebook.com/" target="_blank">Message on Facebook</a>
+              <a class="btn secondary" href="tel:07123456789">Call 07123 456789</a>
+            </div>
+          </div>
+
+          <div class="contact-details">
+            <div><strong>Location:</strong><br>Mobile appointments across Fenland</div>
+            <div><strong>Hours:</strong><br>Daytime and selected evening appointments</div>
+            <div><strong>Booking:</strong><br>Facebook Messenger, phone or text</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <p>© Bella Rose Beauty. Mobile beauty therapist in Fenland.</p>
+      <p>Website demo by Sites Sorted.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
