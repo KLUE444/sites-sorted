@@ -237,20 +237,19 @@
       margin-bottom: 8px;
     }
 
-    .portfolio-shot {
-      width: 100%;
-      height: 220px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, #f3e5d7 0%, #fffaf5 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent-dark);
-      font-weight: 700;
-      margin-bottom: 16px;
-      text-align: center;
-      padding: 20px;
+.portfolio-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  margin-bottom: 16px;
+  transition: transform 0.3s ease;
+}
+
+.card a:hover .portfolio-img {
+  transform: scale(1.03);
+}
     }
 
     .quote {
@@ -549,17 +548,35 @@
         </div>
         <div class="grid-3">
           <div class="card">
-            <div class="portfolio-shot">Beauty business demo<br>Screenshot goes here</div>
+     <div class="card">
+  <a href="https://sitessorted.co.uk/bella-rose-beauty-demo.html" target="_blank">
+    <img src="images/bella-rose.jpg" class="portfolio-img" alt="Beauty website demo">
+  </a>
+  <h3>Beauty & aesthetics</h3>
+  <p class="muted">A polished, feminine layout focused on treatments, reviews, and easy booking enquiries.</p>
+</div>
             <h3>Beauty & aesthetics</h3>
             <p class="muted">A polished, feminine layout focused on treatments, reviews, and easy booking enquiries.</p>
           </div>
           <div class="card">
-            <div class="portfolio-shot">Dog grooming demo<br>Screenshot goes here</div>
+          <div class="card">
+  <a href="https://sitessorted.co.uk/paws-polish-demo.html" target="_blank">
+    <img src="images/paws-polish.jpg" class="portfolio-img" alt="Pet grooming website demo">
+  </a>
+  <h3>Pet services</h3>
+  <p class="muted">A friendly local service site with strong calls to action and simple service information.</p>
+</div>
             <h3>Pet services</h3>
             <p class="muted">A friendly local service site with strong calls to action and simple service information.</p>
           </div>
           <div class="card">
-            <div class="portfolio-shot">Trades business demo<br>Screenshot goes here</div>
+<div class="card">
+  <a href="https://sitessorted.co.uk/fenland-plumbing-demo.html" target="_blank">
+    <img src="images/fenland.jpg" class="portfolio-img" alt="Trades website demo">
+  </a>
+  <h3>Trades & home services</h3>
+  <p class="muted">A straightforward layout built to look trustworthy, explain services clearly, and generate enquiries.</p>
+</div>
             <h3>Trades & home services</h3>
             <p class="muted">A straightforward layout built to look trustworthy, explain services clearly, and generate enquiries.</p>
           </div>
