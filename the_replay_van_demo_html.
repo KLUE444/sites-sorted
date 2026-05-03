@@ -3,23 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Replay Van | 90s Retro Gaming Party Van</title>
-  <meta name="description" content="The Replay Van brings retro gaming, 90s nostalgia, music challenges, movies and modern gaming to parties, events, fairs and school visits across Lincolnshire and surrounding areas.">
+
+  <title>The Replay Van | Retro Gaming Party Van Lincolnshire</title>
+  <meta name="description" content="The Replay Van brings retro gaming, modern games, music challenges and 90s nostalgia to birthday parties, schools, fairs and events across Lincolnshire." />
 
   <style>
     :root {
-      --bg: #050008;
-      --surface: #120018;
-      --surface2: #1c0628;
-      --pink: #ff2fb3;
+      --black: #050308;
+      --ink: #0d0714;
+      --panel: #13091f;
+      --panel2: #1d0c31;
+      --white: #ffffff;
+      --soft: #d9c7ef;
+      --pink: #ff2fac;
       --cyan: #00d9ff;
       --yellow: #ffe600;
-      --purple: #8b2cff;
-      --green: #83ff00;
-      --white: #ffffff;
-      --muted: #d7c9e8;
-      --radius: 26px;
-      --shadow: 0 0 35px rgba(255, 47, 179, 0.32);
+      --purple: #8a35ff;
+      --blue: #285bff;
+      --green: #85ff39;
+      --radius: 28px;
+      --shadow: 0 25px 80px rgba(0,0,0,.45);
+      --glow-pink: 0 0 35px rgba(255,47,172,.42);
+      --glow-cyan: 0 0 35px rgba(0,217,255,.38);
     }
 
     * {
@@ -28,13 +33,17 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(255,47,179,.25), transparent 30%),
-        radial-gradient(circle at top right, rgba(0,217,255,.22), transparent 32%),
-        radial-gradient(circle at bottom, rgba(139,44,255,.28), transparent 35%),
-        var(--bg);
+        radial-gradient(circle at 10% 10%, rgba(255,47,172,.22), transparent 28%),
+        radial-gradient(circle at 90% 5%, rgba(0,217,255,.2), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(138,53,255,.28), transparent 35%),
+        var(--black);
       color: var(--white);
       line-height: 1.6;
       overflow-x: hidden;
@@ -51,282 +60,480 @@
     }
 
     .container {
-      width: min(1160px, 92%);
+      width: min(1180px, 92%);
       margin: 0 auto;
     }
 
+    .topbar {
+      background: linear-gradient(90deg, var(--pink), var(--purple), var(--cyan));
+      color: white;
+      text-align: center;
+      padding: 9px 16px;
+      font-weight: 900;
+      font-size: .86rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
     header {
-      padding: 22px 0;
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: rgba(5,0,8,.86);
-      backdrop-filter: blur(14px);
+      z-index: 20;
+      background: rgba(5,3,8,.82);
+      backdrop-filter: blur(18px);
       border-bottom: 1px solid rgba(255,255,255,.12);
     }
 
     .nav {
+      height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 22px;
     }
 
-    .logo {
-      font-weight: 900;
-      font-size: 1.4rem;
-      letter-spacing: .5px;
-      color: var(--yellow);
-      text-shadow: 0 0 14px rgba(255,230,0,.75);
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 950;
+      letter-spacing: -.04em;
+      font-size: 1.35rem;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--yellow), var(--pink), var(--cyan));
+      box-shadow: var(--glow-pink);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
-      color: var(--muted);
+      gap: 26px;
+      color: var(--soft);
+      font-size: .92rem;
       font-weight: 800;
+    }
+
+    .nav-links a:hover {
+      color: var(--yellow);
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 24px;
+      gap: 9px;
+      padding: 14px 22px;
       border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
       background: linear-gradient(135deg, var(--pink), var(--purple), var(--cyan));
       color: var(--white);
-      font-weight: 900;
+      font-weight: 950;
       text-transform: uppercase;
-      letter-spacing: .5px;
-      box-shadow: 0 0 24px rgba(255,47,179,.55);
-      border: 2px solid rgba(255,255,255,.25);
+      letter-spacing: .04em;
+      font-size: .88rem;
+      box-shadow: var(--glow-pink);
       transition: .25s ease;
+      white-space: nowrap;
     }
 
     .btn:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 0 35px rgba(0,217,255,.65);
+      transform: translateY(-3px);
+      box-shadow: var(--glow-cyan);
     }
 
-    .btn.secondary {
-      background: transparent;
+    .btn.alt {
+      background: rgba(255,255,255,.06);
       color: var(--yellow);
-      border: 2px solid var(--yellow);
-      box-shadow: 0 0 18px rgba(255,230,0,.35);
+      border-color: rgba(255,230,0,.45);
+      box-shadow: 0 0 24px rgba(255,230,0,.18);
     }
 
     .hero {
-      padding: 80px 0 65px;
+      padding: 76px 0 70px;
       position: relative;
     }
 
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: linear-gradient(to bottom, black, transparent 75%);
+      pointer-events: none;
+    }
+
     .hero-grid {
+      position: relative;
       display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 46px;
+      grid-template-columns: 1fr .92fr;
+      gap: 52px;
       align-items: center;
     }
 
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 18px;
-      padding: 9px 16px;
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 15px;
       border-radius: 999px;
-      background: rgba(0,217,255,.12);
-      border: 1px solid rgba(0,217,255,.7);
+      background: rgba(0,217,255,.09);
+      border: 1px solid rgba(0,217,255,.5);
       color: var(--cyan);
-      font-weight: 900;
+      font-weight: 950;
       text-transform: uppercase;
-      box-shadow: 0 0 18px rgba(0,217,255,.35);
+      letter-spacing: .08em;
+      font-size: .78rem;
+      margin-bottom: 22px;
+      box-shadow: var(--glow-cyan);
     }
 
     h1 {
-      font-size: clamp(3rem, 7vw, 6.5rem);
-      line-height: .9;
-      letter-spacing: -3px;
-      margin-bottom: 24px;
+      max-width: 720px;
+      font-size: clamp(3.5rem, 8vw, 7.6rem);
+      line-height: .84;
+      letter-spacing: -.075em;
       text-transform: uppercase;
+      margin-bottom: 24px;
     }
 
-    .gradient-text {
+    .neon {
       background: linear-gradient(90deg, var(--yellow), var(--pink), var(--cyan));
       -webkit-background-clip: text;
       color: transparent;
-      text-shadow: none;
     }
 
-    .hero p {
-      color: var(--muted);
+    .hero-copy {
+      color: var(--soft);
       font-size: 1.18rem;
-      max-width: 650px;
+      max-width: 620px;
       margin-bottom: 30px;
     }
 
     .hero-actions {
       display: flex;
-      gap: 14px;
       flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
     }
 
-    .hero-card {
-      background: rgba(18,0,24,.82);
-      border: 2px solid rgba(255,47,179,.5);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: var(--shadow);
-      transform: rotate(1deg);
-    }
-
-    .hero-card img {
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,.18);
-    }
-
-    .stats {
+    .quick-points {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 34px;
+      gap: 14px;
+      max-width: 720px;
     }
 
-    .stat {
-      background: rgba(255,255,255,.06);
+    .quick-point {
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.065);
       border: 1px solid rgba(255,255,255,.12);
-      border-radius: 18px;
-      padding: 18px;
-      text-align: center;
     }
 
-    .stat strong {
+    .quick-point strong {
       display: block;
-      font-size: 1.8rem;
       color: var(--yellow);
+      font-size: 1.05rem;
+      margin-bottom: 2px;
+    }
+
+    .quick-point span {
+      color: var(--soft);
+      font-size: .92rem;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .visual-card {
+      position: relative;
+      padding: 14px;
+      border-radius: 34px;
+      background: linear-gradient(135deg, rgba(255,47,172,.75), rgba(0,217,255,.65));
+      box-shadow: var(--shadow), var(--glow-pink);
+      transform: rotate(1.5deg);
+    }
+
+    .visual-card img {
+      border-radius: 24px;
+      border: 2px solid rgba(255,255,255,.18);
+      background: #000;
+    }
+
+    .floating-badge {
+      position: absolute;
+      left: -24px;
+      bottom: 28px;
+      max-width: 210px;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(5,3,8,.92);
+      border: 1px solid rgba(255,230,0,.55);
+      box-shadow: 0 0 30px rgba(255,230,0,.22);
+      transform: rotate(-3deg);
+    }
+
+    .floating-badge strong {
+      color: var(--yellow);
+      display: block;
+      font-size: 1.1rem;
+      line-height: 1.1;
+      margin-bottom: 5px;
+    }
+
+    .floating-badge span {
+      color: var(--soft);
+      font-size: .9rem;
     }
 
     section {
-      padding: 72px 0;
+      padding: 76px 0;
     }
 
-    .section-title {
-      text-align: center;
+    .section-head {
       max-width: 760px;
-      margin: 0 auto 40px;
+      margin-bottom: 38px;
     }
 
-    .section-title h2 {
-      font-size: clamp(2.2rem, 4vw, 4rem);
-      line-height: .95;
-      margin-bottom: 16px;
+    .section-head.center {
+      text-align: center;
+      margin: 0 auto 42px;
+    }
+
+    .section-head .label {
+      color: var(--cyan);
+      font-weight: 950;
+      letter-spacing: .08em;
       text-transform: uppercase;
+      font-size: .8rem;
+      margin-bottom: 10px;
     }
 
-    .section-title p {
-      color: var(--muted);
+    .section-head h2 {
+      font-size: clamp(2.3rem, 5vw, 4.6rem);
+      line-height: .9;
+      letter-spacing: -.06em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-head p {
+      color: var(--soft);
       font-size: 1.08rem;
     }
 
-    .cards {
+    .service-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 18px;
     }
 
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
-      border: 1px solid rgba(255,255,255,.16);
+    .service-card {
+      grid-column: span 2;
+      min-height: 240px;
+      padding: 26px;
       border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: 0 0 24px rgba(0,0,0,.22);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.085), rgba(255,255,255,.035));
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 18px 60px rgba(0,0,0,.28);
+      position: relative;
+      overflow: hidden;
     }
 
-    .card:nth-child(1) { border-color: rgba(255,47,179,.55); }
-    .card:nth-child(2) { border-color: rgba(0,217,255,.55); }
-    .card:nth-child(3) { border-color: rgba(255,230,0,.55); }
-    .card:nth-child(4) { border-color: rgba(131,255,0,.55); }
-    .card:nth-child(5) { border-color: rgba(139,44,255,.75); }
-    .card:nth-child(6) { border-color: rgba(255,47,179,.55); }
-
-    .icon {
-      font-size: 2.2rem;
-      margin-bottom: 14px;
+    .service-card.large {
+      grid-column: span 3;
     }
 
-    .card h3 {
-      font-size: 1.35rem;
-      margin-bottom: 10px;
-      color: var(--yellow);
+    .service-card::after {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      right: -65px;
+      bottom: -65px;
+      border-radius: 999px;
+      background: rgba(255,47,172,.22);
+      filter: blur(6px);
     }
 
-    .card p {
-      color: var(--muted);
+    .service-card:nth-child(2)::after,
+    .service-card:nth-child(5)::after {
+      background: rgba(0,217,255,.22);
     }
 
-    .split {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 34px;
-      align-items: center;
+    .service-card:nth-child(3)::after {
+      background: rgba(255,230,0,.2);
     }
 
-    .image-panel {
-      background: rgba(255,255,255,.06);
-      border-radius: var(--radius);
-      padding: 14px;
-      border: 1px solid rgba(255,255,255,.16);
-      box-shadow: var(--shadow);
+    .service-card .icon {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
     }
 
-    .image-panel img {
-      border-radius: 20px;
-    }
-
-    .feature-list {
-      display: grid;
-      gap: 16px;
-    }
-
-    .feature {
-      padding: 18px 20px;
-      border-radius: 18px;
-      background: rgba(255,255,255,.06);
-      border-left: 5px solid var(--pink);
-      color: var(--muted);
-    }
-
-    .feature strong {
+    .service-card h3 {
+      font-size: 1.45rem;
+      line-height: 1.1;
+      margin-bottom: 12px;
       color: var(--white);
     }
 
-    .reviews {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
+    .service-card p {
+      color: var(--soft);
+      position: relative;
+      z-index: 2;
     }
 
-    .review {
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,47,179,.35);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: 0 0 22px rgba(255,47,179,.16);
+    .showcase {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .image-frame {
+      padding: 12px;
+      border-radius: 34px;
+      background: linear-gradient(135deg, rgba(255,47,172,.7), rgba(0,217,255,.55), rgba(255,230,0,.5));
+      box-shadow: var(--shadow);
+    }
+
+    .image-frame img {
+      border-radius: 24px;
+      background: #000;
+    }
+
+    .feature-stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .feature-row {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.065);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .feature-row .num {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,47,172,.18);
+      border: 1px solid rgba(255,47,172,.45);
+      color: var(--yellow);
+      font-weight: 950;
+    }
+
+    .feature-row h3 {
+      font-size: 1.15rem;
+      margin-bottom: 3px;
+    }
+
+    .feature-row p {
+      color: var(--soft);
+    }
+
+    .game-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .game-box {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(0,217,255,.25);
+    }
+
+    .game-box strong {
+      color: var(--cyan);
+      display: block;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      font-size: .86rem;
+      letter-spacing: .07em;
+    }
+
+    .game-box p {
+      color: var(--soft);
+      font-size: .95rem;
+    }
+
+    .reviews-wrap {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .review-main {
+      padding: 34px;
+      border-radius: 34px;
+      background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
+      border: 1px solid rgba(255,47,172,.45);
+      box-shadow: var(--glow-pink);
     }
 
     .stars {
       color: var(--yellow);
-      font-size: 1.2rem;
-      margin-bottom: 12px;
+      font-size: 1.25rem;
+      margin-bottom: 18px;
+      letter-spacing: .05em;
     }
 
-    .review p {
-      color: var(--muted);
-      font-size: 1.05rem;
+    .review-main blockquote {
+      font-size: 1.18rem;
+      color: var(--white);
+      line-height: 1.65;
+      margin-bottom: 22px;
     }
 
-    .review strong {
-      display: block;
-      margin-top: 16px;
+    .review-main cite {
       color: var(--cyan);
+      font-style: normal;
+      font-weight: 950;
+    }
+
+    .review-side {
+      display: grid;
+      gap: 18px;
+    }
+
+    .mini-review {
+      padding: 24px;
+      border-radius: 26px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.13);
+    }
+
+    .mini-review strong {
+      color: var(--yellow);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .mini-review p {
+      color: var(--soft);
     }
 
     .locations {
@@ -338,64 +545,89 @@
     }
 
     .pill {
-      padding: 10px 16px;
+      padding: 11px 16px;
       border-radius: 999px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(0,217,255,.35);
-      color: var(--muted);
-      font-weight: 800;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.14);
+      color: var(--soft);
+      font-weight: 850;
     }
 
-    .cta {
-      text-align: center;
+    .contact-panel {
+      position: relative;
+      overflow: hidden;
+      padding: 54px;
+      border-radius: 40px;
       background:
-        linear-gradient(135deg, rgba(255,47,179,.26), rgba(0,217,255,.18)),
-        rgba(255,255,255,.06);
-      border: 2px solid rgba(255,255,255,.16);
-      border-radius: 36px;
-      padding: 54px 28px;
-      box-shadow: var(--shadow);
+        linear-gradient(135deg, rgba(255,47,172,.25), rgba(0,217,255,.18)),
+        rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: var(--shadow), var(--glow-cyan);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: center;
     }
 
-    .cta h2 {
-      font-size: clamp(2.4rem, 5vw, 4.6rem);
-      line-height: .95;
-      margin-bottom: 16px;
+    .contact-panel::after {
+      content: "▶";
+      position: absolute;
+      right: 34px;
+      top: -40px;
+      font-size: 12rem;
+      color: rgba(255,255,255,.04);
+      transform: rotate(12deg);
+    }
+
+    .contact-panel h2 {
+      font-size: clamp(2.6rem, 5vw, 5rem);
+      line-height: .9;
+      letter-spacing: -.065em;
       text-transform: uppercase;
+      margin-bottom: 15px;
     }
 
-    .cta p {
-      color: var(--muted);
+    .contact-panel p {
+      color: var(--soft);
       max-width: 680px;
-      margin: 0 auto 28px;
-      font-size: 1.1rem;
+      font-size: 1.08rem;
     }
 
     footer {
       padding: 34px 0;
-      text-align: center;
-      color: var(--muted);
+      color: var(--soft);
       border-top: 1px solid rgba(255,255,255,.12);
+      text-align: center;
+      font-size: .95rem;
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 950px) {
       .hero-grid,
-      .split,
-      .cards,
-      .reviews {
+      .showcase,
+      .reviews-wrap,
+      .contact-panel {
         grid-template-columns: 1fr;
+      }
+
+      .quick-points,
+      .game-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card,
+      .service-card.large {
+        grid-column: span 6;
       }
 
       .nav-links {
         display: none;
       }
 
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        letter-spacing: -2px;
+      .floating-badge {
+        position: static;
+        margin-top: 16px;
+        max-width: none;
+        transform: none;
       }
     }
   </style>
@@ -403,12 +635,20 @@
 
 <body>
 
+  <div class="topbar">
+    Limited dates available — message now to get booked in
+  </div>
+
   <header>
     <div class="container nav">
-      <a href="#" class="logo">THE REPLAY VAN</a>
+      <a href="#" class="brand">
+        <span class="brand-mark">🎮</span>
+        <span>The Replay Van</span>
+      </a>
 
       <nav class="nav-links">
-        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#services">Parties</a>
         <a href="#games">Games</a>
         <a href="#reviews">Reviews</a>
         <a href="#contact" class="btn">Book Now</a>
@@ -418,184 +658,281 @@
 
   <main>
 
-    <section class="hero">
+    <section class="hero" id="about">
       <div class="container hero-grid">
+
         <div>
-          <span class="eyebrow">90s gaming experience brought to your door</span>
+          <div class="kicker">🕹️ Retro gaming van across Lincolnshire</div>
+
           <h1>
-            Retro games.<br>
-            <span class="gradient-text">Big laughs.</span><br>
-            Zero boring parties.
+            Gaming parties with serious
+            <span class="neon">90s energy.</span>
           </h1>
 
-          <p>
-            The Replay Van brings classic 90s consoles, modern favourites, music challenges,
-            movie nostalgia and interactive fun straight to your party, school visit, fair or event.
+          <p class="hero-copy">
+            The Replay Van brings retro consoles, modern favourites, music challenges,
+            competitions and pure nostalgic fun straight to your door — perfect for kids’
+            parties, adult parties, school visits, fairs and events.
           </p>
 
           <div class="hero-actions">
-            <a href="https://www.facebook.com/profile.php?id=61587321894827" class="btn">Message to Book</a>
-            <a href="#games" class="btn secondary">See The Games</a>
+            <a class="btn" href="https://www.facebook.com/profile.php?id=61587321894827">Message on Facebook</a>
+            <a class="btn alt" href="#games">View Game Menu</a>
           </div>
 
-          <div class="stats">
-            <div class="stat">
-              <strong>90s</strong>
-              nostalgia
+          <div class="quick-points">
+            <div class="quick-point">
+              <strong>Classic consoles</strong>
+              <span>90s games and old-school favourites</span>
             </div>
-            <div class="stat">
-              <strong>Kids</strong>
-              parties
+            <div class="quick-point">
+              <strong>Modern games</strong>
+              <span>Now added due to demand</span>
             </div>
-            <div class="stat">
-              <strong>Adults</strong>
-              events
+            <div class="quick-point">
+              <strong>Party ready</strong>
+              <span>Birthdays, schools, fairs and events</span>
             </div>
           </div>
         </div>
 
-        <div class="hero-card">
-          <img src="images/replay-logo.jpg" alt="The Replay Van logo">
+        <div class="hero-visual">
+          <div class="visual-card">
+            <img src="images/replay-logo.jpg" alt="The Replay Van logo">
+          </div>
+
+          <div class="floating-badge">
+            <strong>Gaming • Snacks • 90s Nostalgia</strong>
+            <span>All brought to your door in one unforgettable party experience.</span>
+          </div>
         </div>
+
       </div>
     </section>
 
     <section id="services">
       <div class="container">
-        <div class="section-title">
-          <h2>Pick your party mode</h2>
+
+        <div class="section-head center">
+          <div class="label">Choose your event</div>
+          <h2>Not your average party hire</h2>
           <p>
-            From birthday parties to school fun days, The Replay Van is packed with consoles,
-            challenges and proper throwback energy.
+            Designed for people who want something different, memorable and ridiculously fun.
           </p>
         </div>
 
-        <div class="cards">
-          <div class="card">
+        <div class="service-grid">
+
+          <article class="service-card large">
             <div class="icon">🎂</div>
             <h3>Birthday Party Hire</h3>
-            <p>Private hire with multiple consoles, nostalgic games and an unforgettable party setup.</p>
-          </div>
+            <p>
+              Private hire of The Replay Van with multiple consoles and games for an unforgettable birthday experience.
+            </p>
+          </article>
 
-          <div class="card">
-            <div class="icon">🎮</div>
-            <h3>Retro Gaming Experience</h3>
-            <p>Step back into the 90s with classic consoles, iconic games and old-school fun for all ages.</p>
-          </div>
-
-          <div class="card">
+          <article class="service-card large">
             <div class="icon">🕹️</div>
-            <h3>Modern Gaming Added</h3>
-            <p>Due to demand, modern gaming is now included alongside the full 90s experience.</p>
-          </div>
+            <h3>Retro Gaming Experiences</h3>
+            <p>
+              Step back into the 90s with classic consoles, iconic games and nostalgic fun for all ages.
+            </p>
+          </article>
 
-          <div class="card">
+          <article class="service-card">
+            <div class="icon">🎮</div>
+            <h3>Modern Gaming</h3>
+            <p>
+              Modern favourites are now included alongside the full 90s experience.
+            </p>
+          </article>
+
+          <article class="service-card">
             <div class="icon">🎧</div>
             <h3>Music Challenges</h3>
-            <p>Fun music-based challenges and interactive games to keep everyone entertained beyond the screens.</p>
-          </div>
+            <p>
+              Interactive music-based games and challenges to keep the energy high.
+            </p>
+          </article>
 
-          <div class="card">
+          <article class="service-card">
             <div class="icon">🎪</div>
-            <h3>Events, Fairs & Schools</h3>
-            <p>Perfect for community events, school visits, fairs and festivals when you want something different.</p>
-          </div>
+            <h3>Schools, Fairs & Events</h3>
+            <p>
+              A brilliant crowd-pleaser for community events, school visits and festivals.
+            </p>
+          </article>
 
-          <div class="card">
-            <div class="icon">🎬</div>
-            <h3>90s Movie Corner</h3>
-            <p>Relive the video shop days with a “Pick Your Video” style movie corner full of nostalgia.</p>
-          </div>
         </div>
+
       </div>
     </section>
 
     <section id="games">
-      <div class="container split">
-        <div class="image-panel">
+      <div class="container showcase">
+
+        <div class="image-frame">
           <img src="images/replay-game-menu.jpg" alt="Replay Van game menu">
         </div>
 
         <div>
-          <div class="section-title" style="text-align:left; margin:0 0 28px;">
-            <h2>Game menu loaded</h2>
+          <div class="section-head">
+            <div class="label">Game menu</div>
+            <h2>Pick your game. Get playing.</h2>
             <p>
-              Pick a favourite, try a challenge, or ask for a recommendation. From Sonic and Super Mario
-              to Crash Bandicoot, Tekken, FIFA and classic Game Boy favourites.
+              From Sonic and Super Mario to Crash Bandicoot, Tekken, FIFA, Game Boy classics and modern favourites,
+              there’s something for every player.
             </p>
           </div>
 
-          <div class="feature-list">
-            <div class="feature"><strong>Mega Drive:</strong> Sonic, Sonic 2, Streets of Rage, Golden Axe and more.</div>
-            <div class="feature"><strong>PlayStation 1:</strong> Crash Bandicoot, Tekken 2, CTR, FIFA 99 and classics.</div>
-            <div class="feature"><strong>Super Nintendo:</strong> Super Mario World, Mario Kart, F-Zero and Starwing.</div>
-            <div class="feature"><strong>Game Boy:</strong> handheld classics for proper throwback fun.</div>
+          <div class="feature-stack">
+            <div class="feature-row">
+              <div class="num">01</div>
+              <div>
+                <h3>Classic 90s consoles</h3>
+                <p>Mega Drive, PlayStation 1, Super Nintendo, Game Boy and proper throwback favourites.</p>
+              </div>
+            </div>
+
+            <div class="feature-row">
+              <div class="num">02</div>
+              <div>
+                <h3>Modern favourites added</h3>
+                <p>The best of both worlds — retro games for nostalgia and newer games for modern players.</p>
+              </div>
+            </div>
+
+            <div class="feature-row">
+              <div class="num">03</div>
+              <div>
+                <h3>Competitions and challenges</h3>
+                <p>Perfect for parties, groups and events where everyone wants a go.</p>
+              </div>
+            </div>
           </div>
+
+          <div class="game-strip">
+            <div class="game-box">
+              <strong>Racing</strong>
+              <p>Mario Kart, F-Zero, V-Rally, Crash Team Racing</p>
+            </div>
+            <div class="game-box">
+              <strong>Platform</strong>
+              <p>Sonic, Super Mario World, Crash Bandicoot</p>
+            </div>
+            <div class="game-box">
+              <strong>Fighting</strong>
+              <p>Tekken, Streets of Rage, Golden Axe</p>
+            </div>
+            <div class="game-box">
+              <strong>Fun & Sim</strong>
+              <p>Theme Park, music games and party challenges</p>
+            </div>
+          </div>
+
         </div>
+
       </div>
     </section>
 
     <section>
-      <div class="container split">
+      <div class="container showcase">
+
         <div>
-          <div class="section-title" style="text-align:left; margin:0 0 28px;">
-            <h2>Modern gaming now included</h2>
+          <div class="section-head">
+            <div class="label">New update</div>
+            <h2>Modern gaming is now included</h2>
             <p>
-              After loads of messages asking for modern games, The Replay Van listened. You now get
-              the best of both worlds: classic 90s consoles plus modern favourites.
+              After loads of messages asking if modern games were available, The Replay Van listened.
+              Now parties can enjoy classic 90s nostalgia alongside modern gaming favourites.
             </p>
           </div>
 
-          <div class="feature-list">
-            <div class="feature"><strong>Classic 90s consoles & games</strong> for the nostalgic crowd.</div>
-            <div class="feature"><strong>Modern favourites added</strong> for kids who want newer games too.</div>
-            <div class="feature"><strong>Music, competitions & prizes</strong> to keep the energy high.</div>
-            <div class="feature"><strong>All brought to your door</strong> across Lincolnshire and surrounding areas.</div>
+          <div class="feature-stack">
+            <div class="feature-row">
+              <div class="num">🎮</div>
+              <div>
+                <h3>The best of both worlds</h3>
+                <p>Retro gaming for nostalgia, modern gaming for newer players, all in one party setup.</p>
+              </div>
+            </div>
+
+            <div class="feature-row">
+              <div class="num">🏆</div>
+              <div>
+                <h3>Competitions and prizes</h3>
+                <p>Bring out everyone’s competitive side with challenges, games and prizes.</p>
+              </div>
+            </div>
+
+            <div class="feature-row">
+              <div class="num">🚐</div>
+              <div>
+                <h3>All brought to your door</h3>
+                <p>No venue stress. No complicated setup. Just book, turn up and play.</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="image-panel">
-          <img src="images/replay-modern-gaming.jpg" alt="Replay Van modern gaming update">
+        <div class="image-frame">
+          <img src="images/replay-modern-gaming.jpg" alt="The Replay Van modern gaming update">
         </div>
+
       </div>
     </section>
 
     <section id="reviews">
       <div class="container">
-        <div class="section-title">
-          <h2>Party people approved</h2>
-          <p>Real feedback from happy customers.</p>
+
+        <div class="section-head center">
+          <div class="label">Reviews</div>
+          <h2>Customers are loving it</h2>
+          <p>Real feedback from people who booked The Replay Van.</p>
         </div>
 
-        <div class="reviews">
-          <div class="review">
+        <div class="reviews-wrap">
+
+          <div class="review-main">
             <div class="stars">★★★★★</div>
-            <p>
+            <blockquote>
               “Wow!! What can I say, my son and his friends had an amazing time in The Replay Van
               for his birthday. Nothing was too much trouble. The children loved the retro games —
               so did I — and all the different bits like the Tamagotchi etc. It was nice to have
-              something different for a birthday party and it went down a treat. I would highly recommend.”
-            </p>
-            <strong>— Kerri Fleet</strong>
+              something different for a birthday party and it went down a treat. I would highly recommend
+              The Replay Van.”
+            </blockquote>
+            <cite>— Kerri Fleet</cite>
           </div>
 
-          <div class="review">
-            <div class="stars">★★★★★</div>
-            <p>
-              “A brilliant party idea for kids, adults and events. Retro games, modern favourites,
-              competitions and proper 90s nostalgia all brought straight to your door.”
-            </p>
-            <strong>— Customer review placeholder</strong>
+          <div class="review-side">
+            <div class="mini-review">
+              <strong>Perfect for kids’ parties</strong>
+              <p>A different, exciting birthday idea with games, nostalgia and plenty to keep everyone entertained.</p>
+            </div>
+
+            <div class="mini-review">
+              <strong>Adults love it too</strong>
+              <p>90s nostalgia, classic consoles and throwback games make it ideal for grown-up events too.</p>
+            </div>
+
+            <div class="mini-review">
+              <strong>Easy event entertainment</strong>
+              <p>The van comes to you, making it a simple and memorable option for schools, fairs and community events.</p>
+            </div>
           </div>
+
         </div>
+
       </div>
     </section>
 
     <section>
       <div class="container">
-        <div class="section-title">
-          <h2>Areas covered</h2>
-          <p>The Replay Van serves Lincolnshire and surrounding areas.</p>
+        <div class="section-head center">
+          <div class="label">Areas covered</div>
+          <h2>Available across Lincolnshire</h2>
+          <p>The Replay Van covers local towns and surrounding areas.</p>
         </div>
 
         <div class="locations">
@@ -617,17 +954,18 @@
 
     <section id="contact">
       <div class="container">
-        <div class="cta">
-          <h2>Ready to press start?</h2>
-          <p>
-            Limited dates are available. Message The Replay Van now to check availability
-            for birthdays, events, schools, fairs and private bookings.
-          </p>
-
-          <div class="hero-actions" style="justify-content:center;">
-            <a href="https://www.facebook.com/profile.php?id=61587321894827" class="btn">Message on Facebook</a>
-            <a href="tel:CHANGE-THIS-NUMBER" class="btn secondary">Call to Book</a>
+        <div class="contact-panel">
+          <div>
+            <h2>Ready to press start?</h2>
+            <p>
+              Message The Replay Van to check availability for birthday parties, adult parties,
+              schools, fairs, private bookings and events.
+            </p>
           </div>
+
+          <a class="btn" href="https://www.facebook.com/profile.php?id=61587321894827">
+            Message to Book
+          </a>
         </div>
       </div>
     </section>
@@ -636,8 +974,8 @@
 
   <footer>
     <div class="container">
-      <p>© The Replay Van. Retro gaming, modern favourites and unforgettable parties.</p>
-      <p>Website demo by Sites Sorted.</p>
+      <p>© The Replay Van — Gaming, snacks and 90s nostalgia.</p>
+      <p>Demo website by Sites Sorted.</p>
     </div>
   </footer>
 
