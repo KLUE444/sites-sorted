@@ -73,8 +73,40 @@
       color: var(--muted);
     }
 
-    .nav-links a:hover {
-      color: var(--accent);
+   @media (max-width: 900px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .nav-links {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .nav-links a {
+    background: var(--surface);
+    border: 1px solid var(--soft);
+    padding: 8px 12px;
+    border-radius: 999px;
+  }
+
+  .hero,
+  .booking {
+    grid-template-columns: 1fr;
+  }
+
+  .price-list,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
     }
 
     .hero {
@@ -443,7 +475,7 @@
     </div>
 
     <div class="hero-image">
-       <img src="luckys-logo.png"
+       <img src="luckys-logo.png" alt="Luckys House of Beauty logo">
     </div>
   </section>
 
