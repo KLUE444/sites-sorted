@@ -37,6 +37,11 @@
       text-decoration: none;
     }
 
+    img {
+      width: 100%;
+      display: block;
+    }
+
     header {
       background: rgba(255, 250, 245, 0.96);
       position: sticky;
@@ -102,6 +107,7 @@
     .hero p,
     .section-title p,
     .card p,
+    .showcase-card p,
     .social-panel p,
     .booking p {
       color: var(--muted);
@@ -188,24 +194,55 @@
       margin-bottom: 14px;
     }
 
-    .cards {
+    .cards,
+    .showcase-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
 
-    .card {
+    .card,
+    .showcase-card {
       background: var(--surface);
       border: 1px solid var(--soft);
       border-radius: var(--radius);
-      padding: 28px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      overflow: hidden;
     }
 
-    .card h3 {
+    .card {
+      padding: 28px;
+    }
+
+    .card h3,
+    .showcase-card h3 {
       margin-bottom: 10px;
       color: var(--accent-dark);
       font-size: 1.2rem;
+    }
+
+    .showcase-image {
+      height: 260px;
+      background: linear-gradient(135deg, #f1e5da, #d8c2b2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .showcase-image img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .showcase-content {
+      padding: 24px;
     }
 
     .social-panel {
@@ -338,13 +375,22 @@
       font-size: 0.9rem;
     }
 
+    @media (max-width: 1050px) {
+      .showcase-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 900px) {
       .hero,
       .booking {
         grid-template-columns: 1fr;
       }
 
-      .cards,
       .price-list,
       .contact-grid {
         grid-template-columns: 1fr;
@@ -355,7 +401,12 @@
       }
     }
 
-    @media (max-width: 520px) {
+    @media (max-width: 620px) {
+      .cards,
+      .showcase-grid {
+        grid-template-columns: 1fr;
+      }
+
       .hero {
         padding-top: 55px;
       }
@@ -381,6 +432,7 @@
 
     <nav class="nav-links">
       <a href="#services">Treatments</a>
+      <a href="#showcase">Images</a>
       <a href="#social">Instagram</a>
       <a href="#prices">Prices</a>
       <a href="#booking">Book</a>
@@ -421,18 +473,73 @@
 
     <div class="cards">
       <div class="card">
-        <h3>Brow & Lash Services</h3>
-        <p>Tint and wax, brow lamination, hybrid brows and lash lift treatments.</p>
+        <h3>Brows</h3>
+        <p>Tint and wax, brow lamination and hybrid brow treatments for a defined, polished look.</p>
       </div>
 
       <div class="card">
-        <h3>Lip Enhancements</h3>
-        <p>Classic lips, Russian lips and lip booster treatments.</p>
+        <h3>Lashes</h3>
+        <p>Lash lift treatments to enhance your natural lashes and open up the eye area.</p>
       </div>
 
       <div class="card">
-        <h3>Skin & Aesthetics</h3>
-        <p>Skin boosters, microneedling facials, polynucleotides and Botox areas.</p>
+        <h3>Lips & Fillers</h3>
+        <p>Classic lips, Russian lips, lip booster and filler packages tailored to your desired finish.</p>
+      </div>
+
+      <div class="card">
+        <h3>Skin Treatments</h3>
+        <p>Microneedling facials, skin boosters and under-eye polynucleotide treatments.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="showcase">
+    <div class="section-title">
+      <div class="eyebrow">Treatment showcase</div>
+      <h2>Results gallery</h2>
+      <p>Add your chosen images below for brows, lips, fillers and microneedling.</p>
+    </div>
+
+    <div class="showcase-grid">
+      <div class="showcase-card">
+        <div class="showcase-image">
+          <img src="images/luckys-brows.jpg" alt="Lucky's House of Beauty brow treatment">
+        </div>
+        <div class="showcase-content">
+          <h3>Brows</h3>
+          <p>Defined brow treatments including tint and wax, brow lamination and hybrid brows.</p>
+        </div>
+      </div>
+
+      <div class="showcase-card">
+        <div class="showcase-image">
+          <img src="images/luckys-lips.jpg" alt="Lucky's House of Beauty lip treatment">
+        </div>
+        <div class="showcase-content">
+          <h3>Lips</h3>
+          <p>Lip enhancement treatments including classic lips, Russian lips and lip booster.</p>
+        </div>
+      </div>
+
+      <div class="showcase-card">
+        <div class="showcase-image">
+          <img src="images/luckys-fillers.jpg" alt="Lucky's House of Beauty filler treatment">
+        </div>
+        <div class="showcase-content">
+          <h3>Fillers</h3>
+          <p>Filler packages designed to enhance facial features with a balanced finish.</p>
+        </div>
+      </div>
+
+      <div class="showcase-card">
+        <div class="showcase-image">
+          <img src="images/luckys-microneedling.jpg" alt="Lucky's House of Beauty microneedling treatment">
+        </div>
+        <div class="showcase-content">
+          <h3>Microneedling</h3>
+          <p>Microneedling facial treatments to refresh the appearance of the skin.</p>
+        </div>
       </div>
     </div>
   </section>
