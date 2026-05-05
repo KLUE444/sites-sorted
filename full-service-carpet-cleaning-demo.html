@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Full Service Carpet Cleaning Ltd | Professional Carpet Cleaning</title>
+  <meta name="description" content="Professional carpet and upholstery cleaning in Peterborough and surrounding areas. Before and after results, videos, contact details and opening hours." />
+
+  <style>
+    :root {
+      --bg: #f4f7f8;
+      --surface: #ffffff;
+      --text: #1f2a2e;
+      --muted: #647277;
+      --accent: #087f8c;
+      --accent-dark: #055f69;
+      --blue: #173f5f;
+      --radius: 22px;
+      --shadow: 0 18px 45px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      background: var(--surface);
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--blue);
+      font-size: 1.1rem;
+    }
+
+    .logo img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      margin-top: 18px;
+    }
+
+    .btn:hover { background: var(--accent-dark); }
+
+    .hero {
+      padding: 90px 7%;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      line-height: 1.05;
+      color: var(--blue);
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .hero-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card img {
+      width: 100%;
+      border-radius: 18px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      padding: 0 7% 70px;
+    }
+
+    .trust-box {
+      background: white;
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .trust-box strong {
+      display: block;
+      color: var(--blue);
+      margin-bottom: 5px;
+    }
+
+    section {
+      padding: 75px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 2.3rem;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .service-card h3 {
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .gallery-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-card div {
+      padding: 18px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .video-box {
+      background: white;
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .video-box iframe,
+    .video-box video {
+      width: 100%;
+      min-height: 360px;
+      border: 0;
+      border-radius: 16px;
+      background: #dfe8ea;
+    }
+
+    .contact {
+      background: var(--blue);
+      color: white;
+      border-radius: 32px;
+      padding: 50px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .contact h2 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 12px;
+    }
+
+    .contact-details {
+      background: rgba(255,255,255,0.1);
+      padding: 28px;
+      border-radius: 22px;
+    }
+
+    .contact-details div {
+      margin-bottom: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 7%;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 850px) {
+      header { flex-direction: column; gap: 15px; }
+      nav { flex-wrap: wrap; justify-content: center; }
+      .hero,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+      .trust-strip,
+      .services,
+      .gallery,
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="#" class="logo">
+    <!-- Replace with their real logo file -->
+    <img src="images/full-service-logo.png" alt="Full Service Carpet Cleaning Ltd logo">
+    <span>Full Service Carpet Cleaning Ltd</span>
+  </a>
+
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#gallery">Before & After</a>
+    <a href="#videos">Videos</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div>
+      <h1>Professional carpet cleaning with results you can see.</h1>
+      <p>
+        Full Service Carpet Cleaning Ltd provides reliable carpet, rug and upholstery cleaning
+        for homes and businesses across Peterborough and surrounding areas.
+      </p>
+      <a class="btn" href="tel:07713915161">Call 07713 915161</a>
+    </div>
+
+    <div class="hero-card">
+      <!-- Replace with a van/work image -->
+      <img src="images/carpet-cleaning-hero.jpg" alt="Professional carpet cleaning equipment">
+    </div>
+  </section>
+
+  <div class="trust-strip">
+    <div class="trust-box">
+      <strong>Professional Service</strong>
+      Deep cleaning for carpets and soft furnishings.
+    </div>
+    <div class="trust-box">
+      <strong>Visible Results</strong>
+      Ideal for stains, traffic marks and tired carpets.
+    </div>
+    <div class="trust-box">
+      <strong>Homes & Businesses</strong>
+      Domestic and commercial appointments available.
+    </div>
+    <div class="trust-box">
+      <strong>Local & Reliable</strong>
+      Serving Peterborough and nearby areas.
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="section-title">
+      <h2>Cleaning Services</h2>
+      <p>Freshen up your home, remove dirt and bring carpets back to life.</p>
+    </div>
+
+    <div class="services">
+      <div class="service-card">
+        <h3>Carpet Cleaning</h3>
+        <p>Deep professional carpet cleaning for bedrooms, stairs, landings, lounges and full homes.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Upholstery Cleaning</h3>
+        <p>Sofas, chairs and soft furnishings cleaned to lift dirt, odours and everyday use marks.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Rug Cleaning</h3>
+        <p>Refresh rugs and high-traffic areas with a professional clean and improved finish.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="section-title">
+      <h2>Before & After Gallery</h2>
+      <p>Showcase real results here using their Facebook before-and-after photos.</p>
+    </div>
+
+    <div class="gallery">
+      <div class="gallery-card">
+        <img src="images/before-after-1.jpg" alt="Before and after carpet cleaning result">
+        <div><strong>Stain removal result</strong><br>Before and after carpet refresh.</div>
+      </div>
+
+      <div class="gallery-card">
+        <img src="images/before-after-2.jpg" alt="Cleaned carpet before and after">
+        <div><strong>High traffic area</strong><br>Heavy-use carpet brought back to life.</div>
+      </div>
+
+      <div class="gallery-card">
+        <img src="images/before-after-3.jpg" alt="Professional carpet cleaning before and after">
+        <div><strong>Room refresh</strong><br>Cleaner, brighter and fresher finish.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="videos">
+    <div class="section-title">
+      <h2>Cleaning Videos</h2>
+      <p>Embed Facebook reels or upload video files into your GitHub images/videos folder.</p>
+    </div>
+
+    <div class="video-grid">
+      <div class="video-box">
+        <!-- Option 1: Facebook video embed. Replace the href with the actual Facebook video URL -->
+        <iframe 
+          src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/61555812899794/videos/907864245399547/&show_text=false&width=500"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+        </iframe>
+      </div>
+
+      <div class="video-box">
+        <!-- Option 2: Local uploaded video file -->
+        <video controls poster="images/video-poster.jpg">
+          <source src="videos/carpet-cleaning-demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <div>
+        <h2>Book a professional clean</h2>
+        <p>
+          Get in touch for availability, prices and appointments.
+          Send photos of the rooms or areas you need cleaning for a faster quote.
+        </p>
+        <a class="btn" href="tel:07713915161">Call Now</a>
+      </div>
+
+      <div class="contact-details">
+        <div><strong>Phone:</strong> <a href="tel:07713915161">07713 915161</a></div>
+        <div><strong>Facebook:</strong> <a href="https://www.facebook.com/fullservicecarpetcleaningltd/" target="_blank">Message on Facebook</a></div>
+        <div><strong>Area:</strong> Peterborough and surrounding areas</div>
+        <div><strong>Hours:</strong> Add confirmed Facebook hours here</div>
+        <div><strong>Email:</strong> Add email address here if available</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © Full Service Carpet Cleaning Ltd. Website demo by Sites Sorted.
+</footer>
+
+</body>
+</html>
