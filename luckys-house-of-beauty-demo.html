@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Luckys House of Beauty | Beauty & Aesthetics</title>
+  <meta name="description" content="Luckys House of Beauty in Stamford offering brows, lashes, lips, fillers, skin boosters and microneedling treatments." />
 
   <style>
     :root {
@@ -23,6 +25,10 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -57,6 +63,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 18px;
     }
 
     .brand {
@@ -64,6 +71,7 @@
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .nav-links {
@@ -71,42 +79,11 @@
       gap: 22px;
       font-size: 0.95rem;
       color: var(--muted);
+      align-items: center;
     }
 
-   @media (max-width: 900px) {
-  .nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-  }
-
-  .nav-links {
-    display: flex;
-    width: 100%;
-    gap: 10px;
-    overflow-x: auto;
-    padding-bottom: 6px;
-    font-size: 0.85rem;
-    white-space: nowrap;
-  }
-
-  .nav-links a {
-    background: var(--surface);
-    border: 1px solid var(--soft);
-    padding: 8px 12px;
-    border-radius: 999px;
-  }
-
-  .hero,
-  .booking {
-    grid-template-columns: 1fr;
-  }
-
-  .price-list,
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-}
+    .nav-links a:hover {
+      color: var(--accent);
     }
 
     .hero {
@@ -136,12 +113,21 @@
       margin-bottom: 24px;
     }
 
+    h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
     .hero p,
     .section-title p,
     .card p,
     .showcase-card p,
     .social-panel p,
-    .booking p {
+    .booking p,
+    .contact-item p {
       color: var(--muted);
     }
 
@@ -198,13 +184,14 @@
       justify-content: center;
       padding: 40px;
       text-align: center;
+      overflow: hidden;
     }
 
-    .hero-image span {
-      font-family: Georgia, serif;
-      font-size: clamp(3rem, 8vw, 7rem);
-      font-style: italic;
-      line-height: 0.9;
+    .hero-image img {
+      max-width: 360px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
     }
 
     .section {
@@ -216,14 +203,6 @@
     .section-title {
       max-width: 760px;
       margin-bottom: 32px;
-    }
-
-    h2 {
-      font-family: Georgia, serif;
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      line-height: 1;
-      letter-spacing: -0.04em;
-      margin-bottom: 14px;
     }
 
     .cards,
@@ -259,17 +238,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--muted);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.8rem;
-      text-align: center;
-      padding: 20px;
+      overflow: hidden;
     }
 
     .showcase-image img {
       height: 100%;
+      width: 100%;
       object-fit: cover;
     }
 
@@ -380,7 +354,23 @@
       text-decoration: underline;
     }
 
-   
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .contact-item {
+      background: var(--surface);
+      border: 1px solid var(--soft);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--accent-dark);
+      margin-bottom: 8px;
     }
 
     footer {
@@ -392,16 +382,41 @@
     }
 
     @media (max-width: 1050px) {
-      .showcase-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
+      .showcase-grid,
       .cards {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 900px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .brand {
+        white-space: normal;
+      }
+
+      .nav-links {
+        display: flex;
+        width: 100%;
+        gap: 10px;
+        overflow-x: auto;
+        padding-bottom: 6px;
+        font-size: 0.85rem;
+        white-space: nowrap;
+      }
+
+      .nav-links a {
+        background: var(--surface);
+        border: 1px solid var(--soft);
+        padding: 8px 12px;
+        border-radius: 999px;
+        flex: 0 0 auto;
+      }
+
       .hero,
       .booking {
         grid-template-columns: 1fr;
@@ -410,10 +425,6 @@
       .price-list,
       .contact-grid {
         grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        display: none;
       }
     }
 
@@ -436,6 +447,19 @@
         flex-direction: column;
         align-items: flex-start;
       }
+
+      .hero-image {
+        min-height: 320px;
+        padding: 30px;
+      }
+
+      .hero-image img {
+        max-width: 260px;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
     }
   </style>
 </head>
@@ -452,6 +476,7 @@
       <a href="#social">Instagram</a>
       <a href="#prices">Prices</a>
       <a href="#booking">Book</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -461,21 +486,28 @@
   <section class="hero">
     <div>
       <div class="eyebrow">Brows • Lashes • Aesthetics</div>
+
       <h1>Beauty treatments with a polished, confident finish.</h1>
+
       <p>
-        Welcome to Luckys House of Beauty, your premier face clinic dedicated to enhancing your natural beauty. Our expert team offers a range of specialized services, including facials, skin treatments, and rejuvenation therapies tailored to meet your individual needs. Experience a serene environment, cutting-edge techniques, and personalized care that will leave your skin glowing. Discover the confidence that comes with radiant skin at Lucky's House of Beauty
+        Welcome to Luckys House of Beauty, your premier face clinic dedicated to enhancing your natural beauty. 
+        Offering specialised services including brows, lashes, lips, fillers, skin boosters and rejuvenation 
+        treatments tailored to your individual needs.
       </p>
 
       <div class="buttons">
         <a href="https://facesconsent.com/clinics/luckys-house-of-beauty-7b9c7b00df07/kuki-naylor?clinicName=kuki-naylor" class="btn btn-primary" target="_blank" rel="noopener">
           Book Online
         </a>
-        <a href="#prices" class="btn btn-secondary">View Prices</a>
+
+        <a href="#prices" class="btn btn-secondary">
+          View Prices
+        </a>
       </div>
     </div>
 
     <div class="hero-image">
-       <img src="luckys-logo.png" alt="Luckys House of Beauty logo">
+      <img src="luckys-logo.png" alt="Luckys House of Beauty logo">
     </div>
   </section>
 
@@ -483,7 +515,7 @@
     <div class="section-title">
       <div class="eyebrow">Treatments</div>
       <h2>Treatments on offer</h2>
-      <p>Brows, lashes and aesthetic treatments at Lucky's House of Beauty.</p>
+      <p>Brows, lashes and aesthetic treatments at Luckys House of Beauty.</p>
     </div>
 
     <div class="cards">
@@ -513,7 +545,7 @@
     <div class="section-title">
       <div class="eyebrow">Treatment showcase</div>
       <h2>Results gallery</h2>
-      <p>Add your chosen images below for brows, lips, fillers and microneedling.</p>
+      <p>Add your chosen images below for brows, lips, fillers and skin boosters.</p>
     </div>
 
     <div class="showcase-grid">
@@ -549,11 +581,11 @@
 
       <div class="showcase-card">
         <div class="showcase-image">
-          <img src="luckys-skinbooster.png" alt="Luckys House of Beauty microneedling treatment">
+          <img src="luckys-skinbooster.png" alt="Luckys House of Beauty skin booster treatment">
         </div>
         <div class="showcase-content">
           <h3>Skin Booster</h3>
-          <p>Microneedling facial treatments to refresh the appearance of the skin.</p>
+          <p>Skin booster and microneedling treatments to refresh the appearance of the skin.</p>
         </div>
       </div>
     </div>
@@ -563,7 +595,7 @@
     <div class="section-title">
       <div class="eyebrow">Recent work</div>
       <h2>See the latest results</h2>
-      <p>View Lucky's House of Beauty’s latest treatment photos, offers and client results directly on Instagram.</p>
+      <p>View Luckys House of Beauty’s latest treatment photos, offers and client results directly on Instagram.</p>
     </div>
 
     <div class="social-panel">
@@ -674,7 +706,7 @@
         <div class="eyebrow">Appointments</div>
         <h2>Book your appointment</h2>
         <p>
-          Use the online booking link to view availability and secure your appointment with Lucky's House of Beauty.
+          Use the online booking link to view availability and secure your appointment with Luckys House of Beauty.
         </p>
 
         <div class="buttons" style="margin-top: 24px;">
@@ -710,16 +742,49 @@
 
         <div>
           <strong>Deposits</strong>
-          A non refundable deposit must be paid at tome of booking to secure appointment.
+          A non-refundable deposit must be paid at time of booking to secure your appointment.
         </div>
       </div>
     </div>
   </section>
 
+  <section class="section" id="contact">
+    <div class="section-title">
+      <div class="eyebrow">Contact</div>
+      <h2>Location & contact</h2>
+      <p>Book online or message Luckys House of Beauty on Instagram.</p>
+    </div>
 
+    <div class="contact-grid">
+      <div class="contact-item">
+        <strong>Location</strong>
+        <p>6, Airedale Road, Stamford, PE9 1DJ UK</p>
+      </div>
+
+      <div class="contact-item">
+        <strong>Instagram</strong>
+        <p>
+          <a href="https://www.instagram.com/luckys_houseofbeauty" target="_blank" rel="noopener">
+            @luckys_houseofbeauty
+          </a>
+        </p>
+      </div>
+
+      <div class="contact-item">
+        <strong>Booking</strong>
+        <p>
+          <a href="https://facesconsent.com/clinics/luckys-house-of-beauty-7b9c7b00df07/kuki-naylor?clinicName=kuki-naylor" target="_blank" rel="noopener">
+            Book online
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
 
 <footer>
-  © 2026 Lucky's House of Beauty. Website demo by Sites Sorted.
+  © 2026 Luckys House of Beauty. Website demo by Sites Sorted.
 </footer>
 
 </body>
