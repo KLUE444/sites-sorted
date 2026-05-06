@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Business Name | Professional Local Services</title>
+
+  <style>
+    :root {
+      --bg: #f7f2eb;
+      --surface: #fffaf5;
+      --text: #2f241d;
+      --muted: #6c5b4f;
+      --accent: #7a4b2d;
+      --accent-dark: #5f3820;
+      --soft: #eadfd3;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--surface);
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(47, 36, 29, 0.08);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: var(--soft);
+    }
+
+    .brand-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      min-height: 82vh;
+      padding: 90px 8%;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+      background:
+        linear-gradient(rgba(247,242,235,0.92), rgba(247,242,235,0.92)),
+        url('/images/hero.jpg') center/cover;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      margin-bottom: 16px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 34px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 26px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+    }
+
+    .hero-card {
+      background: var(--surface);
+      padding: 36px;
+      border-radius: 28px;
+      box-shadow: 0 18px 45px rgba(47, 36, 29, 0.12);
+    }
+
+    .hero-card img {
+      width: 100%;
+      border-radius: 22px;
+      margin-bottom: 20px;
+    }
+
+    section {
+      padding: 80px 8%;
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin-bottom: 42px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--surface);
+      padding: 30px;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(47, 36, 29, 0.08);
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+      color: var(--accent-dark);
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .about {
+      background: var(--surface);
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 28px;
+      box-shadow: 0 18px 45px rgba(47, 36, 29, 0.12);
+    }
+
+    .contact {
+      text-align: center;
+      background: var(--accent-dark);
+      color: var(--white);
+    }
+
+    .contact p {
+      max-width: 650px;
+      margin: 0 auto 28px;
+      color: #f3e7dc;
+    }
+
+    .contact .btn {
+      background: var(--white);
+      color: var(--accent-dark);
+    }
+
+    footer {
+      padding: 28px 8%;
+      text-align: center;
+      background: var(--text);
+      color: #e8ddd2;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 850px) {
+      header {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      .hero,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="brand">
+      <img src="/images/logo.png" alt="Business logo">
+      <div class="brand-title">Your Business Name</div>
+    </div>
+
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Local • Friendly • Professional</div>
+        <h1>Beautifully delivered services with a personal touch.</h1>
+        <p>
+          Welcome to Your Business Name. We offer professional, friendly and reliable services designed around you.
+          Whether you are booking for the first time or returning as a regular client, you will always receive a warm,
+          personal experience.
+        </p>
+
+        <div class="buttons">
+          <a href="#contact" class="btn btn-primary">Book Now</a>
+          <a href="https://www.facebook.com/profile.php?id=61572073293166" class="btn btn-secondary">Visit Facebook</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <img src="/images/hero.jpg" alt="Business image">
+        <h3>Appointments available</h3>
+        <p>Message us directly on Facebook to check availability, ask a question, or book your next appointment.</p>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p>Add the main services from the Facebook page here. These cards can be edited to match the exact treatments, packages or offers.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Service One</h3>
+          <p>A short description of the first main service, what it includes, and who it is ideal for.</p>
+        </div>
+
+        <div class="card">
+          <h3>Service Two</h3>
+          <p>A short description of the second service, written in a warm and easy-to-understand way.</p>
+        </div>
+
+        <div class="card">
+          <h3>Service Three</h3>
+          <p>A short description of another key service, package, offer or customer favourite.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div>
+        <img src="/images/about.jpg" alt="About the business">
+      </div>
+
+      <div>
+        <div class="eyebrow">About Us</div>
+        <h2>A welcoming local business that cares about the details.</h2>
+        <p>
+          Your Business Name is built around friendly service, attention to detail and making every customer feel looked after.
+          Add a short story here about the owner, the business, experience, location and what makes the service special.
+        </p>
+        <br>
+        <p>
+          This section is perfect for building trust with new clients who have found the business through Facebook.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Ready to book?</h2>
+      <p>
+        Get in touch through Facebook Messenger to ask a question, check availability or arrange your appointment.
+      </p>
+      <a href="https://www.facebook.com/profile.php?id=61572073293166" class="btn">Message on Facebook</a>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Your Business Name. Website by Sites Sorted.
+  </footer>
+
+</body>
+</html>
