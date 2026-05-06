@@ -100,7 +100,7 @@ nav a{
   padding:140px 8% 100px;
   background:
   linear-gradient(rgba(255,255,255,0.80), rgba(255,255,255,0.85)),
-  url('images/lips2.jpg') center/cover;
+  url('images/lips2.png') center/cover;
 }
 
 .hero-content{
@@ -312,14 +312,83 @@ nav a{
   background:white;
 }
 
-.pricing-image{
-  max-width:700px;
-  margin:50px auto 0;
+.pricing-intro{
+  max-width:720px;
+  color:var(--text);
+  line-height:1.8;
+  margin-bottom:45px;
 }
 
-.pricing-image img{
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:24px;
+  margin-top:35px;
+}
+
+.price-card{
+  background:linear-gradient(180deg,#ffffff,#fbf6ff);
+  border:1px solid rgba(155,114,207,0.16);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
+  padding:34px;
+}
+
+.price-card.wide{
+  grid-column:1/-1;
+}
+
+.price-card h3{
+  font-family:'Cormorant Garamond', serif;
+  font-size:2rem;
+  margin-bottom:22px;
+  color:var(--dark);
+}
+
+.price-row{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  padding:13px 0;
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  color:var(--text);
+  font-size:15px;
+}
+
+.price-row:last-child{
+  border-bottom:none;
+}
+
+.price-row strong{
+  color:var(--dark);
+  white-space:nowrap;
+}
+
+.price-note{
+  margin-top:18px;
+  color:var(--purple-dark);
+  font-size:14px;
+  line-height:1.7;
+  font-weight:500;
+}
+
+.package-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px;
+  color:var(--text);
+  font-size:15px;
+}
+
+.package-table th,
+.package-table td{
+  padding:14px 10px;
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  text-align:left;
+}
+
+.package-table th{
+  color:var(--dark);
 }
 
 /* REVIEWS */
@@ -454,6 +523,10 @@ footer{
 
   .section-title{
     font-size:2.7rem;
+  }
+
+  .price-card{
+    padding:26px;
   }
 
 }
@@ -714,8 +787,155 @@ Pricing
 Treatment Prices
 </h2>
 
-<div class="pricing-image">
-<img src="images/price-list.png" alt="">
+<p class="pricing-intro">
+A full guide to Jade’s aesthetic, wellbeing and eyelash treatment prices.
+Consultation may be required for some treatments.
+</p>
+
+<div class="pricing-grid">
+
+<div class="price-card">
+<h3>Dermal Filler</h3>
+
+<div class="price-row"><span>Lips 0.5ml</span><strong>£140</strong></div>
+<div class="price-row"><span>Lips 0.7ml</span><strong>£155</strong></div>
+<div class="price-row"><span>Lips 1ml</span><strong>£170</strong></div>
+<div class="price-row"><span>Nasolabial Lines</span><strong>£170</strong></div>
+<div class="price-row"><span>Marionette Lines</span><strong>£170</strong></div>
+<div class="price-row"><span>Chin 1ml</span><strong>£170</strong></div>
+<div class="price-row"><span>Cheeks 1ml</span><strong>£170</strong></div>
+<div class="price-row"><span>Cheeks 2ml</span><strong>£270</strong></div>
+<div class="price-row"><span>Jaw 1ml — top up only</span><strong>£170</strong></div>
+<div class="price-row"><span>Jaw 2ml</span><strong>£290</strong></div>
+<div class="price-row"><span>Jaw 3ml</span><strong>£400</strong></div>
+<div class="price-row"><span>Jaw 4ml</span><strong>£500</strong></div>
+
+<p class="price-note">
+Lip filler available in standard, Russian and mixed technique.
+Bring a friend: up to 1ml each — £100 each.
+</p>
+</div>
+
+<div class="price-card">
+<h3>Anti-Wrinkle</h3>
+
+<div class="price-row"><span>1 Area</span><strong>£150</strong></div>
+<div class="price-row"><span>2 Areas</span><strong>£190</strong></div>
+<div class="price-row"><span>3 Areas</span><strong>£225</strong></div>
+<div class="price-row"><span>Mini Areas</span><strong>£100</strong></div>
+<div class="price-row"><span>Mini area added to main area</span><strong>£20</strong></div>
+
+<p class="price-note">
+Main areas include forehead, frown, crow’s feet, smoker’s lines and downturned mouth.
+Mini areas include lip flip, brow lift, gummy smile, bunny lines and nose tip lift.
+</p>
+</div>
+
+<div class="price-card">
+<h3>Wellbeing</h3>
+
+<div class="price-row"><span>Vitamin B12 Loading Dose x3</span><strong>£60</strong></div>
+<div class="price-row"><span>Vitamin B12 Single</span><strong>£25</strong></div>
+<div class="price-row"><span>Hyperhidrosis Treatment</span><strong>£250</strong></div>
+
+<p class="price-note">
+Hyperhidrosis treatment is for excessive sweating.
+</p>
+</div>
+
+<div class="price-card">
+<h3>Other Treatments</h3>
+
+<div class="price-row"><span>Dermaplane Facial</span><strong>£30</strong></div>
+<div class="price-row"><span>Face / Body Microneedling</span><strong>From £80</strong></div>
+
+<p class="price-note">
+Microneedling can help with uneven skin tone, mild scars, stretch marks, enlarged pores, fine lines and wrinkles.
+</p>
+</div>
+
+<div class="price-card">
+<h3>Eyelashes</h3>
+
+<div class="price-row"><span>Classic Lashes</span><strong>£35</strong></div>
+<div class="price-row"><span>Classic Infill</span><strong>£25</strong></div>
+<div class="price-row"><span>Hybrid Lashes</span><strong>£40</strong></div>
+<div class="price-row"><span>Hybrid Infill</span><strong>£30</strong></div>
+<div class="price-row"><span>Volume Lashes</span><strong>£50</strong></div>
+<div class="price-row"><span>Volume Infill</span><strong>£40</strong></div>
+<div class="price-row"><span>Own Removal</span><strong>£10</strong></div>
+<div class="price-row"><span>Foreign Removal</span><strong>£15</strong></div>
+</div>
+
+<div class="price-card">
+<h3>Filler Packages</h3>
+
+<div class="price-row"><span>2ml Package</span><strong>£300</strong></div>
+<div class="price-row"><span>3ml Package</span><strong>£400</strong></div>
+<div class="price-row"><span>4ml Package</span><strong>£500</strong></div>
+<div class="price-row"><span>5ml Package</span><strong>£600</strong></div>
+
+<p class="price-note">
+Packages can be used across lips, cheek, chin and jaw.
+</p>
+</div>
+
+<div class="price-card wide">
+<h3>Anti-Wrinkle & Filler Packages</h3>
+
+<table class="package-table">
+<thead>
+<tr>
+<th>Treatment</th>
+<th>1 Area</th>
+<th>2 Areas</th>
+<th>3 Areas</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1ml + Anti-Wrinkle</td>
+<td>£270</td>
+<td>£270</td>
+<td>£350</td>
+</tr>
+
+<tr>
+<td>2ml + Anti-Wrinkle</td>
+<td>£400</td>
+<td>£450</td>
+<td>£500</td>
+</tr>
+
+<tr>
+<td>3ml + Anti-Wrinkle</td>
+<td>£500</td>
+<td>£550</td>
+<td>£600</td>
+</tr>
+
+<tr>
+<td>4ml + Anti-Wrinkle</td>
+<td>£600</td>
+<td>£650</td>
+<td>£700</td>
+</tr>
+
+<tr>
+<td>5ml + Anti-Wrinkle</td>
+<td>£700</td>
+<td>£750</td>
+<td>£800</td>
+</tr>
+</tbody>
+</table>
+
+<p class="price-note">
+Full face rejuvenation package tailored to suit your needs — price on consultation.
+</p>
+</div>
+
 </div>
 
 </section>
