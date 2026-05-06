@@ -3,43 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Business Name | Professional Local Services</title>
+  <title>Ella’s Sparkle Cleaning Services | Peterborough</title>
 
   <style>
     :root {
-      --bg: #f7f2eb;
-      --surface: #fffaf5;
-      --text: #2f241d;
-      --muted: #6c5b4f;
-      --accent: #7a4b2d;
-      --accent-dark: #5f3820;
-      --soft: #eadfd3;
+      --blue: #42b9e9;
+      --blue-dark: #168fc1;
+      --pink: #ef5c9a;
+      --pink-soft: #ffe4f0;
+      --sky: #eaf8ff;
+      --text: #243447;
+      --muted: #64748b;
       --white: #ffffff;
+      --soft: #f8fcff;
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: Georgia, "Times New Roman", serif;
-      background: var(--bg);
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--soft);
       color: var(--text);
       line-height: 1.6;
     }
 
     header {
-      background: var(--surface);
-      padding: 18px 8%;
+      background: var(--white);
+      padding: 16px 7%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0 4px 20px rgba(66, 185, 233, 0.18);
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 4px 20px rgba(47, 36, 29, 0.08);
     }
 
     .brand {
@@ -49,58 +50,68 @@
     }
 
     .brand img {
-      width: 58px;
-      height: 58px;
+      width: 70px;
+      height: 70px;
       object-fit: contain;
-      border-radius: 50%;
-      background: var(--soft);
     }
 
-    .brand-title {
-      font-size: 1.25rem;
+    .brand-text strong {
+      display: block;
+      font-size: 1.3rem;
+      color: var(--blue-dark);
+    }
+
+    .brand-text span {
+      color: var(--pink);
+      font-size: 0.9rem;
       font-weight: bold;
-      letter-spacing: 0.5px;
     }
 
     nav a {
-      color: var(--text);
+      margin-left: 22px;
       text-decoration: none;
-      margin-left: 24px;
+      color: var(--text);
+      font-weight: bold;
       font-size: 0.95rem;
     }
 
     .hero {
-      min-height: 82vh;
-      padding: 90px 8%;
+      padding: 90px 7%;
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: 50px;
+      gap: 45px;
       align-items: center;
       background:
-        linear-gradient(rgba(247,242,235,0.92), rgba(247,242,235,0.92)),
-        url('/images/hero.jpg') center/cover;
+        radial-gradient(circle at top left, rgba(239,92,154,0.18), transparent 35%),
+        radial-gradient(circle at top right, rgba(66,185,233,0.28), transparent 35%),
+        linear-gradient(135deg, #ffffff, #eaf8ff);
     }
 
-    .eyebrow {
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.8rem;
-      margin-bottom: 16px;
+    .sparkle {
+      color: var(--pink);
       font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
     }
 
     h1 {
-      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      font-size: clamp(2.5rem, 5vw, 4.8rem);
       line-height: 1.05;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
+      color: var(--blue-dark);
+    }
+
+    h1 span {
+      color: var(--pink);
+      display: block;
     }
 
     .hero p {
       font-size: 1.15rem;
       color: var(--muted);
       max-width: 620px;
-      margin-bottom: 34px;
+      margin-bottom: 30px;
     }
 
     .buttons {
@@ -110,55 +121,65 @@
     }
 
     .btn {
-      display: inline-block;
-      padding: 14px 26px;
+      padding: 14px 24px;
       border-radius: 999px;
       text-decoration: none;
       font-weight: bold;
+      display: inline-block;
       transition: 0.25s ease;
     }
 
-    .btn-primary {
-      background: var(--accent);
+    .btn-pink {
+      background: var(--pink);
       color: var(--white);
+      box-shadow: 0 8px 20px rgba(239, 92, 154, 0.3);
     }
 
-    .btn-primary:hover {
-      background: var(--accent-dark);
+    .btn-blue {
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 0 8px 20px rgba(66, 185, 233, 0.3);
     }
 
-    .btn-secondary {
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      background: transparent;
+    .btn:hover {
+      transform: translateY(-2px);
     }
 
     .hero-card {
-      background: var(--surface);
-      padding: 36px;
-      border-radius: 28px;
-      box-shadow: 0 18px 45px rgba(47, 36, 29, 0.12);
+      background: var(--white);
+      padding: 34px;
+      border-radius: 34px;
+      text-align: center;
+      box-shadow: 0 20px 45px rgba(66, 185, 233, 0.22);
+      border: 4px solid var(--pink-soft);
     }
 
     .hero-card img {
       width: 100%;
-      border-radius: 22px;
+      max-width: 360px;
       margin-bottom: 20px;
     }
 
+    .hero-card h3 {
+      color: var(--pink);
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
     section {
-      padding: 80px 8%;
+      padding: 80px 7%;
     }
 
     .section-title {
+      text-align: center;
       max-width: 760px;
-      margin-bottom: 42px;
+      margin: 0 auto 45px;
     }
 
     h2 {
       font-size: clamp(2rem, 4vw, 3.2rem);
-      line-height: 1.1;
-      margin-bottom: 14px;
+      color: var(--blue-dark);
+      margin-bottom: 12px;
     }
 
     .section-title p {
@@ -166,69 +187,92 @@
       font-size: 1.05rem;
     }
 
-    .grid {
+    .services {
+      background: var(--white);
+    }
+
+    .service-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
     }
 
-    .card {
-      background: var(--surface);
-      padding: 30px;
-      border-radius: 24px;
-      box-shadow: 0 10px 30px rgba(47, 36, 29, 0.08);
-    }
-
-    .card h3 {
-      font-size: 1.35rem;
-      margin-bottom: 12px;
-      color: var(--accent-dark);
-    }
-
-    .card p {
-      color: var(--muted);
-    }
-
-    .about {
-      background: var(--surface);
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .about img {
-      width: 100%;
+    .service-card {
+      background: linear-gradient(180deg, #ffffff, #f0fbff);
+      padding: 28px;
       border-radius: 28px;
-      box-shadow: 0 18px 45px rgba(47, 36, 29, 0.12);
+      box-shadow: 0 12px 28px rgba(36, 52, 71, 0.08);
+      border: 2px solid #dff5ff;
+      text-align: center;
+    }
+
+    .service-card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 14px;
+    }
+
+    .service-card h3 {
+      color: var(--pink);
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .area {
+      background: linear-gradient(135deg, var(--blue), var(--pink));
+      color: var(--white);
+      text-align: center;
+      border-radius: 40px;
+      margin: 60px 7%;
+      padding: 60px 30px;
+    }
+
+    .area h2 {
+      color: var(--white);
+    }
+
+    .area p {
+      max-width: 700px;
+      margin: 0 auto 26px;
+      font-size: 1.1rem;
     }
 
     .contact {
       text-align: center;
-      background: var(--accent-dark);
-      color: var(--white);
+      background: var(--sky);
     }
 
-    .contact p {
-      max-width: 650px;
-      margin: 0 auto 28px;
-      color: #f3e7dc;
-    }
-
-    .contact .btn {
+    .contact-box {
+      max-width: 760px;
+      margin: auto;
       background: var(--white);
-      color: var(--accent-dark);
+      padding: 42px;
+      border-radius: 34px;
+      box-shadow: 0 18px 40px rgba(66, 185, 233, 0.18);
+    }
+
+    .phone {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--pink);
+      margin: 18px 0;
     }
 
     footer {
-      padding: 28px 8%;
+      background: var(--blue-dark);
+      color: var(--white);
       text-align: center;
-      background: var(--text);
-      color: #e8ddd2;
+      padding: 24px 7%;
       font-size: 0.9rem;
     }
 
-    @media (max-width: 850px) {
+    @media (max-width: 950px) {
+      .hero,
+      .service-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
       header {
         flex-direction: column;
         gap: 14px;
@@ -239,16 +283,12 @@
       }
 
       .hero,
-      .about {
-        grid-template-columns: 1fr;
-      }
-
-      .grid {
+      .service-grid {
         grid-template-columns: 1fr;
       }
 
       .hero {
-        padding-top: 60px;
+        padding: 60px 7%;
       }
     }
   </style>
@@ -258,13 +298,16 @@
 
   <header>
     <div class="brand">
-      <img src="/images/logo.png" alt="Business logo">
-      <div class="brand-title">Your Business Name</div>
+      <img src="/images/ellas-sparkle-logo.png" alt="Ella’s Sparkle Cleaning Services logo">
+      <div class="brand-text">
+        <strong>Ella’s Sparkle</strong>
+        <span>Cleaning Services</span>
+      </div>
     </div>
 
     <nav>
       <a href="#services">Services</a>
-      <a href="#about">About</a>
+      <a href="#area">Area</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -273,82 +316,94 @@
 
     <section class="hero">
       <div>
-        <div class="eyebrow">Local • Friendly • Professional</div>
-        <h1>Beautifully delivered services with a personal touch.</h1>
+        <div class="sparkle">✨ Friendly, reliable & affordable ✨</div>
+        <h1>Helping keep homes <span>clean, fresh & sparkling.</span></h1>
         <p>
-          Welcome to Your Business Name. We offer professional, friendly and reliable services designed around you.
-          Whether you are booking for the first time or returning as a regular client, you will always receive a warm,
-          personal experience.
+          Ella’s Sparkle Cleaning Services provides one-off, deep and regular cleaning services
+          in and around the Peterborough area. Perfect for busy homes, moving days, fresh starts
+          and those jobs you just want beautifully sorted.
         </p>
 
         <div class="buttons">
-          <a href="#contact" class="btn btn-primary">Book Now</a>
-          <a href="https://www.facebook.com/profile.php?id=61572073293166" class="btn btn-secondary">Visit Facebook</a>
+          <a href="https://wa.me/447368424928" class="btn btn-pink">Message on WhatsApp</a>
+          <a href="https://www.facebook.com/profile.php?id=61572073293166" class="btn btn-blue">Visit Facebook</a>
         </div>
       </div>
 
       <div class="hero-card">
-        <img src="/images/hero.jpg" alt="Business image">
-        <h3>Appointments available</h3>
-        <p>Message us directly on Facebook to check availability, ask a question, or book your next appointment.</p>
+        <img src="/images/ellas-sparkle-logo.png" alt="Ella’s Sparkle logo">
+        <h3>Book your sparkle clean</h3>
+        <p>Call or message Ella today to discuss availability and cleaning requirements.</p>
       </div>
     </section>
 
-    <section id="services">
+    <section class="services" id="services">
       <div class="section-title">
-        <h2>Our Services</h2>
-        <p>Add the main services from the Facebook page here. These cards can be edited to match the exact treatments, packages or offers.</p>
+        <h2>Cleaning Services</h2>
+        <p>
+          From regular home cleaning to deep cleans and moving day refreshes,
+          Ella’s Sparkle is here to help keep things shining.
+        </p>
       </div>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Service One</h3>
-          <p>A short description of the first main service, what it includes, and who it is ideal for.</p>
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="icon">🧼</div>
+          <h3>Oven Cleaning</h3>
+          <p>Bring your oven back to a cleaner, fresher finish with a thorough sparkle clean.</p>
         </div>
 
-        <div class="card">
-          <h3>Service Two</h3>
-          <p>A short description of the second service, written in a warm and easy-to-understand way.</p>
+        <div class="service-card">
+          <div class="icon">🧽</div>
+          <h3>Deep Cleans</h3>
+          <p>A detailed clean for when your home needs extra attention from top to bottom.</p>
         </div>
 
-        <div class="card">
-          <h3>Service Three</h3>
-          <p>A short description of another key service, package, offer or customer favourite.</p>
+        <div class="service-card">
+          <div class="icon">🏡</div>
+          <h3>End of Tenancy / Moving Cleans</h3>
+          <p>Ideal for moving in, moving out or preparing a property for its next chapter.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon">✨</div>
+          <h3>One-Off or Regular Cleaning</h3>
+          <p>Flexible cleaning options to suit your home, routine and lifestyle.</p>
         </div>
       </div>
     </section>
 
-    <section class="about" id="about">
-      <div>
-        <img src="/images/about.jpg" alt="About the business">
-      </div>
-
-      <div>
-        <div class="eyebrow">About Us</div>
-        <h2>A welcoming local business that cares about the details.</h2>
-        <p>
-          Your Business Name is built around friendly service, attention to detail and making every customer feel looked after.
-          Add a short story here about the owner, the business, experience, location and what makes the service special.
-        </p>
-        <br>
-        <p>
-          This section is perfect for building trust with new clients who have found the business through Facebook.
-        </p>
-      </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <h2>Ready to book?</h2>
+    <section class="area" id="area">
+      <h2>Serving Peterborough & Surrounding Areas</h2>
       <p>
-        Get in touch through Facebook Messenger to ask a question, check availability or arrange your appointment.
+        Ella’s Sparkle Cleaning Services is based around Peterborough, helping local homes
+        stay clean, fresh and beautifully cared for.
       </p>
-      <a href="https://www.facebook.com/profile.php?id=61572073293166" class="btn">Message on Facebook</a>
+      <a href="https://wa.me/447368424928" class="btn btn-pink">Check Availability</a>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-box">
+        <div class="sparkle">✨ Get in touch ✨</div>
+        <h2>Ready for a cleaner, fresher home?</h2>
+        <p>
+          Contact Ella’s Sparkle Cleaning Services today to ask a question, request a quote
+          or book your next clean.
+        </p>
+
+        <div class="phone">07368 424928</div>
+
+        <div class="buttons" style="justify-content:center;">
+          <a href="https://wa.me/447368424928" class="btn btn-pink">WhatsApp Ella</a>
+          <a href="https://www.facebook.com/profile.php?id=61572073293166" class="btn btn-blue">Facebook Page</a>
+        </div>
+      </div>
     </section>
 
   </main>
 
   <footer>
-    © 2026 Your Business Name. Website by Sites Sorted.
+    © 2026 Ella’s Sparkle Cleaning Services. Website by Sites Sorted.
   </footer>
 
 </body>
