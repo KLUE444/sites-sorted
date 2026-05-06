@@ -1,24 +1,869 @@
-<section class="hours-section">
-  <div class="hours-container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <div class="hours-image">
-      <img src="images/opening-times.jpg" alt="">
-    </div>
+<title>Beautiful Aesthetics by Jade | Coningsby</title>
 
-    <div class="hours-text">
-      <h2>Opening Hours</h2>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-      <p>
-        Flexible appointments available throughout the week from our
-        Coningsby based clinic.
-      </p>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-      <ul>
-        <li>Tuesday – Friday: 9am – 5:30pm</li>
-        <li>Saturday: 9am – 2pm</li>
-        <li>Monday & Sunday: Closed</li>
-      </ul>
-    </div>
+<style>
 
-  </div>
+:root{
+  --bg:#faf7fc;
+  --white:#ffffff;
+  --dark:#2e2435;
+  --text:#5f5268;
+  --purple:#c28cff;
+  --purple-dark:#9b72cf;
+  --gold:#d8b36a;
+  --shadow:0 18px 45px rgba(0,0,0,0.08);
+  --radius:28px;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Montserrat', sans-serif;
+  background:var(--bg);
+  color:var(--dark);
+  overflow-x:hidden;
+}
+
+img{
+  width:100%;
+  display:block;
+}
+
+a{
+  text-decoration:none;
+}
+
+section{
+  padding:90px 8%;
+}
+
+/* HEADER */
+
+header{
+  position:fixed;
+  width:100%;
+  top:0;
+  left:0;
+  z-index:1000;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(12px);
+  padding:18px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 3px 20px rgba(0,0,0,0.04);
+}
+
+.logo-text{
+  font-size:1.4rem;
+  font-weight:600;
+  color:var(--dark);
+}
+
+nav{
+  display:flex;
+  gap:28px;
+}
+
+nav a{
+  color:var(--dark);
+  font-size:14px;
+  font-weight:500;
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:140px 8% 100px;
+  background:
+  linear-gradient(rgba(255,255,255,0.80), rgba(255,255,255,0.85)),
+  url('images/lips2.jpg') center/cover;
+}
+
+.hero-content{
+  max-width:800px;
+}
+
+.hero-logo{
+  width:190px;
+  margin:0 auto 30px;
+}
+
+.eyebrow{
+  text-transform:uppercase;
+  letter-spacing:4px;
+  color:var(--purple-dark);
+  font-size:13px;
+  font-weight:600;
+  margin-bottom:22px;
+}
+
+.hero h1{
+  font-family:'Cormorant Garamond', serif;
+  font-size:5rem;
+  line-height:0.95;
+  margin-bottom:28px;
+  color:var(--dark);
+}
+
+.hero p{
+  font-size:1.1rem;
+  line-height:1.9;
+  color:var(--text);
+  margin-bottom:35px;
+}
+
+.award{
+  max-width:260px;
+  margin:0 auto 35px;
+}
+
+.award img{
+  border-radius:24px;
+  box-shadow:var(--shadow);
+}
+
+.hero-buttons{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:18px;
+}
+
+.btn{
+  padding:16px 32px;
+  border-radius:60px;
+  font-size:14px;
+  font-weight:600;
+  transition:0.3s ease;
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,var(--purple),var(--purple-dark));
+  color:white;
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px);
+}
+
+.btn-secondary{
+  background:white;
+  color:var(--dark);
+  border:1px solid rgba(0,0,0,0.08);
+}
+
+.btn-secondary:hover{
+  background:#f4ecff;
+}
+
+/* ABOUT */
+
+.about{
+  background:white;
+}
+
+.about-container{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.about-image img{
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+.section-sub{
+  color:var(--purple-dark);
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:13px;
+  margin-bottom:14px;
+  font-weight:600;
+}
+
+.section-title{
+  font-family:'Cormorant Garamond', serif;
+  font-size:3.5rem;
+  line-height:1;
+  margin-bottom:25px;
+}
+
+.about-text p{
+  color:var(--text);
+  line-height:1.9;
+  margin-bottom:20px;
+}
+
+/* SERVICES */
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:24px;
+  margin-top:50px;
+}
+
+.service-card{
+  background:white;
+  padding:40px 30px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  transition:0.3s ease;
+}
+
+.service-card:hover{
+  transform:translateY(-6px);
+}
+
+.service-card h3{
+  margin-bottom:14px;
+  font-size:1.2rem;
+}
+
+.service-card p{
+  color:var(--text);
+  line-height:1.7;
+  font-size:15px;
+}
+
+/* GALLERY */
+
+.gallery{
+  background:white;
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+  margin-top:50px;
+}
+
+.gallery-item{
+  overflow:hidden;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+}
+
+.gallery-item img{
+  height:100%;
+  object-fit:cover;
+  transition:0.4s ease;
+}
+
+.gallery-item:hover img{
+  transform:scale(1.05);
+}
+
+/* HOURS */
+
+.hours-container{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.hours-image img{
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+.hours-text ul{
+  margin-top:25px;
+  list-style:none;
+}
+
+.hours-text li{
+  padding:12px 0;
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  color:var(--text);
+}
+
+/* PRICING */
+
+.pricing{
+  background:white;
+}
+
+.pricing-image{
+  max-width:700px;
+  margin:50px auto 0;
+}
+
+.pricing-image img{
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+/* REVIEWS */
+
+.review-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+  margin-top:50px;
+}
+
+.review-card{
+  background:white;
+  padding:35px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+.stars{
+  color:gold;
+  margin-bottom:18px;
+  font-size:18px;
+}
+
+.review-card p{
+  color:var(--text);
+  line-height:1.8;
+  margin-bottom:18px;
+}
+
+.review-card h4{
+  font-size:15px;
+}
+
+/* AWARD */
+
+.award-banner{
+  background:linear-gradient(135deg,#1d1224,#2d1838);
+  color:white;
+  text-align:center;
+}
+
+.award-banner h2{
+  font-family:'Cormorant Garamond', serif;
+  font-size:3.2rem;
+  margin-bottom:18px;
+}
+
+.award-banner p{
+  color:#dbc7ff;
+  max-width:650px;
+  margin:auto;
+  line-height:1.9;
+}
+
+/* POLICY */
+
+.policy{
+  background:white;
+}
+
+.policy-box{
+  max-width:850px;
+  margin:auto;
+  background:#faf5ff;
+  padding:50px;
+  border-radius:var(--radius);
+}
+
+.policy-box p{
+  line-height:1.9;
+  color:var(--text);
+  margin-bottom:18px;
+}
+
+/* CONTACT */
+
+.contact{
+  background:linear-gradient(135deg,#f6ecff,#fff);
+  text-align:center;
+}
+
+.contact-box{
+  max-width:800px;
+  margin:auto;
+}
+
+.contact-links{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+  margin-top:35px;
+}
+
+.contact-card{
+  background:white;
+  padding:18px 24px;
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  color:var(--dark);
+  font-size:14px;
+  font-weight:600;
+}
+
+/* FOOTER */
+
+footer{
+  background:#1d1224;
+  color:#cbb7de;
+  text-align:center;
+  padding:28px;
+  font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .hero h1{
+    font-size:3.5rem;
+  }
+
+  .about-container,
+  .hours-container{
+    grid-template-columns:1fr;
+  }
+
+  nav{
+    display:none;
+  }
+
+  .section-title{
+    font-size:2.7rem;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo-text">
+Beautiful Aesthetics by Jade
+</div>
+
+<nav>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#gallery">Gallery</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<img src="images/logo.png" alt="" class="hero-logo">
+
+<div class="eyebrow">
+Award Nominated Aesthetic Clinic
+</div>
+
+<h1>
+Beautiful Aesthetics by Jade
+</h1>
+
+<p>
+Advanced practitioner based in Coningsby offering aesthetic treatments,
+anti-wrinkle treatments, fillers, microneedling, dermaplaning and eyelash extensions.
+</p>
+
+<div class="award">
+<img src="images/award.jpg" alt="">
+</div>
+
+<div class="hero-buttons">
+
+<a href="#contact" class="btn btn-primary">
+Book Appointment
+</a>
+
+<a href="https://www.facebook.com/profile.php?id=100090880803163&sk=photos"
+target="_blank"
+class="btn btn-secondary">
+Facebook
+</a>
+
+<a href="https://www.instagram.com/beautifulaestheticsbyjade/"
+target="_blank"
+class="btn btn-secondary">
+Instagram
+</a>
+
+</div>
+
+</div>
+
 </section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+<div class="about-container">
+
+<div class="about-image">
+<img src="images/lips1.jpg" alt="">
+</div>
+
+<div class="about-text">
+
+<div class="section-sub">
+About Jade
+</div>
+
+<h2 class="section-title">
+Enhancing Natural Beauty With Confidence
+</h2>
+
+<p>
+Beautiful Aesthetics by Jade is a Coningsby based aesthetics and beauty clinic
+specialising in advanced aesthetic treatments and eyelash extensions.
+</p>
+
+<p>
+Known for creating natural, confidence-boosting results in a calm and welcoming
+environment, Jade offers professional treatments tailored to every client.
+</p>
+
+<p>
+Proudly nominated for the 2025 England’s Business Awards.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<div class="section-sub">
+Services
+</div>
+
+<h2 class="section-title">
+Popular Treatments
+</h2>
+
+<div class="services-grid">
+
+<div class="service-card">
+<h3>Anti-Wrinkle Treatments</h3>
+<p>
+Softening fine lines and wrinkles while maintaining natural facial movement.
+</p>
+</div>
+
+<div class="service-card">
+<h3>Dermal Fillers</h3>
+<p>
+Enhance lips and facial features with beautifully balanced filler treatments.
+</p>
+</div>
+
+<div class="service-card">
+<h3>Microneedling</h3>
+<p>
+Improve skin texture, scarring and overall skin rejuvenation.
+</p>
+</div>
+
+<div class="service-card">
+<h3>Dermaplaning</h3>
+<p>
+Reveal smoother, brighter skin with gentle exfoliation treatments.
+</p>
+</div>
+
+<div class="service-card">
+<h3>B12 Injections</h3>
+<p>
+Boost energy and wellbeing with professional B12 treatments.
+</p>
+</div>
+
+<div class="service-card">
+<h3>Eyelash Extensions</h3>
+<p>
+Classic and volume lashes tailored to your desired look.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="gallery" id="gallery">
+
+<div class="section-sub">
+Results Gallery
+</div>
+
+<h2 class="section-title">
+Real Treatments. Real Confidence.
+</h2>
+
+<div class="gallery-grid">
+
+<div class="gallery-item">
+<img src="images/wrinkle-before-after.jpg" alt="">
+</div>
+
+<div class="gallery-item">
+<img src="images/lips1.jpg" alt="">
+</div>
+
+<div class="gallery-item">
+<img src="images/lashes1.jpg" alt="">
+</div>
+
+<div class="gallery-item">
+<img src="images/lips2.jpg" alt="">
+</div>
+
+<div class="gallery-item">
+<img src="images/lashes2.jpg" alt="">
+</div>
+
+</div>
+
+</section>
+
+<!-- HOURS -->
+
+<section>
+
+<div class="hours-container">
+
+<div class="hours-image">
+<img src="images/opening-times.jpg" alt="">
+</div>
+
+<div class="hours-text">
+
+<div class="section-sub">
+Opening Times
+</div>
+
+<h2 class="section-title">
+Appointments Available Throughout The Week
+</h2>
+
+<ul>
+<li>Monday — Closed</li>
+<li>Tuesday — 9am - 5:30pm</li>
+<li>Wednesday — 9am - 5:30pm</li>
+<li>Thursday — 9am - 5:30pm</li>
+<li>Friday — 9am - 5:30pm</li>
+<li>Saturday — 9am - 2pm</li>
+<li>Sunday — Closed</li>
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PRICING -->
+
+<section class="pricing">
+
+<div class="section-sub">
+Pricing
+</div>
+
+<h2 class="section-title">
+Treatment Prices
+</h2>
+
+<div class="pricing-image">
+<img src="images/pricing.jpg" alt="">
+</div>
+
+</section>
+
+<!-- REVIEWS -->
+
+<section id="reviews">
+
+<div class="section-sub">
+Reviews
+</div>
+
+<h2 class="section-title">
+Client Love
+</h2>
+
+<div class="review-grid">
+
+<div class="review-card">
+<div class="stars">★★★★★</div>
+
+<p>
+“Absolutely amazing results every time. Jade makes you feel comfortable and
+confident from the moment you walk in.”
+</p>
+
+<h4>— Client Review</h4>
+</div>
+
+<div class="review-card">
+<div class="stars">★★★★★</div>
+
+<p>
+“Professional, friendly and so talented. My lashes always look incredible.”
+</p>
+
+<h4>— Client Review</h4>
+</div>
+
+<div class="review-card">
+<div class="stars">★★★★★</div>
+
+<p>
+“Love my lip filler results. Natural and exactly what I wanted.”
+</p>
+
+<h4>— Client Review</h4>
+</div>
+
+</div>
+
+</section>
+
+<!-- AWARD -->
+
+<section class="award-banner">
+
+<h2>
+2025 England’s Business Awards Nominee
+</h2>
+
+<p>
+Recognised for excellence in aesthetics, beauty treatments and customer care.
+</p>
+
+</section>
+
+<!-- POLICY -->
+
+<section class="policy">
+
+<div class="section-sub">
+Cancellation Policy
+</div>
+
+<h2 class="section-title">
+Booking & Cancellation Policy
+</h2>
+
+<div class="policy-box">
+
+<p>
+A non-refundable booking fee is required for all appointments to secure your slot.
+</p>
+
+<p>
+Please provide at least 48 hours notice for cancellations or appointment changes.
+Failure to provide sufficient notice may result in the loss of your booking fee.
+</p>
+
+<p>
+Late arrivals may result in reduced treatment time or cancellation depending on
+the appointment schedule.
+</p>
+
+<p>
+By booking an appointment, clients agree to the clinic terms and treatment policies.
+</p>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div class="contact-box">
+
+<div class="section-sub">
+Get In Touch
+</div>
+
+<h2 class="section-title">
+Book Your Appointment
+</h2>
+
+<p>
+Message via Facebook or Instagram, or contact directly via email to book.
+</p>
+
+<div class="contact-links">
+
+<a href="mailto:beautifulaestheticsbyjade@gmail.com" class="contact-card">
+📧 Email
+</a>
+
+<a href="https://www.facebook.com/profile.php?id=100090880803163&sk=photos"
+target="_blank"
+class="contact-card">
+📘 Facebook
+</a>
+
+<a href="https://www.instagram.com/beautifulaestheticsbyjade/"
+target="_blank"
+class="contact-card">
+📸 Instagram
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Beautiful Aesthetics by Jade • Coningsby, United Kingdom
+</footer>
+
+</body>
+</html>
