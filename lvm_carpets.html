@@ -51,63 +51,13 @@
       margin: auto;
     }
 
-    /* TOP CTA BANNER */
-
-    .top-cta {
-      background: var(--green);
-      color: var(--white);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    }
-
-    .top-cta-inner {
-      width: min(1120px, 92%);
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-      padding: 12px 0;
-      flex-wrap: wrap;
-    }
-
-    .top-cta strong {
-      font-size: 16px;
-      letter-spacing: 0.2px;
-    }
-
-    .top-cta-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .top-cta-actions a {
-      background: var(--white);
-      color: var(--green);
-      padding: 8px 15px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: bold;
-      transition: 0.25s ease;
-    }
-
-    .top-cta-actions a:hover {
-      background: var(--green-dark);
-      color: var(--white);
-    }
-
-    /* HEADER */
-
     header {
       background: var(--soft-bg);
       padding: 24px 0;
       border-bottom: 1px solid var(--border);
       position: sticky;
-      top: 51px;
-      z-index: 90;
+      top: 0;
+      z-index: 10;
       backdrop-filter: blur(10px);
     }
 
@@ -142,8 +92,6 @@
     .nav-links a:hover {
       color: var(--green);
     }
-
-    /* HERO */
 
     .hero {
       padding: 80px 0 70px;
@@ -289,7 +237,24 @@
       margin-bottom: 0;
     }
 
-    /* GENERAL SECTIONS */
+    .quick-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 42px;
+    }
+
+    .quick-info div {
+      padding: 20px;
+      background: var(--white);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .quick-info strong {
+      color: var(--green);
+    }
 
     section {
       padding: 80px 0;
@@ -312,8 +277,6 @@
       color: var(--muted);
       font-size: 18px;
     }
-
-    /* SERVICES */
 
     .services-grid {
       display: grid;
@@ -348,8 +311,6 @@
     .service-card li {
       margin-bottom: 8px;
     }
-
-    /* PACKAGE CARDS */
 
     .package-grid {
       display: grid;
@@ -393,19 +354,11 @@
       margin-bottom: 18px;
     }
 
-    .price {
-      font-size: 34px;
+    .quote-label {
+      font-size: 18px;
       color: var(--green);
       font-weight: bold;
       margin: 18px 0;
-      letter-spacing: -1px;
-    }
-
-    .price span {
-      font-size: 15px;
-      color: var(--muted);
-      font-weight: normal;
-      letter-spacing: 0;
     }
 
     .package-card ul {
@@ -417,8 +370,6 @@
     .package-card li {
       margin-bottom: 8px;
     }
-
-    /* COVERAGE BANNER */
 
     .coverage-banner {
       background: var(--green);
@@ -457,8 +408,6 @@
     .coverage-list li {
       margin-bottom: 10px;
     }
-
-    /* TRUSTED BY */
 
     .trusted-section {
       padding-top: 20px;
@@ -500,8 +449,6 @@
       padding: 20px;
     }
 
-    /* GALLERY */
-
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -521,8 +468,6 @@
       text-align: center;
       padding: 20px;
     }
-
-    /* CONTACT */
 
     .contact {
       background: var(--white);
@@ -598,17 +543,15 @@
       font-size: 14px;
     }
 
-    /* RESPONSIVE */
-
     @media (max-width: 950px) {
-      header {
-        top: 74px;
-      }
-
       .hero-grid,
       .services-grid,
       .coverage-banner,
       .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-info {
         grid-template-columns: 1fr;
       }
 
@@ -626,21 +569,8 @@
     }
 
     @media (max-width: 650px) {
-      .top-cta {
-        position: static;
-      }
-
       header {
         position: static;
-      }
-
-      .top-cta-inner {
-        justify-content: center;
-        text-align: center;
-      }
-
-      .top-cta-actions {
-        justify-content: center;
       }
 
       .nav {
@@ -693,25 +623,13 @@
 
 <body>
 
-  <div class="top-cta">
-    <div class="top-cta-inner">
-      <strong>Book Free Consultation Now</strong>
-
-      <div class="top-cta-actions">
-        <a href="https://wa.me/447973233176" target="_blank">WhatsApp</a>
-        <a href="tel:07973233176">Call Now</a>
-        <a href="mailto:luke@lvmclean.co.uk">Email</a>
-      </div>
-    </div>
-  </div>
-
   <header>
     <div class="container nav">
       <div class="logo">LVM Cleaning and Maintenance</div>
 
       <nav class="nav-links">
         <a href="#services">Services</a>
-        <a href="#packages">Prices</a>
+        <a href="#packages">Packages</a>
         <a href="#trusted">Trusted By</a>
         <a href="#gallery">Before & After</a>
         <a href="#contact">Contact</a>
@@ -761,7 +679,7 @@
                 <img src="images/carpet-cleaning.jpg" alt="Professional carpet cleaning by LVM Cleaning and Maintenance">
               -->
 
-              <div class="images/lvm_carpets.png">
+              <div class="main-image-placeholder">
                 Add main carpet cleaning image here
               </div>
             </div>
@@ -786,6 +704,23 @@
 
           </div>
 
+        </div>
+
+        <div class="quick-info">
+          <div>
+            <strong>Opening Hours</strong><br>
+            Monday to Saturday: 8:00am – 5:00pm
+          </div>
+
+          <div>
+            <strong>Domestic Coverage</strong><br>
+            Up to 30 miles included. Over 30 miles charged at £1.20 per mile.
+          </div>
+
+          <div>
+            <strong>Commercial Coverage</strong><br>
+            Distance and site requirements available on request.
+          </div>
         </div>
 
       </div>
@@ -817,7 +752,6 @@
               <li>Deodorising options available</li>
               <li>Protection treatment available</li>
               <li>Coverage within 30 miles included</li>
-              <li>Over 30 miles charged at £1.20 per mile</li>
             </ul>
           </div>
 
@@ -846,9 +780,9 @@
     <section id="packages">
       <div class="container">
         <div class="section-title">
-          <h2>Prices from</h2>
+          <h2>Choose your level of clean</h2>
           <p>
-            Choose the level of clean that suits your home, rental property or commercial space.
+            Simple service packages depending on the finish, freshness and protection you need.
           </p>
         </div>
 
@@ -858,7 +792,7 @@
             <h3>Basic</h3>
             <p>Standard professional carpet clean.</p>
 
-            <div class="price">From £XX <span>/ room</span></div>
+            <div class="quote-label">Quote on request</div>
 
             <ul>
               <li>Standard carpet clean</li>
@@ -876,7 +810,7 @@
             <h3>Premium</h3>
             <p>Clean and refresh with added fragrance options.</p>
 
-            <div class="price">From £XX <span>/ room</span></div>
+            <div class="quote-label">Quote on request</div>
 
             <ul>
               <li>Everything included in Basic</li>
@@ -892,7 +826,7 @@
             <h3>Premium Protect</h3>
             <p>Full clean, refresh and added protection treatment.</p>
 
-            <div class="price">From £XX <span>/ room</span></div>
+            <div class="quote-label">Quote on request</div>
 
             <ul>
               <li>Everything included in Premium</li>
@@ -1001,11 +935,6 @@
             <p>
               Send a message with your location, the rooms you need cleaned and whether
               you would like Basic, Premium or Premium Protect.
-            </p>
-
-            <p>
-              <strong>Opening Hours:</strong>
-              Monday to Saturday, 8:00am – 5:00pm
             </p>
 
             <p>
