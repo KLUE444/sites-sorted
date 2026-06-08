@@ -207,6 +207,7 @@
     .btn-primary:hover {
       background: var(--green-dark);
       border-color: var(--green-dark);
+      color: var(--white);
     }
 
     .btn-outline {
@@ -409,6 +410,11 @@
       margin: 10px 0 22px;
       letter-spacing: -1px;
       line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    .price .quote-text {
+      font-size: 28px;
     }
 
     .price span {
@@ -578,6 +584,14 @@
       font-weight: bold;
     }
 
+    .contact-info a.btn-primary {
+      color: var(--white);
+    }
+
+    .contact-info a.btn-primary:hover {
+      color: var(--white);
+    }
+
     form {
       display: grid;
       gap: 14px;
@@ -711,6 +725,10 @@
 
       .coverage-banner {
         padding: 30px;
+      }
+
+      .price {
+        white-space: normal;
       }
     }
   </style>
@@ -920,7 +938,7 @@
           <li>Ideal for homes with pets, children or odours</li>
         </ul>
 
-        <a class="btn btn-primary" href="#contact">Book Premium</a>
+        <a class="btn btn-primary" href="#contact">Enquire Now</a>
       </div>
 
       <div class="package-card">
@@ -929,7 +947,7 @@
         <h3>Premium Protect</h3>
         <p>Full clean, refresh and added protection treatment.</p>
 
-        <div class="price">From £ On Quote <span>/ room</span></div>
+        <div class="price">From £ <span class="quote-text">On Quote</span> <span>/ room</span></div>
 
         <ul>
           <li>Everything included in Premium</li>
@@ -938,7 +956,7 @@
           <li>Ideal for busy homes and high-traffic areas</li>
         </ul>
 
-        <a class="btn btn-outline" href="#contact">Get a Quote</a>
+        <a class="btn btn-outline" href="#contact">Enquire Now</a>
       </div>
 
     </div>
@@ -1062,7 +1080,7 @@
 
         <p>
           <strong>Facebook:</strong>
-          <a href="#" target="_blank">Add Facebook page link here</a>
+          <a href="https://www.facebook.com/profile.php?id=61583526895272" target="_blank">Visit our Facebook page</a>
         </p>
 
         <div class="cta-row" style="margin-top: 22px;">
